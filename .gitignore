@@ -43,3 +43,4 @@ node_modules
 .ruby-gemset
 .rvmrc
 .idea
+app/_data
