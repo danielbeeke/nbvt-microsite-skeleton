@@ -25,7 +25,7 @@ module Jekyll
         members = JSON.parse( result )
 
         members['member'].each do |id, member|
-          site.pages << MemberPage.new(site, site.source, File.join(dir, id), member)
+          site.pages << MemberPage.new(site, site.source, File.join(dir, member['name'].split(' ').join('-').downcase), member)
         end
 
       end
