@@ -26,5 +26,3 @@ paginate_path: 'page:num'
 # Markdown library
 markdown: redcarpet
 #   extensions: ['fenced_code_blocks', 'smart']
-
-pygments: false
