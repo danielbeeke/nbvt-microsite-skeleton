@@ -1,0 +1,24 @@
+<div class="members-filters">
+
+    <div class="filters-groups">
+        <h4>Filters</h4>
+        {% for filter in site.data.microsite.member_filters %}
+        <div class="form-item-checkbox">
+            {% assign key = filter.label | replace: ' ', '-' | downcase %}
+            <input id="{{ key }}" name="filters-groups" type="radio" value="{{ key }}"><label for="{{ key }}">{{ filter.label }}</label>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    <div class="filters-enhance">
+        <h4>Enhance filters</h4>
+        {% for filter in site.data.microsite.member_filter_enhance %}
+            <div class="form-item-checkbox">
+                {% assign key = filter | replace: ' ', '-' | downcase %}
+                <input id="{{ key }}" type="checkbox" value="{{ key }}"><label for="{{ key }}">{{ filter }}</label>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
