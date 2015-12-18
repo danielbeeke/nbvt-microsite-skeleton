@@ -2,6 +2,11 @@
 layout: default
 ---
 
-test:
-
 {{ page.member.name }}
+
+<div id="leaflet-map" class="leaflet-map"></div>
+
+<!-- build:js(app) /js/scripts.js -->
+<script src="/_bower_components/leaflet/dist/leaflet.js"></script>
+<script src="/js/members.js"></script>
+<!-- endbuild -->

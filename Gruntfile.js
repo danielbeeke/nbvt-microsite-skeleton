@@ -118,7 +118,8 @@ module.exports = function (grunt) {
       options: {
         debugInfo: false,
         lineNumbers: false,
-        loadPath: 'app/_bower_components'
+        loadPath: 'app/_bower_components',
+        require: ['sass-globbing']
       },
       dist: {
         files: [{
