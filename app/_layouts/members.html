@@ -7,7 +7,9 @@ layout: html
 <div class="sidebar-right">
     {% include components/members/filters.html %}
 
-    {% include components/members/teaser.html %}
+    {% if page.member %}
+        {% include components/members/teaser.html %}
+    {% endif %}
 </div>
 
 {% include components/members/sniplet.html %}

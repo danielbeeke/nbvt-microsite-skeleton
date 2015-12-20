@@ -1,7 +1,7 @@
 $(function() {
 
 
-
+    
     // Creating the map.
     var map = L.map('leaflet-map');
     var markerLayer = L.featureGroup().addTo(map);
@@ -12,6 +12,14 @@ $(function() {
         provider: new L.GeoSearch.Provider.Google(),
         showMarker: false
     }).addTo(map);
+
+    // Not the most clean plugin, but hey it works.
+    $('.members-filters').rememberState({
+        clearOnSubmit: false
+    });
+
+    // Click on the notice of the form plugin.
+    $('.remember_state a').click();
 
 
 
