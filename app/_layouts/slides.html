@@ -5,47 +5,49 @@ layout: html
     {% for slide in site.data.slides.slide %}
     <div class="slide-item">
         <div class="slide-item-text">{{ slide[1].text }}</div>
-        <img class="slide-item-image" src="{{ slide[1].image }}" alt="{{ slide[1].title }}">
+        <div class="slide-item-image" style="background-image: url({{ slide[1].image }});"></div>
         {% if slide[1].quote or slide[1].description or slide[1].detail_image %}
-            <div id="slide-item-details-{{ slide[0] }}" class="slide-item-details owl-carousel">
-                {% if slide[1].description %}
-                <div class="sub-slider-item">
-                    <div class="slide-item-description">
-                        {{ slide[1].description }}
-                    </div>
-                </div>
-                {% endif %}
-
-                {% if slide[1].quote %}
+            <div class="slide-item-details-wrapper">
+                <div id="slide-item-details-{{ slide[0] }}" class="slide-item-details owl-carousel">
+                    {% if slide[1].description %}
                     <div class="sub-slider-item">
-                        <blockquote class="slide-item-quote">
-                            {{ slide[1].quote }}
-                        </blockquote>
+                        <div class="slide-item-description">
+                            {{ slide[1].description }}
+                        </div>
                     </div>
-                {% endif %}
+                    {% endif %}
 
-                {% if slide[1].detail_image %}
-                <div class="sub-slider-item">
-                    <div class="slide-item-image">
-                        <img src="{{ slide[1].detail_image }}">
+                    {% if slide[1].quote %}
+                        <div class="sub-slider-item">
+                            <blockquote class="slide-item-quote">
+                                {{ slide[1].quote }}
+                            </blockquote>
+                        </div>
+                    {% endif %}
+
+                    {% if slide[1].detail_image %}
+                    <div class="sub-slider-item">
+                        <div class="slide-item-image">
+                            <img src="{{ slide[1].detail_image }}">
+                        </div>
                     </div>
+                    {% endif %}
                 </div>
-                {% endif %}
+
+                <ul class="details-tabs" data-for="slide-item-details-{{ slide[0] }}">
+                    {% if slide[1].description %}
+                        <li class="details-tab">Beschrijving</li>
+                    {% endif %}
+
+                    {% if slide[1].quote %}
+                        <li class="details-tab">Quote</li>
+                    {% endif %}
+
+                    {% if slide[1].detail_image %}
+                        <li class="details-tab">Image</li>
+                    {% endif %}
+                </ul>
             </div>
-
-            <ul class="details-tabs" data-for="slide-item-details-{{ slide[0] }}">
-                {% if slide[1].description %}
-                    <li class="details-tab">Beschrijving</li>
-                {% endif %}
-
-                {% if slide[1].quote %}
-                    <li class="details-tab">Quote</li>
-                {% endif %}
-
-                {% if slide[1].detail_image %}
-                    <li class="details-tab">Image</li>
-                {% endif %}
-            </ul>
         {% endif %}
     </div>
     {% endfor %}
