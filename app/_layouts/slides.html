@@ -6,14 +6,46 @@ layout: html
     <div class="slide-item">
         <div class="slide-item-text">{{ slide[1].text }}</div>
         <img class="slide-item-image" src="{{ slide[1].image }}" alt="{{ slide[1].title }}">
-        {% if slide[1].quote %}
-            <div class="slide-item-details">
+        {% if slide[1].quote or slide[1].description or slide[1].detail_image %}
+            <div id="slide-item-details-{{ slide[0] }}" class="slide-item-details owl-carousel">
+                {% if slide[1].description %}
+                <div class="sub-slider-item">
+                    <div class="slide-item-description">
+                        {{ slide[1].description }}
+                    </div>
+                </div>
+                {% endif %}
+
                 {% if slide[1].quote %}
-                    <blockquote class="slide-item-quote">
-                        {{ slide[1].quote }}
-                    </blockquote>
+                    <div class="sub-slider-item">
+                        <blockquote class="slide-item-quote">
+                            {{ slide[1].quote }}
+                        </blockquote>
+                    </div>
+                {% endif %}
+
+                {% if slide[1].detail_image %}
+                <div class="sub-slider-item">
+                    <div class="slide-item-image">
+                        <img src="{{ slide[1].detail_image }}">
+                    </div>
+                </div>
                 {% endif %}
             </div>
+
+            <ul class="details-tabs" data-for="slide-item-details-{{ slide[0] }}">
+                {% if slide[1].description %}
+                    <li class="details-tab">Beschrijving</li>
+                {% endif %}
+
+                {% if slide[1].quote %}
+                    <li class="details-tab">Quote</li>
+                {% endif %}
+
+                {% if slide[1].detail_image %}
+                    <li class="details-tab">Image</li>
+                {% endif %}
+            </ul>
         {% endif %}
     </div>
     {% endfor %}
