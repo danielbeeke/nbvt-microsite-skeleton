@@ -1,9 +1,21 @@
 $(function() {
+
+    // CREATING THE MAP /////////////////////////////////////////
     var map = L.map('leaflet-map');
     var markerLayer = L.featureGroup().addTo(map);
 
     L.tileLayer(window.nbvt.members.map).addTo(map);
 
+    new L.Control.GeoSearch({
+        provider: new L.GeoSearch.Provider.Google(),
+        showMarker: false
+    }).addTo(map);
+    // CREATING THE MAP /////////////////////////////////////////
+
+
+
+
+    // SETTING THE INITIAL STATE OF THE MAP /////////////////////
     var bounds = [];
 
     $.each(window.nbvt.members.items, function (delta, member) {
@@ -14,31 +26,40 @@ $(function() {
         map.fitBounds(bounds);
     }
 
-    new L.Control.GeoSearch({
-        provider: new L.GeoSearch.Provider.Google(),
-        showMarker: false
-    }).addTo(map);
-
-
     var oldLat = localStorage.getItem('searchLat');
     var oldLng = localStorage.getItem('searchLng');
 
     if (oldLat && oldLng) {
-        setSearch(oldLat, oldLng)
+        setSearch(oldLat, oldLng, getFilters());
     }
+    // SETTING THE INITIAL STATE OF THE MAP /////////////////////
 
+
+
+
+    // ON SEARCH ////////////////////////////////////////////////
     map.on('geosearch_foundlocations', function (locations) {
-        setSearch(locations.Locations[0].Y, locations.Locations[0].X, true)
+        var filters = getFilters();
+        setSearch(locations.Locations[0].Y, locations.Locations[0].X, filters, true);
 
         localStorage.setItem('searchLat', locations.Locations[0].Y)
         localStorage.setItem('searchLng', locations.Locations[0].X)
     });
+    // ON SEARCH ////////////////////////////////////////////////
 
+
+
+
+    // ON FILTER CHANGE /////////////////////////////////////////
     $('.members-filters input').on('change', function () {
-        setSearch(oldLat, oldLng)
+        setSearch(oldLat, oldLng, getFilters());
     })
+    // ON FILTER CHANGE /////////////////////////////////////////
 
-    function setSearch(lat, lng, fitBounds) {
+
+
+    // Returns all the keys of the tags that are in the current filter.
+    function getFilters() {
         var filters = [];
 
         var currentQuery = $('[name="filters-groups"]:checked').data('query').split(' ');
@@ -53,19 +74,19 @@ $(function() {
             filters.push($(option).val())
         })
 
+        return filters;
+    }
+
+
+
+    // Sets the map.
+    function setSearch(lat, lng, filters, fitBounds) {
         markerLayer.clearLayers();
 
         var membersToSort = [];
 
         $.each(window.nbvt.members.items, function (delta, member) {
-            var mustHide = false;
-            $(filters).each(function (delta, filter) {
-                if ($.inArray(filter, member.tags) == -1) {
-                    mustHide = true
-                }
-            });
-
-            if (!mustHide) {
+            if (!mustHide(member, filters)) {
                 member.diff = Math.abs(member.lat - lat) + Math.abs(member.lng - lng);
                 membersToSort.push(member)
             }
@@ -90,5 +111,19 @@ $(function() {
         if (fitBounds) {
             map.fitBounds(bounds);
         }
+    }
+
+    
+
+    // Checks if a member must be shown.
+    function mustHide(member, filters) {
+        var mustHide = false;
+        $(filters).each(function (delta, filter) {
+            if ($.inArray(filter, member.tags) == -1) {
+                mustHide = true;
+            }
+        });
+
+        return mustHide;
     }
 });
