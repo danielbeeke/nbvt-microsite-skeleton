@@ -40,10 +40,14 @@ $(function() {
     // On search.
     map.on('geosearch_foundlocations', function (locations) {
         var filters = getFilters();
-        setSearch(locations.Locations[0].Y, locations.Locations[0].X, filters, true);
 
-        localStorage.setItem('searchLat', locations.Locations[0].Y)
-        localStorage.setItem('searchLng', locations.Locations[0].X)
+        oldLat = locations.Locations[0].Y;
+        oldLng = locations.Locations[0].X;
+
+        localStorage.setItem('searchLat', oldLat);
+        localStorage.setItem('searchLng', oldLng);
+
+        setSearch(oldLat, oldLng, filters, true);
     });
 
 
@@ -51,7 +55,7 @@ $(function() {
 
     // On filter change.
     $('.members-filters input').on('change', function () {
-        setSearch(oldLat, oldLng, getFilters());
+        setSearch(oldLat, oldLng, getFilters(), true);
     })
 
 
@@ -67,17 +71,17 @@ $(function() {
             if (queryPart) {
                 filters.push(queryPart)
             }
-        })
+        });
 
         $('.filters-enhance :checked').each(function (delta, option) {
             filters.push($(option).val())
-        })
+        });
 
         return filters;
     }
 
 
-    
+
 
     // Sets the map.
     function setSearch(lat, lng, filters, fitBounds) {
