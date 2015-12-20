@@ -17,7 +17,7 @@
         {% for filter in site.data.microsite.member_filter_enhance %}
             <div class="form-item-checkbox">
                 {% assign key = filter | replace: ' ', '-' | replace: '/', '-' | downcase %}
-                <input id="{{ key }}" type="checkbox" value="{{ key }}"><label for="{{ key }}">{{ filter }}</label>
+                <input id="{{ key }}" name="{{ key }}" type="checkbox" value="{{ key }}"><label for="{{ key }}">{{ filter }}</label>
             </div>
         {% endfor %}
     </div>

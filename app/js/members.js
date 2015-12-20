@@ -1,7 +1,7 @@
 $(function() {
 
 
-    
+
     // Creating the map.
     var map = L.map('leaflet-map');
     var markerLayer = L.featureGroup().addTo(map);
