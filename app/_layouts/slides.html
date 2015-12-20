@@ -1,0 +1,25 @@
+---
+layout: html
+---
+<div class="slider owl-carousel" id="slides">
+    {% for slide in site.data.slides.slide %}
+    <div class="slide-item">
+        <div class="slide-item-text">{{ slide[1].text }}</div>
+        <img class="slide-item-image" src="{{ slide[1].image }}" alt="{{ slide[1].title }}">
+        {% if slide[1].quote %}
+            <div class="slide-item-details">
+                {% if slide[1].quote %}
+                    <blockquote class="slide-item-quote">
+                        {{ slide[1].quote }}
+                    </blockquote>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+<!-- build:js(app) /js/slides-scripts.js -->
+<script src="/_bower_components/owlcarousel/owl-carousel/owl.carousel.js"></script>
+<script src="/js/slides.js"></script>
+<!-- endbuild -->
