@@ -1,6 +1,8 @@
 $(function() {
 
-    // CREATING THE MAP /////////////////////////////////////////
+
+
+    // Creating the map.
     var map = L.map('leaflet-map');
     var markerLayer = L.featureGroup().addTo(map);
 
@@ -10,12 +12,11 @@ $(function() {
         provider: new L.GeoSearch.Provider.Google(),
         showMarker: false
     }).addTo(map);
-    // CREATING THE MAP /////////////////////////////////////////
 
 
 
 
-    // SETTING THE INITIAL STATE OF THE MAP /////////////////////
+    // Setting the initial state of the map.
     var bounds = [];
 
     $.each(window.nbvt.members.items, function (delta, member) {
@@ -32,12 +33,11 @@ $(function() {
     if (oldLat && oldLng) {
         setSearch(oldLat, oldLng, getFilters());
     }
-    // SETTING THE INITIAL STATE OF THE MAP /////////////////////
 
 
 
 
-    // ON SEARCH ////////////////////////////////////////////////
+    // On search.
     map.on('geosearch_foundlocations', function (locations) {
         var filters = getFilters();
         setSearch(locations.Locations[0].Y, locations.Locations[0].X, filters, true);
@@ -45,16 +45,15 @@ $(function() {
         localStorage.setItem('searchLat', locations.Locations[0].Y)
         localStorage.setItem('searchLng', locations.Locations[0].X)
     });
-    // ON SEARCH ////////////////////////////////////////////////
 
 
 
 
-    // ON FILTER CHANGE /////////////////////////////////////////
+    // On filter change.
     $('.members-filters input').on('change', function () {
         setSearch(oldLat, oldLng, getFilters());
     })
-    // ON FILTER CHANGE /////////////////////////////////////////
+
 
 
 
@@ -78,6 +77,7 @@ $(function() {
     }
 
 
+    
 
     // Sets the map.
     function setSearch(lat, lng, filters, fitBounds) {
@@ -113,7 +113,8 @@ $(function() {
         }
     }
 
-    
+
+
 
     // Checks if a member must be shown.
     function mustHide(member, filters) {
