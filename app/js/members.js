@@ -10,25 +10,65 @@ $(function() {
         bounds.push([member.lat, member.lng]);
     });
 
-    map.fitBounds(bounds);
+    if (!map.restoreView()) {
+        map.fitBounds(bounds);
+    }
 
     new L.Control.GeoSearch({
         provider: new L.GeoSearch.Provider.Google(),
         showMarker: false
     }).addTo(map);
 
+
+    var oldLat = localStorage.getItem('searchLat');
+    var oldLng = localStorage.getItem('searchLng');
+
+    if (oldLat && oldLng) {
+        setSearch(oldLat, oldLng)
+    }
+
     map.on('geosearch_foundlocations', function (locations) {
-        setSearch(locations.Locations[0].Y, locations.Locations[0].X)
+        setSearch(locations.Locations[0].Y, locations.Locations[0].X, true)
+
+        localStorage.setItem('searchLat', locations.Locations[0].Y)
+        localStorage.setItem('searchLng', locations.Locations[0].X)
     });
 
-    function setSearch(lat, lng) {
+    $('.members-filters input').on('change', function () {
+        setSearch(oldLat, oldLng)
+    })
+
+    function setSearch(lat, lng, fitBounds) {
+        var filters = [];
+
+        var currentQuery = $('[name="filters-groups"]:checked').data('query').split(' ');
+
+        $(currentQuery).each(function (delta, queryPart) {
+            if (queryPart) {
+                filters.push(queryPart)
+            }
+        })
+
+        $('.filters-enhance :checked').each(function (delta, option) {
+            filters.push($(option).val())
+        })
+
         markerLayer.clearLayers();
 
         var membersToSort = [];
 
         $.each(window.nbvt.members.items, function (delta, member) {
-            member.diff = Math.abs(member.lat - lat) + Math.abs(member.lng - lng);
-            membersToSort.push(member)
+            var mustHide = false;
+            $(filters).each(function (delta, filter) {
+                if ($.inArray(filter, member.tags) == -1) {
+                    mustHide = true
+                }
+            });
+
+            if (!mustHide) {
+                member.diff = Math.abs(member.lat - lat) + Math.abs(member.lng - lng);
+                membersToSort.push(member)
+            }
         });
 
         var membersSorted = membersToSort.sort(function (a, b){
@@ -42,9 +82,13 @@ $(function() {
         $.each(membersToShow, function (delta, member) {
             bounds.push([member.lat, member.lng]);
 
-            L.marker([member.lat, member.lng]).addTo(markerLayer).bindPopup(member.name)
+            L.marker([member.lat, member.lng]).addTo(markerLayer).on('click', function () {
+                window.location = '/leden/' + member.name.replace(/ /g,"-").toLowerCase();
+            })
         });
 
-        map.fitBounds(bounds);
+        if (fitBounds) {
+            map.fitBounds(bounds);
+        }
     }
 });

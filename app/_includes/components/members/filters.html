@@ -5,7 +5,8 @@
         {% for filter in site.data.microsite.member_filters %}
         <div class="form-item-checkbox">
             {% assign key = filter.label | replace: ' ', '-' | downcase %}
-            <input id="{{ key }}" name="filters-groups" type="radio" value="{{ key }}"><label for="{{ key }}">{{ filter.label }}</label>
+            <input id="{{ key }}" name="filters-groups" {% if forloop.index == 1 %} checked {% endif %} type="radio" value="{{ key }}"
+            data-query="{% for tag in filter.tags %}{% assign tag_key = tag | replace: ' ', '-' | replace: '/', '-' | downcase %}{{ tag_key }}{% endfor %}"><label for="{{ key }}">{{ filter.label }}</label>
         </div>
         {% endfor %}
     </div>
@@ -15,7 +16,7 @@
         <h4>Enhance filters</h4>
         {% for filter in site.data.microsite.member_filter_enhance %}
             <div class="form-item-checkbox">
-                {% assign key = filter | replace: ' ', '-' | downcase %}
+                {% assign key = filter | replace: ' ', '-' | replace: '/', '-' | downcase %}
                 <input id="{{ key }}" type="checkbox" value="{{ key }}"><label for="{{ key }}">{{ filter }}</label>
             </div>
         {% endfor %}
