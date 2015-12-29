@@ -1,7 +1,11 @@
 <form class="members-filters" id="members-filters">
 
     <div class="filters-groups">
-        <h4>Filters</h4>
+        {% if site.data.microsite.member_filters_title %}
+            <h4>{{ site.data.microsite.member_filters_title }}</h4>
+        {% else %}
+            <h4>Vind uw dichtsbijzijnde verkooppunt</h4>
+        {% endif %}
         {% for filter in site.data.microsite.member_filters %}
         <div class="form-item-checkbox">
             {% assign key = filter.label | replace: ' ', '-' | downcase %}
@@ -20,6 +24,10 @@
                 <input id="{{ key }}" name="{{ key }}" type="checkbox" value="{{ key }}"><label for="{{ key }}">{{ filter }}</label>
             </div>
         {% endfor %}
+    </div>
+
+    <div class="filters-search">
+        <input id="leaflet-control-geosearch-qry" type="text" placeholder="Postcode of plaatsnaam">
     </div>
 
 </form>

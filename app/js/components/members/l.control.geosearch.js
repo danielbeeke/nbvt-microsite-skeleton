@@ -60,10 +60,7 @@ L.Control.GeoSearch = L.Control.extend({
         this._map = map;
         this._container = L.DomUtil.create('div', 'leaflet-control-geosearch');
 
-        var searchbox = document.createElement('input');
-        searchbox.id = 'leaflet-control-geosearch-qry';
-        searchbox.type = 'text';
-        searchbox.placeholder = this._config.searchLabel;
+        var searchbox = document.getElementById('leaflet-control-geosearch-qry');
         this._searchbox = searchbox;
 
         var msgbox = document.createElement('div');
@@ -76,7 +73,7 @@ L.Control.GeoSearch = L.Control.extend({
         this._resultslist = resultslist;
 
         this._msgbox.appendChild(this._resultslist);
-        this._container.appendChild(this._searchbox);
+        //this._container.appendChild(this._searchbox);
         this._container.appendChild(this._msgbox);
 
         L.DomEvent
