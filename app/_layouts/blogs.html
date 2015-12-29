@@ -1,0 +1,9 @@
+---
+layout: html
+---
+
+<h1>Blogs</h1>
+
+{% for post in site.posts %}
+    {% include components/blogs/teaser.html %}
+{% endfor %}

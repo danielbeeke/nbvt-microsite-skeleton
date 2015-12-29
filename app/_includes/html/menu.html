@@ -1,0 +1,7 @@
+<ul class="main-menu">
+    {% for menu_page in site.collections.pages.docs %}
+    <li>
+        <a href="{{ menu_page.url }}">{{ menu_page.menu_title }}</a>
+    </li>
+    {% endfor %}
+</ul>
