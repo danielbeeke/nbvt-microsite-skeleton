@@ -3,11 +3,23 @@
 }
 
 .form-item {
-  margin: 20px 0;
+  margin: 10px 0;
+  clear: left;
+  float: left;
 }
 
 input {
   border: 1px solid $tertiary;
   border-radius: $radius;
   padding: 10px;
+}
+
+.label-inline {
+  width: 100px;
+  float: left;
+}
+
+.inline-value {
+  float: left;
+  font-weight: bold;
 }

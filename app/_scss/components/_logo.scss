@@ -3,10 +3,11 @@
   margin-right: -100%;
   float: left;
   padding-top: 10px;
-  height: 100%;
+  height: $header-height;
   padding-bottom: 10px;
   position: relative;
   z-index: 3;
+  margin-left: 20px;
 }
 
 .logo-image {

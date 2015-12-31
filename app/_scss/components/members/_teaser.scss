@@ -1,0 +1,18 @@
+.member.teaser {
+  .member-logo {
+    max-height: 80px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .member-name {
+    color: $secondary;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  .member-link {
+    font-weight: bold;
+  }
+}

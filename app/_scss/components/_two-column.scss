@@ -1,21 +1,40 @@
-.sidebar-right {
-  width: 320px;
-  float: right;
-  height: 100%;
-  border: 1px solid $tertiary;
-  border-right: none;
-  padding: 30px;
-}
+.two-columns {
+  .main-content {
+    float: left;
+    width: 100%;
+    height: 100%;
+  }
 
-.blocks-divider {
-  margin: 30px -30px;
-  border: 0;
-  height: 1px;
-  background-color: $tertiary;
-}
+  .sidebar-right {
+    padding: 30px;
+    border: 1px solid $tertiary;
+    border-right: none;
+    border-left: none;
+    clear: both;
+    @include clearfix;
+  }
 
-.main-content {
-  float: left;
-  width: calc(100% - 320px);
-  height: 100%;
+  @media (min-width: $tablet - 1) {
+    .sidebar-right {
+      width: 320px;
+      float: right;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .blocks-divider {
+      margin: 30px -30px;
+      border: 0;
+      height: 1px;
+      background-color: $tertiary;
+    }
+
+    .main-content {
+      width: calc(100% - 320px);
+    }
+
+    .page-wrapper {
+      height: 100%;
+    }
+  }
 }

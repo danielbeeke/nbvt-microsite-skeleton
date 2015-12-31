@@ -2,74 +2,85 @@ $(function() {
 
 
 
-    // Creating the map.
-    var map = L.map('leaflet-map');
-    var markerLayer = L.featureGroup().addTo(map);
-
-    L.tileLayer(window.nbvt.members.map).addTo(map);
-
-    var geoSearch = new L.Control.GeoSearch({
-        provider: new L.GeoSearch.Provider.Google(),
-        showMarker: false
-    }).addTo(map);
-
-    // Not the most clean plugin, but hey it works.
-    $('.members-filters').rememberState({
-        clearOnSubmit: false
-    });
-
-    // Click on the notice of the form plugin.
-    $('.remember_state a').click();
+    var map, markerLayer, geoSearch;
 
 
 
 
-    // Setting the initial state of the map.
-    var bounds = [];
+    // Init the map.
+    function init() {
+        // Creating the map.
+        map = L.map('leaflet-map', {
+            attributionControl: false,
+            zoomControl: false,
+            scrollWheelZoom: false
+        });
+        markerLayer = L.featureGroup().addTo(map);
 
-    $.each(window.nbvt.members.items, function (delta, member) {
-        bounds.push([member.lat, member.lng]);
-    });
+        L.tileLayer(window.nbvt.members.map).addTo(map);
 
-    if (!map.restoreView()) {
-        map.fitBounds(bounds);
+        geoSearch = new L.Control.GeoSearch({
+            provider: new L.GeoSearch.Provider.Google(),
+            showMarker: false
+        }).addTo(map);
+
+        // Not the most clean plugin, but hey it works.
+        $('.members-filters').rememberState({
+            clearOnSubmit: false
+        });
+
+        // Click on the notice of the form plugin.
+        $('.remember_state a').click();
+
+
+        // On filter change.
+        $('.members-filters input').on('change', function () {
+            setSearch(oldLat, oldLng, getFilters(), true);
+        })
+
+        $('.member-filters-search').on('click', function () {
+            geoSearch.geosearch(geoSearch._searchbox.value);
+            return false
+        })
+
+
+        // Setting the initial state of the map.
+        var bounds = [];
+
+        $.each(window.nbvt.members.items, function (delta, member) {
+            bounds.push([member.lat, member.lng]);
+        });
+
+        if (!map.restoreView()) {
+            map.fitBounds(bounds);
+        }
+
+        var oldLat = localStorage.getItem('searchLat');
+        var oldLng = localStorage.getItem('searchLng');
+
+        if (oldLat && oldLng) {
+            setSearch(oldLat, oldLng, getFilters());
+        }
+
+
+
+
+
+        // On search.
+        map.on('geosearch_foundlocations', function (locations) {
+            var filters = getFilters();
+
+            oldLat = locations.Locations[0].Y;
+            oldLng = locations.Locations[0].X;
+
+            localStorage.setItem('searchLat', oldLat);
+            localStorage.setItem('searchLng', oldLng);
+
+            setSearch(oldLat, oldLng, filters, true);
+        });
+
     }
 
-    var oldLat = localStorage.getItem('searchLat');
-    var oldLng = localStorage.getItem('searchLng');
-
-    if (oldLat && oldLng) {
-        setSearch(oldLat, oldLng, getFilters());
-    }
-
-
-
-
-    // On search.
-    map.on('geosearch_foundlocations', function (locations) {
-        var filters = getFilters();
-
-        oldLat = locations.Locations[0].Y;
-        oldLng = locations.Locations[0].X;
-
-        localStorage.setItem('searchLat', oldLat);
-        localStorage.setItem('searchLng', oldLng);
-
-        setSearch(oldLat, oldLng, filters, true);
-    });
-
-
-
-
-    // On filter change.
-    $('.members-filters input').on('change', function () {
-        setSearch(oldLat, oldLng, getFilters(), true);
-    })
-
-    $('.member-filters-search').on('click', function () {
-        geoSearch.geosearch(geoSearch._searchbox.value);
-        return false
-    })
 
 
 
@@ -127,6 +138,9 @@ $(function() {
         });
 
         if (fitBounds) {
+            $('html, body').animate({
+                scrollTop: $('.leaflet-map').offset().top - $('.page-header').height()
+            }, 400)
             map.fitBounds(bounds);
         }
     }
@@ -145,4 +159,7 @@ $(function() {
 
         return mustHide;
     }
+
+    // TODO decide if we will show a map on member pages if on mobile.
+    init();
 });

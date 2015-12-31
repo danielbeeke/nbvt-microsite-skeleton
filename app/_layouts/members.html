@@ -3,17 +3,18 @@ layout: html
 body_class: two-columns
 ---
 
+<div class="sidebar-right member-filters-wrapper">
+    {% include components/members/filters.html %}
+</div>
+
+
 <div id="leaflet-map" class="leaflet-map main-content"></div>
 
-<div class="sidebar-right">
-    {% include components/members/filters.html %}
-
-    {% if page.member %}
-        <hr class="blocks-divider">
-
+{% if page.member %}
+    <div class="sidebar-right">
         {% include components/members/teaser.html %}
-    {% endif %}
-</div>
+    </div>
+{% endif %}
 
 {% include components/members/sniplet.html %}
 

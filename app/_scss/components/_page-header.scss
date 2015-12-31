@@ -10,6 +10,11 @@
   height: 100vh;
   transition: max-height $speed $easing;
   z-index: 10;
+  overflow: hidden;
+
+  @media (min-width: $tablet - 1) {
+    overflow: visible;
+  }
 }
 
 body {

@@ -10,7 +10,7 @@ module Jekyll
       self.process(@name)
       self.read_yaml(File.join(base, '_layouts'), 'members.html')
 
-
+      self.data['has_menu_object'] = true
       self.data['title'] = member['name']
       self.data['member'] = member
     end

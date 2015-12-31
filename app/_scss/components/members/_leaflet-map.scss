@@ -1,5 +1,11 @@
 .leaflet-map {
   height: 100%;
+  z-index: 4;
+  min-height: calc(100vh - #{$header-height});
+
+  @media (min-width: $tablet - 1) {
+    position: fixed !important;
+  }
 }
 
 .leaflet-marker-icon {
@@ -15,5 +21,14 @@
   &:hover .fa,
   &.active .fa {
     color: $secondary;
+  }
+}
+
+.has-menu-object.leden {
+  .member-filters-wrapper,
+  .leaflet-map {
+    @media (max-width: $tablet) {
+      display: none;
+    }
   }
 }
