@@ -1,7 +1,23 @@
 ---
 layout: html
 ---
-<div class="page full">
+<div class="page-title-wrapper">
   <h1 class="page-title">{{ page.title }}</h1>
+</div>
+
+<div class="page full">
+
+  <div class="page content-sidebar">
+    <h2 class="sidebar-items-title">Blogs</h2>
+    {% for post in site.posts %}
+      {% for tag in page.tags %}
+        {% if post.tags contains tag %}
+          {% include components/blogs/teaser.html %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+
   {{ content }}
+
 </div>

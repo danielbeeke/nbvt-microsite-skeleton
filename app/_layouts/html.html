@@ -16,7 +16,7 @@
             {{ content }}
         </main>
 
-        {% unless page.layout == 'members' or 'project' or 'slides' %}
+        {% unless page.layout == 'members' or page.layout == 'project' or page.layout == 'slides' %}
             {% include html/footer.html %}
         {% endunless %}
     </div>

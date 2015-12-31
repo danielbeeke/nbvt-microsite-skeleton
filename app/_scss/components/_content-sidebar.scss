@@ -1,0 +1,18 @@
+.content-sidebar {
+  float: right;
+  width: 6 * $box;
+  margin-right: - 7 * $box;
+  position: relative;
+  border-left: 1px solid $tertiary;
+
+  > *:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+.sidebar-items-title {
+  margin-top: 0;
+  font-style: italic;
+  color: $secondary;
+  padding: 0 ($box / 2);
+}

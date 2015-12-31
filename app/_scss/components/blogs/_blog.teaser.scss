@@ -1,0 +1,38 @@
+.blog.teaser {
+  float: left;
+  clear: left;
+  margin-bottom: -1px;
+  border: 1px solid $tertiary;
+  border-right: none;
+  border-left: none;
+  padding: ($box / 4) ($box / 2);
+  color: $text-color;
+  transition: background-color $speed $easing;
+  width: 100%;
+  position: relative;
+  min-height: $box * 2;
+
+  //height: $box * 2;
+
+  .blog-title {
+    font-weight: bold;
+  }
+
+  .read-more {
+    color: $secondary;
+  }
+
+  .blog-author-image {
+    width: $box * 2;
+    background-size: cover;
+    position: absolute;
+    right: -(1px + ($box * 2));
+    top: 0;
+    height: 100%;
+    background-position: center center;
+  }
+
+  &:hover {
+    background-color: $primary;
+  }
+}

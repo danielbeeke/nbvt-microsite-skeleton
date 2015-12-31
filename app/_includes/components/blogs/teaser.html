@@ -1,3 +1,15 @@
 <a class="blog teaser" href="{{ post.url }}">
-{{ post.title }}
+    <div class="blog-title">{{ post.title }}</div>
+    <div class="blog-author">{{ post.author }}</div>
+    <span class="read-more">Blog lezen <i class="fa fa-arrow-circle-o-right"></i></span>
+
+    {% for author_hash in site.data.authors.author %}
+        {% assign author = author_hash[1] %}
+
+        {% if post.author == author.name %}
+
+            <div class="blog-author-image" style="background-image: url('{{ author.avatar }}');"></div>
+
+        {% endif %}
+    {% endfor %}
 </a>

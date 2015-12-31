@@ -26,6 +26,7 @@ $menu-link-padding: 20px;
     font-weight: bold;
     transition: all $speed $easing;
     width: 100%;
+    background-color: $background-color;
 
     &:hover,
     &.active {

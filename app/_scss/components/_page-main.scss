@@ -5,7 +5,7 @@
   position: relative;
 }
 
-body:not(.two-columns) {
+body:not(.two-columns):not(.slides) {
   .page-main {
     max-width: $max-width;
   }

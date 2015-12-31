@@ -1,4 +1,13 @@
 .page-title {
   background-color: $background-color;
   padding: 20px;
+  font-size: 52px;
+  text-align: center;
+  margin: 0 (3 * $box) 0;
+  transform: translateY(-100%);
+}
+
+.page-title-wrapper {
+  position: relative;
+  height: 0;
 }
