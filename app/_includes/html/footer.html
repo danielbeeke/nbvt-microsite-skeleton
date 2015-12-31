@@ -1,0 +1,14 @@
+<footer class="page-footer">
+    <div class="page-footer-first">
+        {% if site.data.microsite.logo %}
+            <a class="logo-link" href="/"><img class="logo-image" src="{{ site.data.microsite.logo }}"></a>
+        {% endif %}
+
+        {% if site.data.microsite.slogan %}
+            <h3 class="site-slogan">{{ site.data.microsite.slogan }}</h3>
+        {% endif %}
+    </div>
+    <div class="page-footer-second">
+        {% include html/twitter.html %}
+    </div>
+</footer>

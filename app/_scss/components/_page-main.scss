@@ -1,0 +1,12 @@
+.page-main {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+body:not(.two-columns) {
+  .page-main {
+    max-width: $max-width;
+  }
+}

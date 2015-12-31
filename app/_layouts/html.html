@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html>
     {% include html/head.html %}
-    <body>
-    {% include html/menu.html %}
-    {{ content }}
+    <body class="{{ page.body_class }}">
+    <div class="page-wrapper">
+        {% include html/header.html %}
+
+        <main class="page-main">
+            {% if page.image %}
+                <div class="page-image" style="background-image: url('{{ page.image }}');"></div>
+            {% endif %}
+
+            {{ content }}
+        </main>
+
+        {% unless page.layout == 'members' or 'project' or 'slides' %}
+            {% include html/footer.html %}
+        {% endunless %}
+    </div>
 
     {% include html/footer-scripts.html %}
     </body>

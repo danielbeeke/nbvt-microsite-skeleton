@@ -1,7 +1,21 @@
-<ul class="main-menu">
-    {% for menu_page in site.collections.pages.docs %}
-    <li>
-        <a href="{{ menu_page.url }}">{{ menu_page.menu_title }}</a>
-    </li>
-    {% endfor %}
-</ul>
+<nav class="main-menu-wrapper">
+    <a class="mobile-menu-toggle" href="#">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </a>
+
+    <ul class="main-menu">
+        {% for menu_page in site.collections.pages.docs %}
+        <li class="menu-item">
+            {% if page.url == menu_page.url or page[menu_page.active_menu] or menu_page.active_menu == page.collection %}
+                <a class="menu-link active" href="{{ menu_page.url }}">{{ menu_page.menu_title }}</a>
+            {% else %}
+                <a class="menu-link" href="{{ menu_page.url }}">{{ menu_page.menu_title }}</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</nav>

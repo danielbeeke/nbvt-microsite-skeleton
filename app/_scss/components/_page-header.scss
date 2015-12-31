@@ -1,0 +1,25 @@
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  background: $background-color;
+  max-width: $max-width;
+  transform: translateX(-50%);
+  max-height: $header-height;
+  height: 100vh;
+  transition: max-height $speed $easing;
+  z-index: 10;
+}
+
+body {
+  padding-top: $header-height;
+}
+
+.has-mobile-menu-expanded {
+  .page-header {
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}

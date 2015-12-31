@@ -21,6 +21,24 @@ $page_type_mapping = array(
 
 file_put_contents('app/_data/microsite.json', stripslashes(json_encode($micro_site_info)));
 
+if (isset($micro_site_info['header_font']) && isset($micro_site_info['body_font'])) {
+    $header_font_exploded = explode(':', $micro_site_info['header_font']);
+    $header_font = str_replace('+', ' ', $header_font_exploded[0]);
+
+    $body_font_exploded = explode(':', $micro_site_info['body_font']);
+    $body_font = str_replace('+', ' ', $body_font_exploded[0]);
+
+    $scss_contents = '$header-font: "' . $header_font . '";' . "\n" .
+        '$body-font: "' . $body_font . '";' . "\n" .
+        '$primary: ' . $micro_site_info['primary_color'] . ';' . "\n" .
+        '$secondary: ' . $micro_site_info['secondary_color'] . ';' . "\n" .
+        '$tertiary: ' . $micro_site_info['tertiary_color'] . ';' . "\n" .
+        '$background-color: ' . $micro_site_info['background_color'] . ';' . "\n" .
+        '$text-color: ' . $micro_site_info['text_color'] . ';' . "\n";
+
+    file_put_contents('app/_scss/variables/_imported.scss', $scss_contents);
+}
+
 foreach ($micro_site_info['components'] as $component) {
     $component_info_url = $nbvt_url . '/api/v1/' . $component . '?' . 'microsite=' . $cname;
     $component_info = json_decode(file_get_contents($component_info_url), TRUE);

@@ -1,5 +1,6 @@
 ---
 layout: html
+body_class: two-columns
 ---
 
 <div id="leaflet-map" class="leaflet-map main-content"></div>
@@ -8,6 +9,8 @@ layout: html
     {% include components/members/filters.html %}
 
     {% if page.member %}
+        <hr class="blocks-divider">
+
         {% include components/members/teaser.html %}
     {% endif %}
 </div>

@@ -1,0 +1,18 @@
+.page.full {
+  position: relative;
+  margin: 0 130px;
+  background: $background-color;
+
+  &:after {
+    display: block;
+    width: 100vw;
+    background-color: $tertiary;
+    height: 100%;
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    z-index: -1;
+  }
+}

@@ -8,7 +8,7 @@ $(function() {
 
     L.tileLayer(window.nbvt.members.map).addTo(map);
 
-    new L.Control.GeoSearch({
+    var geoSearch = new L.Control.GeoSearch({
         provider: new L.GeoSearch.Provider.Google(),
         showMarker: false
     }).addTo(map);
@@ -66,6 +66,10 @@ $(function() {
         setSearch(oldLat, oldLng, getFilters(), true);
     })
 
+    $('.member-filters-search').on('click', function () {
+        geoSearch.geosearch(geoSearch._searchbox.value);
+        return false
+    })
 
 
 
@@ -115,7 +119,9 @@ $(function() {
         $.each(membersToShow, function (delta, member) {
             bounds.push([member.lat, member.lng]);
 
-            L.marker([member.lat, member.lng]).addTo(markerLayer).on('click', function () {
+            var mapIcon = L.divIcon({ html: '<i class="fa fa-map-marker"></i>', className: member.active ? 'active' : '' });
+
+            L.marker([member.lat, member.lng], { icon: mapIcon }).addTo(markerLayer).on('click', function () {
                 window.location = '/leden/' + member.name.replace(/ /g,"-").toLowerCase();
             })
         });

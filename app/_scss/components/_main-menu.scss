@@ -1,0 +1,37 @@
+$menu-link-padding: 20px;
+
+.main-menu-wrapper {
+  float: right;
+  width: 100%;
+}
+
+.main-menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  
+  .menu-item {
+    float: left;
+  }
+  
+  .menu-link {
+    float: left;
+    padding: 0 $menu-link-padding;
+    text-decoration: none;
+    height: $header-height;
+    line-height: $header-height;
+    color: $text-color;
+    font-weight: bold;
+    transition: all $speed $easing;
+
+    &:hover,
+    &.active {
+      background-color: $tertiary;
+    }
+  }
+
+  @media (min-width: $tablet - 1) {
+    float: right;
+    margin-right: - $menu-link-padding;
+  }
+}

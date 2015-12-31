@@ -1,3 +1,19 @@
 .leaflet-map {
   height: 100%;
 }
+
+.leaflet-marker-icon {
+  border: 0;
+  background: none;
+
+  .fa {
+    font-size: 40px;
+    color: $text-color;
+    transition: color $speed $easing;
+  }
+
+  &:hover .fa,
+  &.active .fa {
+    color: $secondary;
+  }
+}

@@ -1,11 +1,20 @@
 <form class="members-filters" id="members-filters">
 
-    <div class="filters-groups">
+    <div class="filters-header">
         {% if site.data.microsite.member_filters_title %}
-            <h4>{{ site.data.microsite.member_filters_title }}</h4>
+            <h2 class="filters-title">{{ site.data.microsite.member_filters_title }}</h2>
         {% else %}
-            <h4>Vind uw dichtsbijzijnde verkooppunt</h4>
+            <h2 class="filters-title">Vind uw dichtsbijzijnde verkooppunt</h2>
         {% endif %}
+    </div>
+
+    <div class="filters-search form-item">
+        <input id="leaflet-control-geosearch-qry" type="text" placeholder="Plaats of postcode...">
+    </div>
+
+    <div class="filters-groups form-item">
+        <div class="label-above">{{ site.data.microsite.member_filters_radios_label }}</div>
+
         {% for filter in site.data.microsite.member_filters %}
         <div class="form-item-checkbox">
             {% assign key = filter.label | replace: ' ', '-' | downcase %}
@@ -16,8 +25,8 @@
     </div>
 
 
-    <div class="filters-enhance">
-        <h4>Enhance filters</h4>
+    <div class="filters-enhance form-item">
+        <div class="label-above">Verder verfijnen:</div>
         {% for filter in site.data.microsite.member_filter_enhance %}
             <div class="form-item-checkbox">
                 {% assign key = filter | replace: ' ', '-' | replace: '/', '-' | downcase %}
@@ -26,8 +35,6 @@
         {% endfor %}
     </div>
 
-    <div class="filters-search">
-        <input id="leaflet-control-geosearch-qry" type="text" placeholder="Postcode of plaatsnaam">
-    </div>
+    <a href="#" class="member-filters-search">Zoeken <i class="fa fa-arrow-circle-o-right"></i></a>
 
 </form>

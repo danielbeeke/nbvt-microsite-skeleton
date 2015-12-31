@@ -38,9 +38,11 @@ defaults:
       path: ""
       type: pages
     values:
+      active_menu: none
       layout: page
   - scope:
       path: ""
       type: posts
     values:
       layout: post
+      collection: posts

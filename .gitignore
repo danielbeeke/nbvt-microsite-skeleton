@@ -43,6 +43,8 @@ node_modules
 .ruby-gemset
 .rvmrc
 .idea
+
 app/_data
 app/_posts
 app/_pages
+app/_scss/variables/_imported.scss

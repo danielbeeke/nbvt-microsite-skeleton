@@ -1,11 +1,21 @@
 .sidebar-right {
-  width: 400px;
+  width: 320px;
   float: right;
   height: 100%;
+  border: 1px solid $tertiary;
+  border-right: none;
+  padding: 30px;
+}
+
+.blocks-divider {
+  margin: 30px -30px;
+  border: 0;
+  height: 1px;
+  background-color: $tertiary;
 }
 
 .main-content {
   float: left;
-  width: calc(100% - 400px);
+  width: calc(100% - 320px);
   height: 100%;
 }
