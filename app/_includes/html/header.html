@@ -1,7 +1,9 @@
 <header class="page-header">
-    {% if site.data.microsite.logo %}
-        <a class="logo-link" href="/"><img class="logo-image" src="{{ site.data.microsite.logo }}"></a>
-    {% endif %}
+    <div class="page-header-inner">
+        {% if site.data.microsite.logo %}
+            <a class="logo-link" href="/"><img class="logo-image" src="{{ site.data.microsite.logo }}"></a>
+        {% endif %}
 
-    {% include html/menu.html %}
+        {% include html/menu.html %}
+    </div>
 </header>

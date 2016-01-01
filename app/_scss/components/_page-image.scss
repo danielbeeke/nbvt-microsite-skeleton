@@ -3,3 +3,9 @@
   background-size: cover;
   margin: 0 ($box * 1);
 }
+
+.collection-blogs {
+  .page-image {
+    margin: (- $box * 2) 0;
+  }
+}

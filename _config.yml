@@ -46,6 +46,7 @@ defaults:
       active_menu: none
       layout: page
       footer: true
+      collection: blogs
   - scope:
       path: ""
       type: blogs

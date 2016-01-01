@@ -1,13 +1,32 @@
 .page-title {
   background-color: $background-color;
-  padding: 20px;
   font-size: 52px;
   text-align: center;
-  margin: 0 (3 * $box) 0;
-  transform: translateY(-100%);
+  padding: 20px;
 }
 
 .page-title-wrapper {
   position: relative;
-  height: 0;
+}
+
+.collection-pages {
+  .page-title {
+    margin: 0 (3 * $box) 0;
+    transform: translateY(-100%);
+  }
+
+  .page-title-wrapper {
+    height: 0;
+  }
+}
+
+.collection-news,
+.collection-blogs {
+  .page-title {
+    margin: 0 (5 * $box) 0;
+  }
+
+  .page-title-wrapper {
+    margin-top: $box / 2;
+  }
 }

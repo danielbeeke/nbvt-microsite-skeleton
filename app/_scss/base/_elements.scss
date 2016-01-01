@@ -34,3 +34,7 @@ a:link, a:visited {
   color: $secondary;
   text-decoration: none;
 }
+
+p:empty {
+  display: none;
+}

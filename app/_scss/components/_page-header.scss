@@ -4,7 +4,6 @@
   left: 50%;
   width: 100%;
   background: $background-color;
-  max-width: $max-width;
   transform: translateX(-50%);
   max-height: $header-height;
   height: 100vh;
@@ -15,6 +14,11 @@
   @media (min-width: $tablet - 1) {
     overflow: visible;
   }
+}
+
+.page-header-inner {
+  max-width: $max-width;
+  margin: 0 auto;
 }
 
 body {

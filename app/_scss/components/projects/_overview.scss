@@ -1,0 +1,17 @@
+.projects-overview {
+  margin: 0 ($box * 3);
+  background-color: $background-color;
+  transition: background-color $speed $easing;
+
+  &:hover {
+    background-color: $tertiary;
+
+    .project.teaser {
+      background-color: $tertiary;
+
+      .project-image:after {
+        opacity: .7;
+      }
+    }
+  }
+}

@@ -4,15 +4,11 @@
 
     {% assign path_splitted = page.url | split: '/' %}
 
-    <body class="{{ page.body_class }} {{ path_splitted[1] }} {% if page.has_menu_object %} has-menu-object {% endif %}">
+    <body class="{{ page.body_class }} {{ path_splitted[1] }} {% if page.has_menu_object %} has-menu-object {% endif %} {% if page.collection %} collection-{{ page.collection }} {% endif %} ">
     <div class="page-wrapper">
         {% include html/header.html %}
 
         <main class="page-main">
-            {% if page.image %}
-                <div class="page-image" style="background-image: url('{{ page.image }}');"></div>
-            {% endif %}
-
             {{ content }}
         </main>
 

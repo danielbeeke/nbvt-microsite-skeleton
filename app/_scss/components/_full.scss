@@ -1,0 +1,79 @@
+.full {
+  position: relative;
+  background: $background-color;
+  margin: 0 (3 * $box);
+  float: left;
+  @include clearfix;
+  padding-top: $box * 1;
+
+  > .left {
+    padding-left: $box * 2;
+    padding-right: $box * 7;
+    width: 100%;
+    float: left;
+    margin-right: -100%;
+    position: relative;
+    min-height: 200px;
+
+    > *:first-child {
+      margin-top: 0;
+    }
+  }
+
+  > .right {
+    float: right;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $secondary;
+  }
+
+  blockquote {
+    background: $primary;
+    color: $secondary;
+    padding: $box / 2;
+    margin-top: $box / 2;
+    margin-bottom: $box / 2;
+    font-size: 30px;
+    font-style: italic;
+    font-family: $header-font;
+    margin-left: - $box * 4;
+    margin-right: $box * 4;
+    padding-left: $box * 3;
+    position: relative;
+
+    &:after {
+      content: "";
+      display: inline-block;
+      font-family: FontAwesome;
+      font-feature-settings: normal;
+      font-kerning: auto;
+      font-language-override: normal;
+      font-size: 50px;
+      font-size-adjust: none;
+      font-stretch: normal;
+      font-style: normal;
+      font-synthesis: weight style;
+      font-variant: normal;
+      font-weight: normal;
+      line-height: 1;
+      text-rendering: auto;
+      position: absolute;
+      top: $box + 10px;
+      left: $box + 10px;
+    }
+  }
+
+  &:after {
+    display: block;
+    width: 100vw;
+    background-color: $tertiary;
+    height: 100%;
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    z-index: -1;
+  }
+}

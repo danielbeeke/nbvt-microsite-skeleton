@@ -1,0 +1,53 @@
+.project.teaser {
+  width: 25%;
+  float: left;
+  text-align: center;
+  background-color: $background-color;
+  transition: background-color $speed $easing;
+
+  .project-title {
+    color: $text-color;
+    padding: 0 20px;
+    height: 50px;
+    float: left;
+    width: 100%;
+    margin-top: 30px;
+    font-style: italic;
+  }
+
+  .project-location {
+    float: left;
+    width: 100%;
+    color: $text-color;
+    margin-bottom: 20px;
+  }
+
+  .project-image {
+    width: 100%;
+    padding-bottom: 100%;
+    background-size: cover;
+    clear: both;
+    position: relative;
+    
+    &:after {
+      background-color: black;
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      transition: opacity $speed $easing;
+    }
+  }
+  
+  &:hover {
+    background-color: $background-color !important;
+
+    .project-image:after {
+      opacity: 0 !important;
+    }
+  }
+}
