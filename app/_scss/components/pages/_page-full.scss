@@ -1,9 +1,25 @@
 .page.full {
   position: relative;
-  margin: 0 (3 * $box);
   background: $background-color;
-  padding-left: $box * 2;
-  padding-right: 7 * $box;
+  margin: 0 (3 * $box);
+  float: left;
+  @include clearfix;
+
+  > .left {
+    padding-left: $box * 2;
+    padding-right: $box * 7;
+    width: 100%;
+    float: left;
+    margin-right: -100%;
+
+    > *:first-child {
+      margin-top: 0;
+    }
+  }
+
+  > .right {
+    float: right;
+  }
 
   &:after {
     display: block;
@@ -18,7 +34,4 @@
     z-index: -1;
   }
 
-  > *:nth-child(2) {
-    margin-top: 0;
-  }
 }

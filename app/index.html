@@ -1,3 +1,6 @@
 ---
 layout: html
 ---
+{% assign sorted_pages = site.collections.pages.docs | sort: 'menu_weight' %}
+
+<meta http-equiv="refresh" content="0; URL={{ sorted_pages[0].url  }}">

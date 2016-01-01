@@ -45,9 +45,18 @@ defaults:
     values:
       active_menu: none
       layout: page
+      footer: true
   - scope:
       path: ""
       type: blogs
     values:
       layout: blog
       collection: blogs
+      footer: true
+  - scope:
+      path: ""
+      type: news
+    values:
+      layout: news_item
+      collection: news
+      footer: true

@@ -1,9 +1,8 @@
 .content-sidebar {
-  float: right;
-  width: 6 * $box;
-  margin-right: - 7 * $box;
+  width: $box * 6;
   position: relative;
   border-left: 1px solid $tertiary;
+  @include clearfix;
 
   > *:last-child {
     margin-bottom: 0 !important;
@@ -15,4 +14,9 @@
   font-style: italic;
   color: $secondary;
   padding: 0 ($box / 2);
+}
+
+.sidebar-block {
+  @include clearfix;
+  margin-bottom: 40px;
 }

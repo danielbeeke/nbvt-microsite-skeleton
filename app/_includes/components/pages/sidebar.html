@@ -1,10 +1,25 @@
 <div class="page content-sidebar">
-    <h2 class="sidebar-items-title">Blogs</h2>
-    {% for blog in site.blogs %}
-        {% for tag in page.tags %}
-            {% if blog.tags contains tag %}
-                {% include components/blogs/teaser.html %}
-            {% endif %}
+
+    <div class="sidebar-block">
+        <h2 class="sidebar-items-title">Nieuws</h2>
+        {% for news_item in site.news %}
+            {% for tag in page.tags %}
+                {% if news_item.tags contains tag %}
+                    {% include components/news/teaser.html %}
+                {% endif %}
+            {% endfor %}
         {% endfor %}
-    {% endfor %}
+    </div>
+
+    <div class="sidebar-block">
+        <h2 class="sidebar-items-title">Blogs</h2>
+        {% for blog in site.blogs %}
+            {% for tag in page.tags %}
+                {% if blog.tags contains tag %}
+                    {% include components/blogs/teaser.html %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+
 </div>

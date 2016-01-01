@@ -1,0 +1,42 @@
+.social-link {
+  width: 40px;
+  height: 40px;
+  float: left;
+  clear: both;
+  font-size: 20px;
+  text-align: center;
+  line-height: 40px;
+  transition: background-color $speed $easing;
+
+  .fa {
+    transition: color $speed $easing;
+    color: $tertiary;
+  }
+
+  &:hover {
+    &.google-plus {
+      background-color: #dd4b39;
+      color: $background-color;
+    }
+
+    &.pinterest {
+      background-color: #cb2027;
+      color: $background-color;
+    }
+
+    &.facebook {
+      background-color: #3b5998;
+      color: $background-color;
+    }
+
+    &.twitter {
+      background-color: #00aced;
+      color: $background-color;
+    }
+
+    &.mail {
+      background-color: #0072b1;
+      color: $background-color;
+    }
+  }
+}

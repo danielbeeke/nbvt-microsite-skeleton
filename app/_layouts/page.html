@@ -7,8 +7,17 @@ layout: html
 
 <div class="page full">
 
-  {% include components/pages/sidebar.html %}
+  <div class="page-inner left">
+    {{ content }}
+  </div>
 
-  {{ content }}
+  <div class="page-inner right">
+    {% include components/pages/sidebar.html %}
+  </div>
+
+  <div class="page-inner">
+    {% include html/social.html %}
+  </div>
 
 </div>
+

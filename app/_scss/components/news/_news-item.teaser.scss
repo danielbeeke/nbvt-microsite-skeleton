@@ -1,0 +1,21 @@
+.news-item.teaser {
+  float: left;
+  clear: left;
+  padding: ($box / 4) ($box / 2);
+  color: $text-color;
+  transition: background-color $speed $easing;
+  width: 100%;
+  position: relative;
+
+  .news-item-title {
+    font-weight: bold;
+  }
+
+  .read-more {
+    color: $secondary;
+  }
+
+  &:hover {
+    background-color: $primary;
+  }
+}

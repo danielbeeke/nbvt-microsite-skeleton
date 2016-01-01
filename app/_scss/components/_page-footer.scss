@@ -1,0 +1,25 @@
+.page-footer {
+  margin: 0 auto;
+  width: 100%;
+  max-width: $max-width - (2 * $box);
+  position: relative;
+  clear: both;
+
+  .site-slogan {
+    text-align: right;
+    font-style: italic;
+    color: $secondary;
+    font-size: 34px;
+    margin: 0;
+  }
+}
+
+.page-footer-first {
+  padding-top: 40px;
+  padding-bottom: 70px;
+}
+
+.page-footer-second {
+  background-color: $tertiary;
+  padding: ($box / 2) $box;
+}

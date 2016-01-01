@@ -26,7 +26,7 @@
     width: $box * 2;
     background-size: cover;
     position: absolute;
-    right: -(1px + ($box * 2));
+    right: -($box * 2);
     top: 0;
     height: 100%;
     background-position: center center;

@@ -1,0 +1,12 @@
+---
+layout: html
+---
+<div class="news-item full">
+    <h1 class="news-item-title">{{ page.title }}</h1>
+    <p class="news-item-meta">
+        {% if page.author %}
+        <span class="news-item-author">{{ page.author }}</span>
+        {% endif %}
+    </p>
+    {{ content }}
+</div>
