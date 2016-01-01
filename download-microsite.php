@@ -11,11 +11,15 @@ $micro_site_info = end($micro_sites_info['microsite']);
 $page_type_mapping = array(
     'blogs' => array(
         'single' => 'blog',
-        'folder' => '_posts'
+        'folder' => '_blogs'
     ),
     'pages' => array(
         'single' => 'page',
         'folder' => '_pages'
+    ),
+    'news' => array(
+        'single' => 'news_item',
+        'folder' => '_news'
     )
 );
 

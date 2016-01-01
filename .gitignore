@@ -45,6 +45,6 @@ node_modules
 .idea
 
 app/_data
-app/_posts
+app/_blogs
 app/_pages
 app/_scss/variables/_imported.scss

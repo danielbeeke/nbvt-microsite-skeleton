@@ -4,7 +4,6 @@ layout: html
 <div class="blog full">
   <h1 class="blog-title">{{ page.title }}</h1>
   <p class="blog-meta">
-    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
     {% if page.author %}
       <span class="blog-author">{{ page.author }}</span>
     {% endif %}

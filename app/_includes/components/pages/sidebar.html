@@ -1,0 +1,10 @@
+<div class="page content-sidebar">
+    <h2 class="sidebar-items-title">Blogs</h2>
+    {% for blog in site.blogs %}
+        {% for tag in page.tags %}
+            {% if blog.tags contains tag %}
+                {% include components/blogs/teaser.html %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</div>

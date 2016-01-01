@@ -1,0 +1,9 @@
+---
+layout: html
+---
+
+<h1>Nieuws</h1>
+
+{% for news_item in site.news %}
+    {% include components/news/teaser.html %}
+{% endfor %}

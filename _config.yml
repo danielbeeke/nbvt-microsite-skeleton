@@ -31,7 +31,12 @@ collections:
   pages:
     output: true
     permalink: /:path/
-
+  blogs:
+    output: true
+    permalink: /:path/
+  news:
+    output: true
+    permalink: /nieuws/:path/
 
 defaults:
   - scope:
@@ -42,7 +47,7 @@ defaults:
       layout: page
   - scope:
       path: ""
-      type: posts
+      type: blogs
     values:
-      layout: post
-      collection: posts
+      layout: blog
+      collection: blogs
