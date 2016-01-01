@@ -48,6 +48,10 @@ GEM
     multipart-post (2.0.0)
     octokit (4.2.0)
       sawyer (~> 0.6.0, >= 0.5.3)
+    octopress-hooks (2.6.1)
+      jekyll (>= 2.0)
+    octopress-paginate (1.1.2)
+      octopress-hooks
     parslet (1.5.0)
       blankslate (~> 2.0)
     posix-spawn (0.3.11)
@@ -74,6 +78,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll (~> 2.3.0)
+  octopress-paginate
   redcarpet
   sass (~> 3.4.3)
   sass-globbing (= 1.1.0)

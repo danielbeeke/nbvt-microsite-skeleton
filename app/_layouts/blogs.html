@@ -11,6 +11,8 @@ layout: html
     <h1 class="page-title">{{ page.title }}</h1>
 </div>
 
-{% for blog in site.blogs %}
-    {% include components/blogs/teaser.html %}
-{% endfor %}
+<div class="blogs-overview full">
+    {% for blog in site.blogs %}
+        {% include components/blogs/overview.html %}
+    {% endfor %}
+</div>

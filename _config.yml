@@ -20,8 +20,6 @@ future: true
 show_drafts: true
 
 permalink: pretty
-paginate: 10
-paginate_path: 'page:num'
 
 # Markdown library
 markdown: redcarpet
@@ -33,10 +31,12 @@ collections:
     permalink: /:path/
   blogs:
     output: true
-    permalink: /:path/
+    permalink: /blogs/:path/
+    paginate: true
   news:
     output: true
     permalink: /nieuws/:path/
+    paginate: true
 
 defaults:
   - scope:
@@ -46,7 +46,7 @@ defaults:
       active_menu: none
       layout: page
       footer: true
-      collection: blogs
+      collection: pages
   - scope:
       path: ""
       type: blogs

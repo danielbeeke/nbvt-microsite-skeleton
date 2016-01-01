@@ -1,12 +1,8 @@
 ---
 layout: html
 ---
-{% if page.image %}
-<div class="page-image" style="background-image: url('{{ page.image }}');"></div>
-{% endif %}
 
-<h1>Nieuws</h1>
 
-{% for news_item in site.news %}
-    {% include components/news/teaser.html %}
+{% for news_item in page.paginate_items %}
+    {% include components/news/overview.html %}
 {% endfor %}

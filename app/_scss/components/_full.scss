@@ -1,12 +1,14 @@
 .full {
   position: relative;
   background: $background-color;
-  margin: 0 (3 * $box);
+  padding: 0 (3 * $box);
+  background-clip: content-box;
   float: left;
   @include clearfix;
-  padding-top: $box * 1;
+  width: 100%;
 
   > .left {
+    padding-top: $box * 1;
     padding-left: $box * 2;
     padding-right: $box * 7;
     width: 100%;
@@ -21,6 +23,7 @@
   }
 
   > .right {
+    padding-top: $box * 1;
     float: right;
   }
 
