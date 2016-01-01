@@ -2,7 +2,17 @@
 layout: html
 ---
 
+{% if page.image %}
+<div class="page-image" style="background-image: url('{{ page.image }}');"></div>
+{% endif %}
 
-{% for news_item in page.paginate_items %}
-    {% include components/news/overview.html %}
-{% endfor %}
+
+<div class="page-title-wrapper">
+    <h1 class="page-title">{{ page.title }}</h1>
+</div>
+
+<div class="news-overview full">
+    {% for news_item in page.paginate_items %}
+        {% include components/news/overview.html %}
+    {% endfor %}
+</div>

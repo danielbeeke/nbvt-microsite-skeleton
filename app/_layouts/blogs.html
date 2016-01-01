@@ -12,7 +12,7 @@ layout: html
 </div>
 
 <div class="blogs-overview full">
-    {% for blog in site.blogs %}
+    {% for blog in page.paginate_items %}
         {% include components/blogs/overview.html %}
     {% endfor %}
 </div>

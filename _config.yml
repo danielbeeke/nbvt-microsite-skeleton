@@ -27,16 +27,17 @@ markdown: redcarpet
 
 collections:
   pages:
-    output: true
     permalink: /:path/
   blogs:
     output: true
     permalink: /blogs/:path/
     paginate: true
+    paginate_path: blogs
   news:
     output: true
     permalink: /nieuws/:path/
     paginate: true
+    paginate_path: nieuws
 
 defaults:
   - scope:
