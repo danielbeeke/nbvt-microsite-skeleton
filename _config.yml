@@ -28,6 +28,7 @@ markdown: redcarpet
 collections:
   pages:
     permalink: /:path/
+    output: true
   blogs:
     output: true
     permalink: /blogs/:path/
