@@ -1,0 +1,22 @@
+<div class="pager">
+
+    {% if page.paginate_previous %}
+        <a href="{{ page.paginate_previous }}" class="pager-item previous"><i class="fa fa-arrow-circle-o-left"></i></a>
+    {% else %}
+        <span class="pager-item previous disabled"><i class="fa fa-arrow-circle-o-left"></i></span>
+    {% endif %}
+
+    {% for pager_item in page.paginate_pager_items %}
+        {% if pager_item.link == page.url %}
+            <a href="{{ pager_item.link }}" class="pager-item number active">{{ pager_item.number }}</a>
+        {% else %}
+            <a href="{{ pager_item.link }}" class="pager-item number">{{ pager_item.number }}</a>
+    {% endif %}
+    {% endfor %}
+
+    {% if page.paginate_next %}
+        <a href="{{ page.paginate_next }}" class="pager-item next"><i class="fa fa-arrow-circle-o-right"></i></a>
+    {% else %}
+        <span class="pager-item next disabled"><i class="fa fa-arrow-circle-o-right"></i></span>
+    {% endif %}
+</div>

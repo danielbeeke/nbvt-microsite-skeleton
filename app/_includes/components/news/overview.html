@@ -1,5 +1,6 @@
 <a class="news-item overview" href="{{ news_item.url }}">
-    <div class="news-item-title">{{ news_item.title }}</div>
-    <div class="news-item-excerpt">{{ news_item.excerpt }}</div>
+    <h3 class="news-item-title">{{ news_item.title }}</h3>
+    <span class="news-item-created"><i class="fa fa-clock-o"></i> {{ news_item.created }}</span>
+    <div class="news-item-teaser">{{ news_item.teaser }}</div>
     <span class="read-more">Nieuws item lezen <i class="fa fa-arrow-circle-o-right"></i></span>
 </a>

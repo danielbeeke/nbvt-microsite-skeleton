@@ -14,7 +14,10 @@
         {% if menu_page.menu_weight %}
         <li class="menu-item">
             {% assign current_page_url_splitted = page.url | split: '/' %}
-            {% if page.url == menu_page.url or page[menu_page.active_menu] or menu_page.active_menu == page.collection %}
+
+            {% assign menu_path_splitted = menu_page.url | split: '/' %}
+
+            {% if page.url == menu_page.url or page[menu_page.active_menu] or menu_page.active_menu == page.collection or current_page_url_splitted[1] == menu_path_splitted[1] %}
                 <a class="menu-link active" href="{{ menu_page.url }}">{{ menu_page.menu_title }}</a>
             {% else %}
                 <a class="menu-link" href="{{ menu_page.url }}">{{ menu_page.menu_title }}</a>

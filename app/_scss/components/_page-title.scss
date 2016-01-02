@@ -9,7 +9,7 @@
   position: relative;
 }
 
-.collection-pages {
+.collection-pages:not(.overview-page) {
   .page-title {
     margin: 0 (3 * $box) 0;
     transform: translateY(-100%);
@@ -28,5 +28,14 @@
 
   .page-title-wrapper {
     margin-top: $box / 2;
+  }
+}
+
+.overview-page {
+  .page-title {
+    background-color: $primary;
+    padding-bottom: $box * 2.5;
+    margin-bottom: - $box * 2;
+    margin-top: 0;
   }
 }

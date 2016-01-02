@@ -1,0 +1,28 @@
+.pager {
+  width: 100%;
+  border-top: $tertiary 1px solid;
+  float: left;
+  margin-top: $box;
+  text-align: center;
+  font-size: 0;
+}
+
+.pager-item {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-left: $tertiary 1px solid;
+  border-right: $tertiary 1px solid;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: -1px;
+  color: $tertiary;
+
+  &:hover,
+  &.active {
+    background-color: $primary;
+  }
+}
+
+span.pager-item {
+  cursor: default;
+}

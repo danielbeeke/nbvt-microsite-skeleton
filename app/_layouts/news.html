@@ -1,18 +1,16 @@
 ---
 layout: html
+body_class: overview-page
 ---
 
-{% if page.image %}
-<div class="page-image" style="background-image: url('{{ page.image }}');"></div>
-{% endif %}
-
-
-<div class="page-title-wrapper">
-    <h1 class="page-title">{{ page.title }}</h1>
-</div>
+{% include html/overview-title.html %}
 
 <div class="news-overview full">
-    {% for news_item in page.paginate_items %}
-        {% include components/news/overview.html %}
-    {% endfor %}
+    <div class="overview-inner">
+        {% for news_item in page.paginate_items %}
+            {% include components/news/overview.html %}
+        {% endfor %}
+
+        {% include html/pager.html %}
+    </div>
 </div>
