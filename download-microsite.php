@@ -72,6 +72,30 @@ foreach ($micro_site_info['components'] as $component) {
     }
 }
 
+// Creating the menu items json.
+// Not to happy with this, this is more like a fix for something I don't know how to fix in jekyll.
+$pages = scandir('app/_pages');
+unset($pages[0]);
+unset($pages[1]);
+
+$menu_json = array();
+
+foreach ($pages as $page_file_name) {
+    $page = file_get_contents('app/_pages/' . $page_file_name);
+    $page_exploded = explode('---', $page);
+    $yaml = trim($page_exploded[1]);
+    $front_matter = yaml_parse($yaml);
+    $front_matter['file_name'] = $page_file_name;
+    $front_matter['url'] = '/' . str_replace(array('.md', '.html'), '', $page_file_name) . '/';
+    $menu_json[] = $front_matter;
+}
+
+file_put_contents('app/_data/menu.json', stripslashes(json_encode($menu_json)));
+
+// Remove the overview pages that contain pagers.
+unlink('app/_pages/nieuws.md');
+unlink('app/_pages/blogs.md');
+
 function get_real_filename($headers, $url) {
     foreach($headers as $header) {
         if (strpos(strtolower($header),'content-disposition') !== false) {

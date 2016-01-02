@@ -38,8 +38,6 @@ module Jekyll
                          file_name = ''
                      end
 
-
-
                      site.pages << PaginatePage.new(site, site.source, File.join(collection['paginate_path'], file_name), group, name)
 
                   end

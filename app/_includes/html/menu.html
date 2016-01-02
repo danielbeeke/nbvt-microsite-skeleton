@@ -8,11 +8,12 @@
     </a>
 
     <ul class="main-menu">
-        {% assign sorted_pages = site.collections.pages.docs | sort: 'menu_weight' %}
+        {% assign sorted_pages = site.data.menu | sort: 'menu_weight' %}
 
         {% for menu_page in sorted_pages %}
         {% if menu_page.menu_weight %}
         <li class="menu-item">
+            {% assign current_page_url_splitted = page.url | split: '/' %}
             {% if page.url == menu_page.url or page[menu_page.active_menu] or menu_page.active_menu == page.collection %}
                 <a class="menu-link active" href="{{ menu_page.url }}">{{ menu_page.menu_title }}</a>
             {% else %}
