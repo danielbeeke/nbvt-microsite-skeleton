@@ -1,0 +1,7 @@
+<div class="project-slider main-content owl-carousel" id="project-slider">
+    {% for image in project.images %}
+    <div class="slide-item">
+        <div class="slide-item-image" style="background-image: url({{ image }});"></div>
+    </div>
+    {% endfor %}
+</div>

@@ -12,6 +12,7 @@ footer: false
 <div id="leaflet-map" class="leaflet-map main-content"></div>
 
 {% if page.member %}
+    {% assign member = page.member %}
     <div class="sidebar-right">
         {% include components/members/teaser.html %}
     </div>

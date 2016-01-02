@@ -1,14 +1,34 @@
 ---
 layout: html
+footer: false
+body_class: two-columns
+
 ---
 
-{% if page.image %}
-<div class="page-image" style="background-image: url('{{ page.image }}');"></div>
+<div class="sidebar-right project-info">
+    {% assign project = page.project %}
+    {% include components/projects/info.html %}
+</div>
+
+{% include html/social.html %}
+
+{% include components/projects/slider.html %}
+
+{% for member_hash in site.data.members.member %}
+{% assign possible_member = member_hash[1] %}
+
+{% assign possible_member_name = possible_member.name | trim %}
+{% assign project_owner = possible_member.name | trim %}
+
+    {% if possible_member_name == project_owner %}
+        {% assign member = possible_member %}
+    {% endif %}
+{% endfor %}
+
+{% if member %}
+<div class="sidebar-right">
+    {% include components/members/teaser.html %}
+</div>
 {% endif %}
 
-
-<h1>Project</h1>
-
-{% if page.project %}
-{{ page.project.title }}
-{% endif %}
+{% include components/projects/scripts.html %}

@@ -1,7 +1,7 @@
 module Jekyll
   module TrimFilter
     def trim(input)
-      input.strip
+      input.to_s.strip
     end
   end
 end

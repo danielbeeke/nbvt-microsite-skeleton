@@ -1,0 +1,15 @@
+<div class="project info">
+    <h3 class="project-title">{{ project.title }}</h3>
+
+    <div class="form-item">
+        <div class="label-above">Locatie</div>
+        <div>{{ project.location.locality }}</div>
+    </div>
+
+    <div class="form-item">
+        <div class="label-above">Producten</div>
+        <div>{{ project.type | join: ', ' }}</div>
+    </div>
+
+
+</div>

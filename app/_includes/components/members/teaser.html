@@ -2,39 +2,39 @@
 
     <a href="/leden/" class="back-to-overview"><i class="fa fa-times"></i></a>
 
-    {% if page.member.logo %}
-        <img class="member-logo" src="{{ page.member.logo }}">
+    {% if member.logo %}
+        <img class="member-logo" src="{{ member.logo }}">
     {% endif %}
 
-    <h3 class="member-name">{{ page.member.name }}</h3>
+    <h3 class="member-name">{{ member.name }}</h3>
 
     <div class="visiting-address form-item">
         <div class="label-above">Bezoekadres</div>
-        <div class="thoroughfare">{{ page.member.address.thoroughfare }}</div>
-        <div class="city">{{ page.member.address.postal_code }} {{ page.member.address.locality }}</div>
+        <div class="thoroughfare">{{ member.address.thoroughfare }}</div>
+        <div class="city">{{ member.address.postal_code }} {{ member.address.locality }}</div>
     </div>
 
     <div class="visiting-address form-item">
         <div class="label-above">Postadres</div>
-        <div class="thoroughfare">{{ page.member.postal_address.thoroughfare }}</div>
-        <div class="city">{{ page.member.postal_address.postal_code }} {{ page.member.postal_address.locality }}</div>
+        <div class="thoroughfare">{{ member.postal_address.thoroughfare }}</div>
+        <div class="city">{{ member.postal_address.postal_code }} {{ member.postal_address.locality }}</div>
     </div>
 
     <div class="phone-web form-item">
         <div class="item">
             <div class="label-inline">E-mail</div>
-            <div class="inline-value">{{ page.member.email | spamspan }}</div>
+            <div class="inline-value">{{ member.email | spamspan }}</div>
         </div>
 
         <div class="item">
             <div class="label-inline">Telefoon</div>
-            <div class="inline-value">{{ page.member.phone }}</div>
+            <div class="inline-value">{{ member.phone }}</div>
         </div>
     </div>
 
     <div class="member-links form-item">
-        {% if page.member.site %}
-            <a class="member-link" href="{{ page.member.site }}" target="_blank">Bezoek website <i class="fa fa-arrow-circle-o-right"></i></a>
+        {% if member.site %}
+            <a class="member-link" href="{{ member.site }}" target="_blank">Bezoek website <i class="fa fa-arrow-circle-o-right"></i></a>
         {% endif %}
     </div>
 
