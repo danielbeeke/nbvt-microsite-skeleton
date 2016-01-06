@@ -23,6 +23,10 @@ $page_type_mapping = array(
     )
 );
 
+if (!file_exists('app/_data')) {
+    mkdir('app/_data');
+}
+
 file_put_contents('app/_data/microsite.json', stripslashes(json_encode($micro_site_info)));
 
 if (isset($micro_site_info['header_font']) && isset($micro_site_info['body_font'])) {
@@ -46,6 +50,10 @@ if (isset($micro_site_info['header_font']) && isset($micro_site_info['body_font'
 foreach ($micro_site_info['components'] as $component) {
     $component_info_url = $nbvt_url . '/api/v1/' . $component . '?' . 'microsite=' . $cname;
     $component_info = json_decode(file_get_contents($component_info_url), TRUE);
+
+    if (isset($page_type_mapping[$component]['folder']) && !file_exists('app/' . $page_type_mapping[$component]['folder'])) {
+        mkdir('app/' . $page_type_mapping[$component]['folder']);
+    }
 
     if (file_exists('app/_data/' . $component . '.json')) {
         unlink('app/_data/' . $component . '.json');
