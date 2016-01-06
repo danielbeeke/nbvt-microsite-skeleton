@@ -1,6 +1,15 @@
 .overview-page {
   .overview-inner {
-    padding: $box * 2;
+    padding-top: $mobile-box * 5;
     @include clearfix;
+  }
+}
+
+@media (min-width: $desktop) {
+  .overview-page {
+    .overview-inner {
+      padding: $box * 2;
+      @include clearfix;
+    }
   }
 }

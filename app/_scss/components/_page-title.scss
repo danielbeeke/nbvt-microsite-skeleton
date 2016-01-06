@@ -1,6 +1,7 @@
 .page-title-wrapper {
   position: relative;
   height: 0;
+  @include clearfix;
 }
 
 .page-title {
@@ -8,11 +9,29 @@
   background-color: $background-color;
   text-align: center;
   padding: 20px;
+  @include clearfix;
 }
 
 .collection-pages:not(.overview-page) {
   .page-title {
     transform: translateY(-100%);
+  }
+}
+
+.overview-page {
+  .page-title-wrapper {
+    height: auto;
+    background: $tertiary;
+    width: 100%;
+
+    .page-title {
+      background: $primary;
+      margin: 0 $mobile-box;
+      padding: $mobile-box * 2 $mobile-box * 5;
+      font-style: italic;
+      padding-bottom: 60px;
+      margin-bottom: -50px;
+    }
   }
 }
 
