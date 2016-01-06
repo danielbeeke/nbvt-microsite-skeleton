@@ -5,21 +5,54 @@
   position: relative;
   clear: both;
 
+  .logo-link {
+    float: left;
+    margin: 0;
+    padding: 0;
+    clear: left;
+    margin-left: $mobile-box * 3;
+
+    img {
+      margin: 0 auto;
+    }
+  }
+
   .site-slogan {
     text-align: right;
     font-style: italic;
     color: $secondary;
     font-size: 34px;
+
+    float: left;
     margin: 0;
+    margin-top: $mobile-box * 2;
+    padding: 0;
+    clear: left;
+    margin-left: $mobile-box * 3;
   }
 }
 
 .page-footer-first {
   padding-top: 40px;
-  padding-bottom: 70px;
+  padding-bottom: 40px;
+  @include clearfix;
 }
 
 .page-footer-second {
   background-color: $tertiary;
   padding: ($box / 2) $box;
+}
+
+@media (min-width: $desktop) {
+  .page-footer {
+    .logo-link {
+      margin-left: 0;
+    }
+
+    .site-slogan {
+      margin-left: 0;
+      float: right;
+      clear: right;
+    }
+  }
 }

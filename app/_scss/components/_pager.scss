@@ -16,6 +16,10 @@
   vertical-align: middle;
   margin-right: -1px;
   color: $tertiary;
+
+  &:not(.previous):not(.next):not(.active) {
+    display: none;
+  }
 }
 
 a.pager-item {
@@ -27,4 +31,11 @@ a.pager-item {
 
 span.pager-item {
   cursor: default;
+}
+
+
+@media (min-width: $desktop) {
+  .pager-item {
+    display: inline-block !important;
+  }
 }

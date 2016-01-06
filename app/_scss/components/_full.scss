@@ -29,12 +29,6 @@
     padding: 0 ($mobile-box * 2);
     border-left: 20px solid $tertiary;
     border-right: 20px solid $tertiary;
-
-    .blog.teaser {
-      margin-left: - $mobile-box * 2;
-      width: calc(100% - (#{$mobile-box * 6}));
-      padding: $mobile-box * 1.5 $mobile-box * 5;
-    }
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -116,12 +110,6 @@
       width: 360px;
       padding-top: $box * 1;
       float: right;
-
-      .blog.teaser {
-        margin-left: 0;
-        width: auto;
-        padding: $mobile-box * 1.5 $mobile-box * 3;
-      }
     }
 
     blockquote {

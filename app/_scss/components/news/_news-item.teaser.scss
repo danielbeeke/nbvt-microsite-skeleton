@@ -1,7 +1,7 @@
 .news-item.teaser {
   float: left;
   clear: left;
-  padding: ($box / 4) ($box / 2);
+  padding: ($mobile-box * 1.5) $mobile-box;
   color: $text-color;
   transition: background-color $speed $easing;
   width: 100%;
@@ -17,5 +17,11 @@
 
   &:hover {
     background-color: $primary;
+  }
+}
+
+@media (min-width: $desktop) {
+  .news-item.teaser {
+    padding: ($box / 4) ($box / 2);
   }
 }

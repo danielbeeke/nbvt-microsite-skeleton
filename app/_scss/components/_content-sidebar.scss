@@ -13,7 +13,7 @@
     .sidebar-items-title {
       font-style: italic;
       color: $secondary;
-      margin: 0 ($box / 2);
+      margin: 0 ($mobile-box);
     }
 
     &:first-child {
