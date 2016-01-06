@@ -9,6 +9,7 @@
     {% for member in site.data.members.member %}
     {
         "name": "{{ member[1].name }}",
+            "slug": "{{ member[1].slug }}",
             "lat": "{{ member[1].geom.lat }}",
             "lng": "{{ member[1].geom.lon }}",
         {% if member[1] == page.member %}

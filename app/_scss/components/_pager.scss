@@ -16,7 +16,9 @@
   vertical-align: middle;
   margin-right: -1px;
   color: $tertiary;
+}
 
+a.pager-item {
   &:hover,
   &.active {
     background-color: $primary;

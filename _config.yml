@@ -34,11 +34,14 @@ collections:
     permalink: /blogs/:path/
     paginate: true
     paginate_path: blogs
+    paginate_count: 3
+
   news:
     output: true
     permalink: /nieuws/:path/
     paginate: true
     paginate_path: nieuws
+    paginate_count: 3
 
 defaults:
   - scope:

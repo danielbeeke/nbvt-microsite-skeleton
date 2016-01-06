@@ -29,7 +29,7 @@ module Jekyll
 
               if collection['paginate']
 
-                  groups = site.collections[name].docs.each_slice(2).to_a
+                  groups = site.collections[name].docs.reverse.each_slice(collection['paginate_count']).to_a
 
                   groups.each_with_index do |group, index|
 
@@ -55,35 +55,35 @@ module Jekyll
                      pager_items = []
 
 
-if index1 - 3 < 1
-    min = 1
-else
-    min = index1 - 3
-end
+                    if index1 - 3 < 1
+                        min = 1
+                    else
+                        min = index1 - 3
+                    end
 
-for i in min..index1
-    if i == 1
-        item = Hash["number" => i, "link" => '/' + collection['paginate_path'] + '/']
-    else
-        item = Hash["number" => i, "link" => '/' + collection['paginate_path'] + '/' + (i).to_s + '/']
-    end
-    pager_items.push(item)
-end
+                    for i in min..index1
+                        if i == 1
+                            item = Hash["number" => i, "link" => '/' + collection['paginate_path'] + '/']
+                        else
+                            item = Hash["number" => i, "link" => '/' + collection['paginate_path'] + '/' + (i).to_s + '/']
+                        end
+                        pager_items.push(item)
+                    end
 
-if index1 + 3 > groups.size
-    max = groups.size
-else
-    max = index1 + 3
-end
+                    if index1 + 3 > groups.size
+                        max = groups.size
+                    else
+                        max = index1 + 3
+                    end
 
-for i in index1+1..max
-    if i == 1
-        item = Hash["number" => i, "link" => '/' + collection['paginate_path'] + '/']
-    else
-        item = Hash["number" => i, "link" => '/' + collection['paginate_path'] + '/' + (i).to_s + '/']
-    end
-    pager_items.push(item)
-end
+                    for i in index1+1..max
+                        if i == 1
+                            item = Hash["number" => i, "link" => '/' + collection['paginate_path'] + '/']
+                        else
+                            item = Hash["number" => i, "link" => '/' + collection['paginate_path'] + '/' + (i).to_s + '/']
+                        end
+                        pager_items.push(item)
+                    end
 
                      site.pages << PaginatePage.new(site, site.source, File.join(collection['paginate_path'], file_name), group, name, paginate_previous, paginate_next, pager_items)
 
