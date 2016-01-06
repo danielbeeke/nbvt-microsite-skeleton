@@ -1,6 +1,5 @@
 .project.teaser {
-  width: 25%;
-  float: left;
+  width: 100%;
   text-align: center;
   background-color: $background-color;
   transition: background-color $speed $easing;
@@ -42,12 +41,42 @@
       transition: opacity $speed $easing;
     }
   }
-  
+
   &:hover {
     background-color: $background-color !important;
 
     .project-image:after {
       opacity: 0 !important;
     }
+  }
+}
+
+@media (min-width: $tablet) {
+  .project.teaser {
+    width: 50%;
+    float: left;
+
+    &:nth-child(odd) {
+      clear: left;
+    }
+
+    &:nth-child(even) {
+      clear: right;
+    }
+
+    &:hover {
+      background-color: $background-color !important;
+
+      .project-image:after {
+        opacity: 0 !important;
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .project.teaser {
+    width: 25%;
+    clear: none !important;
   }
 }
