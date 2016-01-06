@@ -1,3 +1,10 @@
+.social-share {
+  position: absolute;
+  transform: translateY(-100%);
+  left: 0;
+  z-index: 10;
+}
+
 .social-link {
   width: 40px;
   height: 40px;
@@ -40,9 +47,10 @@
   }
 }
 
-.social-share {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  z-index: 10;
+
+@media (min-width: $desktop) {
+  .social-share {
+    bottom: 10px;
+    transform: translate(0);
+  }
 }

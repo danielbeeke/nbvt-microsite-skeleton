@@ -10,14 +10,10 @@
   transition: max-height $speed $easing;
   z-index: 10;
   overflow: hidden;
-
-  @media (min-width: $tablet - 1) {
-    overflow: visible;
-  }
 }
 
 .page-header-inner {
-  max-width: $max-width;
+  max-width: 100%;
   margin: 0 auto;
 }
 

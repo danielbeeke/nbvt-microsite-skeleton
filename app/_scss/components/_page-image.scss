@@ -1,11 +1,12 @@
 .page-image {
-  padding-bottom: 30%;
+  padding-bottom: 50%;
   background-size: cover;
-  margin: 0 ($box * 1);
+  margin: 0 $mobile-box;
 }
 
-.collection-blogs {
+@media (min-width: $desktop) {
   .page-image {
-    margin: (- $box * 2) 0;
+    padding-bottom: 30%;
+    margin: 0 $box;
   }
 }

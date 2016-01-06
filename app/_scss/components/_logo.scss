@@ -5,6 +5,7 @@
   padding-top: 10px;
   height: $header-height;
   padding-bottom: 10px;
+  padding-left: $mobile-box * 3;
   position: relative;
   z-index: 3;
 }
@@ -12,4 +13,10 @@
 .logo-image {
   display: block;
   height: 100%;
+}
+
+@media (min-width: $desktop) {
+  .logo-link {
+    padding-left: 20px;
+  }
 }

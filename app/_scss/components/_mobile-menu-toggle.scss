@@ -1,7 +1,7 @@
 .mobile-menu-toggle {
   position: absolute;
   top: 20px;
-  right: 20px;
+  right: $mobile-box * 3;
 
   .bar + .bar {
     margin-top: 6px;
@@ -25,7 +25,7 @@
     }
   }
 
-  @media (min-width: $tablet - 1) {
+  @media (min-width: $desktop) {
     display: none;
   }
 }

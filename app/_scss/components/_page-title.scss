@@ -1,41 +1,23 @@
+.page-title-wrapper {
+  position: relative;
+  height: 0;
+}
+
 .page-title {
+  margin: 0 $mobile-box * 3;
   background-color: $background-color;
-  font-size: 52px;
   text-align: center;
   padding: 20px;
 }
 
-.page-title-wrapper {
-  position: relative;
-}
-
 .collection-pages:not(.overview-page) {
   .page-title {
-    margin: 0 (3 * $box) 0;
     transform: translateY(-100%);
   }
-
-  .page-title-wrapper {
-    height: 0;
-  }
 }
 
-.collection-news,
-.collection-blogs {
+@media (min-width: $desktop) {
   .page-title {
-    margin: 0 (5 * $box) 0;
-  }
-
-  .page-title-wrapper {
-    margin-top: $box / 2;
-  }
-}
-
-.overview-page {
-  .page-title {
-    background-color: $primary;
-    padding-bottom: $box * 2.5;
-    margin-bottom: - $box * 2;
-    margin-top: 0;
+    margin: 0 $box * 3;
   }
 }

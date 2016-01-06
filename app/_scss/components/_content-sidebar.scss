@@ -1,22 +1,44 @@
 .content-sidebar {
-  width: $box * 6;
   position: relative;
-  border-left: 1px solid $tertiary;
   @include clearfix;
 
   > *:last-child {
     margin-bottom: 0 !important;
   }
+
+  .sidebar-block {
+    @include clearfix;
+    margin-bottom: 40px;
+
+    .sidebar-items-title {
+      font-style: italic;
+      color: $secondary;
+      margin: 0 ($box / 2);
+    }
+
+    &:first-child {
+      .sidebar-items-title {
+        padding-top: 50px;
+        border-top: 1px solid $tertiary;
+      }
+    }
+  }
 }
 
-.sidebar-items-title {
-  margin-top: 0;
-  font-style: italic;
-  color: $secondary;
-  padding: 0 ($box / 2);
-}
 
-.sidebar-block {
-  @include clearfix;
-  margin-bottom: 40px;
+
+@media (min-width: $desktop) {
+  .content-sidebar {
+    width: $box * 6;
+    border-left: 1px solid $tertiary;
+
+    .sidebar-block {
+      &:first-child {
+        .sidebar-items-title {
+          padding-top: 0px;
+          border-top: 0px none
+        }
+      }
+    }
+  }
 }
