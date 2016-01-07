@@ -1,9 +1,84 @@
 .slide-item-details-wrapper {
   width: 600px;
-  background: $tertiary;
   position: absolute;
   right: 0;
   bottom: 0;
+
+  .slide-item-details {
+    background: transparent;
+    position: relative;
+    z-index: 1;
+    border-bottom: 5px solid $white;
+
+    .owl-wrapper-outer {
+      .owl-wrapper {
+        .owl-item {
+          background: transparent none repeat scroll 0 0;
+          height: 400px;
+          width: 600px;
+
+          .sub-slider-item {
+            background: $white;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: auto;
+          }
+
+          .slide-item-description {
+            padding: $box / 1.5;
+            color: $text-color;
+
+            h1,h2,h3,h4,h5,h6 {
+              color: $secondary;
+              font-size: 24px;
+              font-style: italic;
+              font-weight: bold;
+              line-height: 28px;
+              margin-top: 0px;
+            }
+          }
+
+          .slide-item-quote {
+            font-family: $header-font;
+            margin: 0;
+            padding: $box;
+            padding-left: $box * 3;
+            background: rgba($primary, 0.3);
+            color: $secondary;
+            font-size: 24px;
+            font-style: italic;
+            font-weight: bold;
+            line-height: 28px;
+
+            &:after {
+              content: "";
+              display: inline-block;
+              font: 50px/1 FontAwesome;
+              left: $box;
+              position: absolute;
+              text-rendering: auto;
+              top: $box;
+            }
+          }
+
+          .slide-item-image {
+            img {
+              display: block;
+
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .details-tabs {
+    background: $tertiary;
+    float: none;
+    @include clearfix;
+  }
 }
 
 .slider {
@@ -58,24 +133,24 @@ $icon-width: 34px;
   }
 }
 
-.sub-slider-item {
-  float: left;
-  width: 100%;
-  background-color: $background-color;
-  position: relative;
-
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 800px;
-    z-index: -1;
-    background-color: $background-color;
-  }
-}
+//.sub-slider-item {
+//  float: left;
+//  width: 100%;
+//  background-color: $background-color;
+//  position: relative;
+//
+//  &:after {
+//    content: '';
+//    display: block;
+//    position: absolute;
+//    top: 0;
+//    left: 0;
+//    width: 100%;
+//    height: 800px;
+//    z-index: -1;
+//    background-color: $background-color;
+//  }
+//}
 
 .slide-item-details {
   background-color: $tertiary;
