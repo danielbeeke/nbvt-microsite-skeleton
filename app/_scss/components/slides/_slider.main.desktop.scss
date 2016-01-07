@@ -1,0 +1,94 @@
+@media (min-width: $desktop) {
+  .slider {
+    height: 100%;
+    background: $tertiary;
+  }
+
+  .details-tabs {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    float: left;
+  }
+
+  $icon-width: 34px;
+  .details-tab {
+    cursor: pointer;
+    background-color: $tertiary;
+    float: left;
+    border-radius: 50%;
+    height: $icon-width;
+    width: $icon-width;
+    text-align: center;
+    line-height: $icon-width;
+    color: darken($tertiary, 50);
+    box-sizing: content-box;
+    border: 4px solid darken($tertiary, 50);
+    margin-right: 5px;
+    position: relative;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: $background-color;
+      top: -35px;
+      opacity: 0;
+      transition: opacity $speed $easing, transform $speed $easing;
+      left: 50%;
+      transform: translate(-50%, -30px) rotate(45deg);
+    }
+
+    &.active {
+      background-color: $background-color;
+
+      &:after {
+        opacity: 1;
+        transform: translate(-50%, 0) rotate(45deg);
+      }
+    }
+  }
+
+  .slide-item-details {
+    background-color: $tertiary;
+  }
+
+  .slide-item-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+  }
+
+  .slide-item {
+    height: 100%;
+    width: 100%;
+    @include clearfix;
+  }
+
+  .slide-item-text {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    font-size: 80px;
+    line-height: 90px;
+    color: $background-color;
+    font-weight: bolder;
+    max-width: 60vw;
+
+    * {
+      margin: 0;
+    }
+  }
+
+  .owl-wrapper-outer {
+    height: 100% !important;
+  }
+
+  body.slides {
+    .page-wrapper {
+      height: 100%;
+    }
+  }
+}
