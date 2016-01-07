@@ -1,8 +1,8 @@
 <div class="slider owl-carousel" id="slides">
     {% for slide in site.data.slides %}
     <div class="slide-item">
+        <div class="slide-item-image" style="background-image: url({{ slide[1].image }});"></div>
         <div class="slide-item-text">{{ slide.text }}</div>
-        <div class="slide-item-image" style="background-image: url({{ slide.image }});"></div>
         {% include components/slides/sub-slider.html %}
     </div>
     {% endfor %}

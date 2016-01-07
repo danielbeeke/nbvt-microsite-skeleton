@@ -46,7 +46,8 @@
 
 @media (min-width: $desktop) {
   .page-footer {
-    padding: 0 ($box / 3 * 2);
+    padding: 0 $box / 6;
+    max-width: 1260px;
 
     .logo-link {
       margin-left: 0;
