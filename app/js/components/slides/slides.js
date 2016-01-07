@@ -72,6 +72,7 @@ $(function() {
                         slideSpeed : 300,
                         paginationSpeed : 400,
                         singleItem: true,
+                        autoHeight: true,
                         afterAction: function () {
                             var tabs = this.$elem.parent().find('.details-tabs');
                             var currentTab = tabs.find('.details-tab:nth-child(' + (this.currentItem + 1) + ')');

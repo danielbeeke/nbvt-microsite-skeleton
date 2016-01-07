@@ -2,6 +2,15 @@
   .slider {
     height: 100%;
     background: $tertiary;
+
+    > .owl-wrapper-outer {
+      height: 100% !important;
+      > .owl-wrapper {
+        > .owl-item {
+          height: 100%;
+        }
+      }
+    }
   }
 
   .details-tabs {
@@ -80,10 +89,6 @@
     * {
       margin: 0;
     }
-  }
-
-  .owl-wrapper-outer {
-    height: 100% !important;
   }
 
   body.slides {
