@@ -6,18 +6,18 @@
     window.nbvt.members.map = "{{ site.data.microsite.members_map_url }}"
 
     window.nbvt.members.items = [
-    {% for member in site.data.members.member %}
+    {% for member in site.data.members %}
     {
-        "name": "{{ member[1].name }}",
-            "slug": "{{ member[1].slug }}",
-            "lat": "{{ member[1].geom.lat }}",
-            "lng": "{{ member[1].geom.lon }}",
-        {% if member[1] == page.member %}
+        "name": "{{ member.name }}",
+            "slug": "{{ member.slug }}",
+            "lat": "{{ member.geom.lat }}",
+            "lng": "{{ member.geom.lon }}",
+        {% if member == page.member %}
             "active": true,
         {% else %}
             "active": false,
         {% endif %}
-            "tags": [{% for option in member[1].options %}
+            "tags": [{% for option in member.options %}
                         {% assign option_key = option | replace: ' ', '-' | replace: '/', '-' | downcase %}
                         "{{ option_key }}",
                     {% endfor %}]

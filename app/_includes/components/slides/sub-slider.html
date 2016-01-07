@@ -1,41 +1,41 @@
-{% if slide[1].quote or slide[1].description or slide[1].detail_image %}
+{% if slide.quote or slide.description or slide.detail_image %}
 <div class="slide-item-details-wrapper">
     <div id="slide-item-details-{{ slide[0] }}" class="slide-item-details owl-carousel">
-        {% if slide[1].description %}
+        {% if slide.description %}
         <div class="sub-slider-item">
             <div class="slide-item-description">
-                {{ slide[1].description }}
+                {{ slide.description }}
             </div>
         </div>
         {% endif %}
 
-        {% if slide[1].quote %}
+        {% if slide.quote %}
         <div class="sub-slider-item">
             <blockquote class="slide-item-quote">
-                {{ slide[1].quote }}
+                {{ slide.quote }}
             </blockquote>
         </div>
         {% endif %}
 
-        {% if slide[1].detail_image %}
+        {% if slide.detail_image %}
         <div class="sub-slider-item">
             <div class="slide-item-image">
-                <img src="{{ slide[1].detail_image }}">
+                <img src="{{ slide.detail_image }}">
             </div>
         </div>
         {% endif %}
     </div>
 
     <ul class="details-tabs" data-for="slide-item-details-{{ slide[0] }}">
-        {% if slide[1].description %}
+        {% if slide.description %}
         <li class="details-tab"><i class="fa fa-align-left"></i></li>
         {% endif %}
 
-        {% if slide[1].quote %}
+        {% if slide.quote %}
         <li class="details-tab"><i class="fa fa-quote-right"></i></li>
         {% endif %}
 
-        {% if slide[1].detail_image %}
+        {% if slide.detail_image %}
         <li class="details-tab"><i class="fa fa-bar-chart"></i></li>
         {% endif %}
     </ul>

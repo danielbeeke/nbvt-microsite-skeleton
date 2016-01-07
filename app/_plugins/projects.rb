@@ -26,7 +26,7 @@ module Jekyll
         result = File.read( 'app/_data/projects.json' )
         projects = JSON.parse( result )
 
-        projects['project'].each do |id, project|
+        projects.each do |project|
           site.pages << ProjectPage.new(site, site.source, File.join(dir, project['title'].split(' ').join('-').downcase), project)
         end
 

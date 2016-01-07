@@ -8,21 +8,6 @@ $micro_site_info_url = $nbvt_url . '/api/v1/microsites' . '?' . 'microsite=' . $
 $micro_sites_info = json_decode(file_get_contents($micro_site_info_url), TRUE);
 $micro_site_info = end($micro_sites_info['microsite']);
 
-$page_type_mapping = array(
-    'blogs' => array(
-        'single' => 'blog',
-        'folder' => '_blogs'
-    ),
-    'pages' => array(
-        'single' => 'page',
-        'folder' => '_pages'
-    ),
-    'news' => array(
-        'single' => 'news_item',
-        'folder' => '_news'
-    )
-);
-
 if (!file_exists('app/_data')) {
     mkdir('app/_data');
 }
@@ -51,8 +36,13 @@ foreach ($micro_site_info['components'] as $component) {
     $component_info_url = $nbvt_url . '/api/v1/' . $component . '?' . 'microsite=' . $cname;
     $component_info = json_decode(file_get_contents($component_info_url), TRUE);
 
-    if (isset($page_type_mapping[$component]['folder']) && !file_exists('app/' . $page_type_mapping[$component]['folder'])) {
-        mkdir('app/' . $page_type_mapping[$component]['folder']);
+    $component_info = array_values(array_shift($component_info));
+
+    if (isset($component_info[0]['download'])) {
+        if (!file_exists('app/_' . $component)) {
+            mkdir('app/_' . $component);
+        }
+
     }
 
     if (file_exists('app/_data/' . $component . '.json')) {
@@ -61,21 +51,21 @@ foreach ($micro_site_info['components'] as $component) {
 
     file_put_contents('app/_data/' . $component . '.json', stripslashes(json_encode($component_info)));
 
-    if (in_array($component, array_keys($page_type_mapping))) {
-        $files = glob('app/' . $page_type_mapping[$component]['folder'] . '/*');
+    $files = glob('app/_' . $component . '/*');
+    if (isset($files) && count($files)) {
         foreach ($files as $file){
             if (is_file($file) && substr($file, -3) == '.md') {
                 unlink($file);
             }
         }
+    }
 
-        foreach ($component_info[$page_type_mapping[$component]['single']] as $item_nid => $item_data) {
-            if (isset($item_data['download'])) {
-                $item_url = $nbvt_url . '/' . $item_data['download']  . '?' . 'microsite=' . $cname;
-                $item = file_get_contents($item_url);
-                $file_name = get_real_filename($http_response_header, $item_url);
-                file_put_contents('app/' . $page_type_mapping[$component]['folder'] . '/' . $file_name, $item);
-            }
+    foreach ($component_info as $item_nid => $item_data) {
+        if (isset($item_data['download'])) {
+            $item_url = $nbvt_url . '/' . $item_data['download']  . '?' . 'microsite=' . $cname;
+            $item = file_get_contents($item_url);
+            $file_name = get_real_filename($http_response_header, $item_url);
+            file_put_contents('app/_' . $component . '/' . $file_name, $item);
         }
     }
 }
