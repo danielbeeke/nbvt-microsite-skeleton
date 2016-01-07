@@ -1,0 +1,26 @@
+{% capture recent_news %}
+    {% assign sorted_news = (site.news | sort: 'timestamp' ) | reverse %}
+    {% assign counter = 0 %}
+    {% for news_item in sorted_news %}
+        {% if counter < 3 %}
+            {% if page.collection == 'news' %}
+                {% if news_item.timestamp < page.timestamp and news_item.path != page.path %}
+                    {% include components/news/teaser.html %}
+                    {% assign counter = counter | plus: 1 %}
+                {% endif %}
+            {% else %}
+                {% include components/news/teaser.html %}
+                {% assign counter = counter | plus: 1 %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endcapture %}
+
+{% assign trimmed_recent_news = recent_news | trim %}
+
+{% if trimmed_recent_news != '' %}
+<div class="sidebar-block">
+    <h2 class="sidebar-items-title">Nieuws</h2>
+    {{ recent_news }}
+</div>
+{% endif %}

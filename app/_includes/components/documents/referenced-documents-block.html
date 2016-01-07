@@ -1,0 +1,10 @@
+<div class="sidebar-block">
+    <h2 class="sidebar-items-title">Documenten</h2>
+    {% for document_nid in page.documents %}
+    {% assign document_hash = (site.data.documents | where: "nid" , document_nid) %}
+    {% if document_hash[0] %}
+    {% assign document = document_hash[0] %}
+    {% include components/documents/teaser.html %}
+    {% endif %}
+    {% endfor %}
+</div>

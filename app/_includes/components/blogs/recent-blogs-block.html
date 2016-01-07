@@ -1,0 +1,52 @@
+{% assign sorted_blogs = (site.blogs | sort: 'timestamp' ) | reverse %}
+
+{% assign counter = 1 %}
+
+{% capture related_blogs_block %}
+{% if page.tags %}
+    {% for tag in page.tags %}
+        {% assign related_blogs = sorted_blogs | contains: 'tags', tag %}
+
+        {% for blog in related_blogs %}
+            {% if counter < 4 and blog.path != page.path %}
+                {% include components/blogs/teaser.html %}
+                {% assign counter = counter | plus: 1 %}
+            {% endif %}
+        {% endfor %}
+
+    {% endfor %}
+{% endif %}
+{% endcapture %}
+
+{% capture recent_blogs_block %}
+{% for blog in sorted_blogs %}
+    {% if page.collection == 'blogs' %}
+        {% if blog.timestamp < page.timestamp and blog.path != page.path %}
+            {% if counter < 4 %}
+                {% include components/blogs/teaser.html %}
+                {% assign counter = counter | plus: 1 %}
+            {% endif %}
+        {% endif %}
+    {% else %}
+        {% if counter < 4 %}
+            {% include components/blogs/teaser.html %}
+            {% assign counter = counter | plus: 1 %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+{% endcapture %}
+
+{% assign related_blogs_block_trimmed = related_blogs_block | trim %}
+{% assign recent_blogs_block_trimmed = recent_blogs_block | trim %}
+
+{% if related_blogs_block_trimmed != '' %}
+<div class="sidebar-block">
+    <h2 class="sidebar-items-title">Gerelateerde blogs</h2>
+    {{ related_blogs_block_trimmed }}
+</div>
+{% elsif recent_blogs_block_trimmed != '' %}
+<div class="sidebar-block">
+    <h2 class="sidebar-items-title">Andere blogs</h2>
+    {{ recent_blogs_block_trimmed }}
+</div>
+{% endif %}

@@ -10,42 +10,8 @@
         </div>
     {% endif %}
 
-    {% capture related_news %}
-    {% for news_item in site.news %}
-    {% for tag in page.tags %}
-    {% if news_item.tags contains tag and news_item.url != page.url %}
-    {% include components/news/teaser.html %}
-    {% endif %}
-    {% endfor %}
-    {% endfor %}
-    {% endcapture %}
+    {% include components/news/recent-news-block.html %}
 
-    {% assign related_news_trimmed = related_news | trim %}
-
-    {% unless related_news_trimmed == '' %}
-    <div class="sidebar-block">
-        <h2 class="sidebar-items-title">Nieuws</h2>
-        {{ related_news }}
-    </div>
-    {% endunless %}
-
-    {% capture related_blogs %}
-    {% for blog in site.blogs %}
-    {% for tag in page.tags %}
-    {% if blog.tags contains tag and blog.url != page.url  %}
-    {% include components/blogs/teaser.html %}
-    {% endif %}
-    {% endfor %}
-    {% endfor %}
-    {% endcapture %}
-
-    {% assign related_blogs_trimmed = related_blogs | trim %}
-
-    {% unless related_blogs_trimmed == '' %}
-    <div class="sidebar-block">
-        <h2 class="sidebar-items-title">Blogs</h2>
-        {{ related_blogs }}
-    </div>
-    {% endunless %}
+    {% include components/blogs/recent-blogs-block.html %}
 
 </div>
