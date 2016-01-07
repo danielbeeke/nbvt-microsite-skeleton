@@ -26,7 +26,7 @@ module Jekyll
         result = File.read( 'app/_data/slides.json' )
         slides = JSON.parse( result )
 
-        slides['slide'].each do |id, slide|
+        slides.each do |slide|
           site.pages << SlidePage.new(site, site.source, File.join(dir, slide['title'].split(' ').join('-').downcase), slide)
         end
 

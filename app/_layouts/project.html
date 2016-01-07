@@ -14,8 +14,7 @@ body_class: two-columns
 
 {% include components/projects/slider.html %}
 
-{% for member_hash in site.data.members.member %}
-{% assign possible_member = member_hash[1] %}
+{% for possible_member in site.data.members %}
 
 {% assign possible_member_name = possible_member.name | trim %}
 {% assign project_owner = possible_member.name | trim %}

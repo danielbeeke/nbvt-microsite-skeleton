@@ -13,7 +13,7 @@ $(function() {
         map = L.map('leaflet-map', {
             attributionControl: false,
             zoomControl: false,
-            scrollWheelZoom: false
+            //scrollWheelZoom: false
         });
         markerLayer = L.featureGroup().addTo(map);
 

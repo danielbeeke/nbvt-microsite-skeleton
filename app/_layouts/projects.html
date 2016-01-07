@@ -10,8 +10,7 @@ layout: html
 </div>
 
 <div class="projects-overview full">
-{% for project_hash in site.data.projects.project %}
-    {% assign project = project_hash[1] %}
+{% for project in site.data.projects %}
     {% include components/projects/teaser.html %}
 {% endfor %}
 </div>
