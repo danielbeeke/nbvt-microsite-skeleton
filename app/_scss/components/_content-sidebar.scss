@@ -33,6 +33,10 @@
     border-left: 1px solid $tertiary;
 
     .sidebar-block {
+      .sidebar-items-title {
+        margin: 0 ($box / 2);
+      }
+
       &:first-child {
         .sidebar-items-title {
           padding-top: 0px;

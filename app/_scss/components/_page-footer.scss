@@ -40,11 +40,14 @@
 
 .page-footer-second {
   background-color: $tertiary;
-  padding: ($box / 2) $box;
+  padding: ($mobile-box) $mobile-box * 2;
+  margin: 0 $mobile-box * 3
 }
 
 @media (min-width: $desktop) {
   .page-footer {
+    padding: 0 ($box / 3 * 2);
+
     .logo-link {
       margin-left: 0;
     }
@@ -54,5 +57,9 @@
       float: right;
       clear: right;
     }
+  }
+
+  .page-footer-second {
+    margin: 0;
   }
 }
