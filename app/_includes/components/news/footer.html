@@ -4,6 +4,6 @@
     <h3 class="footer-block-title">Recent nieuws</h3>
 
     {% for news_item in sorted_news | limit:3 %}
-    <a href="{{ news_item.url }}" class="news-item-footer-link">{{ news_item.title }} <i class="fa fa-arrow-circle-o-right"></i></a>
+    <a href="{{ news_item.url }}" class="footer-link news-item-footer-link">{{ news_item.title }} <i class="fa fa-arrow-circle-o-right"></i></a>
     {% endfor %}
 </div>

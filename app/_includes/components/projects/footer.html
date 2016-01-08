@@ -4,6 +4,6 @@
     <h3 class="footer-block-title">Recente projecten</h3>
 
     {% for project in sorted_projects | limit:3 %}
-    <a href="/inspiratie/{{ project.slug }}/" class="project-footer-link">{{ project.title }} <i class="fa fa-arrow-circle-o-right"></i></a>
+    <a href="/inspiratie/{{ project.slug }}/" class="footer-link project-footer-link">{{ project.title }} <i class="fa fa-arrow-circle-o-right"></i></a>
     {% endfor %}
 </div>

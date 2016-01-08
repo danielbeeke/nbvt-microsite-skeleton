@@ -30,37 +30,94 @@
     clear: left;
     margin-left: $mobile-box * 3;
   }
-}
 
-.page-footer-first {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  @include clearfix;
-}
-
-.page-footer-second {
-  background-color: $tertiary;
-  padding: ($mobile-box) $mobile-box * 2;
-  margin: 0 $mobile-box * 3
-}
-
-@media (min-width: $desktop) {
-  .page-footer {
-    padding: 0 $box / 6;
-    max-width: 1260px;
-
-    .logo-link {
-      margin-left: 0;
-    }
-
-    .site-slogan {
-      margin-left: 0;
-      float: right;
-      clear: right;
-    }
+  .page-footer-first {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    @include clearfix;
   }
 
   .page-footer-second {
-    margin: 0;
+    background-color: $tertiary;
+    padding: ($mobile-box) $mobile-box * 2;
+    margin: 0 $mobile-box * 3;
+
+    .footer-block {
+      width: 100%;
+      clear: both;
+
+      &:last-child {
+        margin-bottom: 30px;
+      }
+    }
+
+    .footer-block-title {
+      font-family: $header-font;
+      font-size: 18px;
+      font-style: italic;
+      color: $text-color;
+    }
+
+    .footer-link {
+      display: block;
+      font-weight: bold;
+      color: $secondary;
+      clear: left;
+      font-size: 14px;
+
+      & + .footer-link {
+        margin-top: 10px;
+      }
+    }
   }
 }
+
+
+@media (min-width: $desktop) {
+  .page-footer {
+
+    .page-footer-second {
+      @include clearfix;
+      padding-bottom: 30px;
+
+      .footer-block:not(.twitter) {
+        width: 25%;
+        float: left;
+        clear: none;
+        padding: 0 2%;
+      }
+    }
+  }
+}
+
+
+
+
+
+//
+//.page-footer-second {
+//  background-color: $tertiary;
+//  padding: ($mobile-box) $mobile-box * 2;
+//  margin: 0 $mobile-box * 3
+//}
+//
+//@media (min-width: $desktop) {
+//  .page-footer {
+//    padding: 0 $box / 6;
+//    max-width: 1260px;
+//
+//    .logo-link {
+//      margin-left: 0;
+//    }
+//
+//    .site-slogan {
+//      margin-left: 0;
+//      float: right;
+//      clear: right;
+//    }
+//  }
+//
+//  .page-footer-second {
+//    margin: 0;
+//  }
+//}
