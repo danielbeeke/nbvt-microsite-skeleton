@@ -5,8 +5,10 @@ body_class: two-columns
 
 ---
 
+{% assign project = page.project %}
+{% include components/projects/first-image.html %}
+
 <div class="sidebar-right project-info">
-    {% assign project = page.project %}
     {% include components/projects/info.html %}
 </div>
 
