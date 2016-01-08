@@ -8,6 +8,10 @@
     position: fixed !important;
   }
 
+  .slide-item {
+    height: calc(100vh - #{$header-height});
+  }
+
   .slide-item-image {
     background-position: center center;
   }
