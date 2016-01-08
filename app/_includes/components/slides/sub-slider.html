@@ -39,5 +39,9 @@
         <li class="details-tab"><i class="fa fa-bar-chart"></i></li>
         {% endif %}
     </ul>
+
+    {% if slide.link %}
+        <a href="{{ slide.link.url }}" class="slide-link">{{ slide.link.title }}</a>
+    {% endif %}
 </div>
 {% endif %}
