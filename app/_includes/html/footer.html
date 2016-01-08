@@ -9,6 +9,8 @@
         {% endif %}
     </div>
     <div class="page-footer-second">
-        {% include html/twitter.html %}
+        {% for component in site.data.microsite.footer_components %}
+            {% include components/{{ component }}/footer.html %}
+        {% endfor %}
     </div>
 </footer>
