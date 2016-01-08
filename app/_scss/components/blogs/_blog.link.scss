@@ -1,0 +1,14 @@
+.blog-link {
+  display: block;
+  float: left;
+  clear: both;
+  width: 100%;
+  padding: ($mobile-box * 1.5) $mobile-box;
+  font-weight: bold;
+  color: $text-color !important;
+  transition: $speed $easing;
+
+  &:hover {
+    color: lighten($text-color, 40) !important;
+  }
+}
