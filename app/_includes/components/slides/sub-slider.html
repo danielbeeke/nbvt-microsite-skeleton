@@ -1,6 +1,6 @@
 {% if slide.quote or slide.description or slide.detail_image %}
 <div class="slide-item-details-wrapper">
-    <div id="slide-item-details-{{ slide[0] }}" class="slide-item-details owl-carousel">
+    <div id="slide-item-details-{{ slide.id }}" class="slide-item-details owl-carousel">
         {% if slide.description %}
         <div class="sub-slider-item">
             <div class="slide-item-description">
@@ -26,7 +26,7 @@
         {% endif %}
     </div>
 
-    <ul class="details-tabs" data-for="slide-item-details-{{ slide[0] }}">
+    <ul class="details-tabs" data-for="slide-item-details-{{ slide.id }}">
         {% if slide.description %}
         <li class="details-tab"><i class="fa fa-align-left"></i></li>
         {% endif %}
