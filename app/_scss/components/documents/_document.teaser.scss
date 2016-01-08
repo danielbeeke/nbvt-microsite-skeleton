@@ -1,0 +1,21 @@
+.document.teaser {
+  padding: ($mobile-box * 1.5) $mobile-box;
+
+  .document-title {
+    font-weight: bold;
+    font-family: $body-font;
+    color: $text-color;
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .document-url {
+    font-weight: bold;
+  }
+}
+
+@media (min-width: $desktop) {
+  .document.teaser {
+    padding: ($box / 4) ($box / 2);
+  }
+}
