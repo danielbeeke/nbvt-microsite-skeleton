@@ -1,0 +1,9 @@
+<div class="footer-block blogs">
+    {% assign sorted_blogs = (site.blogs | sort: 'timestamp' ) | reverse %}
+
+    <h3 class="footer-block-title">Recent nieuws</h3>
+
+    {% for blog in sorted_blogs | limit:3 %}
+        <a href="{{ blog.url }}" class="blog-footer-link">{{ blog.title }} <i class="fa fa-arrow-circle-o-right"></i></a>
+    {% endfor %}
+</div>

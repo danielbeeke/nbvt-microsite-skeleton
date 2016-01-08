@@ -1,4 +1,6 @@
 .member.teaser {
+  @include clearfix;
+
   .member-logo {
     max-height: 80px;
     margin: 0 auto;
