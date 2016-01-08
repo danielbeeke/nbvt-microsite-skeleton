@@ -1,32 +1,36 @@
-.project-slider {
-  height: 100%;
-  background: $tertiary;
-  z-index: 4;
-  min-height: calc(100vh - #{$header-height});
 
-  @media (min-width: $tablet - 1) {
-    position: fixed !important;
+
+@media (min-width: $desktop) {
+  .project-slider {
+    height: 100%;
+    background: $tertiary;
+    z-index: 4;
+    min-height: calc(100vh - #{$header-height});
+
+    @media (min-width: $tablet - 1) {
+      position: fixed !important;
+    }
+
+    .slide-item {
+      height: calc(100vh - #{$header-height});
+    }
+
+    .slide-item-image {
+      background-position: center center;
+    }
   }
 
-  .slide-item {
-    height: calc(100vh - #{$header-height});
-  }
+  .inspiratie {
+    .social-share {
+      bottom: auto;
+      top: 1px;
+      left: 50%;
+      transform: translateX(calc(-307px + 25%));
 
-  .slide-item-image {
-    background-position: center center;
-  }
-}
-
-.inspiratie {
-  .social-share {
-    bottom: auto;
-    top: 1px;
-    left: 50%;
-    transform: translateX(-50%);
-    
-    .social-link {
-      background-color: $background-color;
-      clear: none;
+      .social-link {
+        background-color: $background-color;
+        clear: none;
+      }
     }
   }
 }

@@ -76,7 +76,7 @@ $(function() {
             localStorage.setItem('searchLat', oldLat);
             localStorage.setItem('searchLng', oldLng);
 
-            setSearch(oldLat, oldLng, filters, true);
+            setSearch(oldLat, oldLng, filters, true, true);
         });
 
     }
@@ -107,7 +107,7 @@ $(function() {
 
 
     // Sets the map.
-    function setSearch(lat, lng, filters, fitBounds) {
+    function setSearch(lat, lng, filters, fitBounds, scrollTo) {
         markerLayer.clearLayers();
 
         var membersToSort = [];
@@ -138,10 +138,13 @@ $(function() {
         });
 
         if (fitBounds) {
+            map.fitBounds(bounds);
+        }
+
+        if (scrollTo) {
             $('html, body').animate({
                 scrollTop: $('.leaflet-map').offset().top - $('.page-header').height()
             }, 400)
-            map.fitBounds(bounds);
         }
     }
 

@@ -14,7 +14,7 @@
     @include clearfix;
   }
 
-  @media (min-width: $tablet - 1) {
+  @media (min-width: $desktop) {
     .sidebar-right {
       width: 320px;
       float: right;

@@ -1,5 +1,6 @@
 .document.teaser {
   padding: ($mobile-box * 1.5) $mobile-box;
+  display: block;
 
   .document-title {
     font-weight: bold;
@@ -7,6 +8,13 @@
     color: $text-color;
     font-size: 16px;
     margin: 0;
+  }
+
+  .tags {
+    font-weight: normal;
+    color: lighten($text-color, 40);
+    font-style: italic;
+    font-size: 14px;
   }
 
   .document-url {

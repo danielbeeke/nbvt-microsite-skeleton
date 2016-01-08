@@ -12,3 +12,32 @@
 .member-filters-search {
   font-weight: bold;
 }
+
+.back-to-filter-button {
+  background: white none repeat scroll 0 0;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: $body-font;
+  padding: 10px 20px;
+  position: relative;
+  text-align: center;
+  width: auto;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: $speed $easing;
+
+  &:hover,
+  &:focus {
+    background: $primary;
+    color: $white;
+  }
+}
+
+.has-visible-filter-back-button {
+  .back-to-filter-button {
+    opacity: 1;
+    visibility: visible;
+  }
+}
