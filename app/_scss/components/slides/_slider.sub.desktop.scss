@@ -74,6 +74,10 @@
         }
       }
     }
+    
+    .owl-controls {
+      display: none !important;
+    }
 
     .details-tabs {
       background: $tertiary;

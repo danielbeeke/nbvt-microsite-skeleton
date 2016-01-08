@@ -75,6 +75,10 @@
     border: 0px;
 
     .member.teaser {
+      .back-to-overview {
+        display: none;
+      }
+
       .member-name {
         font-size: 18px;
       }
