@@ -37,8 +37,8 @@ $(function() {
             main: {
                 desktop: function () {
                     var settings = {
-                        slideSpeed : 300,
-                        paginationSpeed : 400,
+                        slideSpeed: 300,
+                        paginationSpeed: 400,
                         singleItem: true
                     };
 
@@ -46,10 +46,11 @@ $(function() {
                 },
                 mobile: function () {
                     var settings = {
-                        slideSpeed : 300,
-                        paginationSpeed : 400,
+                        slideSpeed: 300,
+                        paginationSpeed: 400,
                         autoHeight: true,
-                        singleItem: true
+                        singleItem: true,
+                        navigation: true
                     };
 
                     $('#slides').owlCarousel(settings);

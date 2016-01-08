@@ -17,12 +17,14 @@
 
     .owl-wrapper-outer {
       height: auto;
+      margin: 0 $mobile-box;
+      width: calc(100% - 20px);
       @include clearfix;
     }
 
     .owl-wrapper {
       .owl-item {
-        padding: 0 $mobile-box;
+        //padding: 0 $mobile-box;
         @include clearfix;
 
         .slide-item {
@@ -41,6 +43,7 @@
         .slide-item-text {
           background: $white;
           margin: 0 $mobile-box * 2;
+          margin-right: $mobile-box * 4;
           padding: $mobile-box * 2 $mobile-box * 5;
           color: $text-color;
           font-size: 24px;
@@ -48,6 +51,59 @@
 
           * {
             margin: 0;
+          }
+        }
+      }
+    }
+
+    .owl-controls {
+      //background: red;
+      height: 90px;
+      left: 10px;
+      margin-top: 22%;
+      position: absolute;
+      top: 0;
+      width: calc(100% - 20px);
+      overflow: hidden;
+
+      .owl-buttons {
+        .owl-next,
+        .owl-prev {
+          font-size: 0px;
+          background: rgba($black, 0.4);
+          border: 2px solid $white;
+          border-radius: 100%;
+          position: absolute;
+          left: -25px;
+          height: 90px;
+          width: 90px;
+          transition: $speed $easing;
+          
+          &:after {
+            content: "\f060";
+            color: white;
+            display: block;
+            font-family: "FontAwesome";
+            font-size: 40px;
+            left: 37%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+
+          &:hover {
+            background: rgba($black, 0.6);
+          }
+        }
+
+        .owl-next {
+          right: -25px;
+          left: auto;
+
+          &:after {
+            content: "\f061";
+            left: auto;
+            right: 37%;
           }
         }
       }

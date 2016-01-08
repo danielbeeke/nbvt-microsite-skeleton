@@ -2,18 +2,10 @@
   .slide-item-details-wrapper {
     background: $white;
     margin: 0 $mobile-box * 2;
+    margin-right: $mobile-box * 4;
     padding: $mobile-box * 2 $mobile-box * 5;
 
-    .owl-wrapper-outer {
-      overflow: visible;
-    }
-
-    .owl-wrapper {
-      width: 100% !important;
-      transform: none !important;
-    }
-
-    .owl-item {
+    .sub-slider-item {
       width: 100% !important;
       padding: 0;
 

@@ -72,7 +72,6 @@
   }
 }
 
-
 @media (min-width: $desktop) {
   .page-footer {
 
@@ -89,35 +88,3 @@
     }
   }
 }
-
-
-
-
-
-//
-//.page-footer-second {
-//  background-color: $tertiary;
-//  padding: ($mobile-box) $mobile-box * 2;
-//  margin: 0 $mobile-box * 3
-//}
-//
-//@media (min-width: $desktop) {
-//  .page-footer {
-//    padding: 0 $box / 6;
-//    max-width: 1260px;
-//
-//    .logo-link {
-//      margin-left: 0;
-//    }
-//
-//    .site-slogan {
-//      margin-left: 0;
-//      float: right;
-//      clear: right;
-//    }
-//  }
-//
-//  .page-footer-second {
-//    margin: 0;
-//  }
-//}
