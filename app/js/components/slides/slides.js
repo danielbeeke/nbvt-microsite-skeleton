@@ -7,7 +7,7 @@ $(function() {
     var slidesController = {
         init: function () {
             var debounceTimeout;
-            console.log('test 2');
+
             $(window).on('resize', function () {
                 clearTimeout(debounceTimeout);
 
@@ -20,14 +20,17 @@ $(function() {
         },
         handleContext: function () {
             if ($(window).width() > 1280) {
-                console.log('desktop')
-                slidesController.sliders.main.desktop()
-                slidesController.sliders.sub.desktop()
+                slidesController.sliders.main.destroy();
+                slidesController.sliders.sub.destroy();
+
+                slidesController.sliders.main.desktop();
+                slidesController.sliders.sub.desktop();
             }
             else {
-                console.log('mobile')
-                slidesController.sliders.main.mobile()
-                slidesController.sliders.sub.mobile()
+                slidesController.sliders.main.destroy();
+                slidesController.sliders.sub.destroy();
+
+                slidesController.sliders.main.mobile();
             }
         },
         sliders: {
@@ -39,10 +42,6 @@ $(function() {
                         singleItem: true
                     };
 
-                    if ($('#slides').data('owlCarousel')) {
-                        $('#slides').data('owlCarousel').destroy().owlCarousel(settings);
-                    }
-
                     $('#slides').owlCarousel(settings);
                 },
                 mobile: function () {
@@ -53,20 +52,16 @@ $(function() {
                         singleItem: true
                     };
 
-                    console.log('test 4');
-
-                    if ($('#slides').data('owlCarousel')) {
-                        $('#slides').data('owlCarousel').destroy().owlCarousel(settings);
-                    }
-
                     $('#slides').owlCarousel(settings);
+                },
+                destroy: function () {
+                    if ($('#slides.owl-theme').length) {
+                        $('#slides.owl-theme').data('owlCarousel').destroy();
+                    }
                 }
             },
             sub: {
                 desktop: function () {
-
-                    console.log('test 5');
-
                     $('.slide-item-details').owlCarousel({
                         transitionStyle:"fade",
                         slideSpeed : 300,
@@ -81,9 +76,11 @@ $(function() {
                         }
                     });
                 },
-                mobile: function () {
-                    if ($('.slide-item-details').data('owlCarousel')) {
-                        $('.slide-item-details').data('owlCarousel').destroy()
+                destroy: function () {
+                    if ($('.slide-item-details.owl-theme').length) {
+                        $('.slide-item-details.owl-theme').each(function () {
+                            $(this).data('owlCarousel').destroy()
+                        })
                     }
                 }
             }
