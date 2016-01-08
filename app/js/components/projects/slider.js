@@ -34,7 +34,8 @@ $(function() {
                     var settings = {
                         slideSpeed : 300,
                         paginationSpeed : 400,
-                        singleItem: true
+                        singleItem: true,
+                        navigation: true
                     };
 
                     $('#project-slider').owlCarousel(settings);

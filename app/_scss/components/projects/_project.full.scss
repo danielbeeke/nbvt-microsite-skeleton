@@ -87,7 +87,7 @@
   .two-columns.inspiratie.collection-pages {
     .page-main {
       padding: 0;
-      background: $tertiary;
+      background: $white;
     }
 
     .project.first-image {
@@ -96,6 +96,10 @@
 
     .sidebar-right {
       margin: 0 !important;
+
+      &:not(.project-info) {
+        border-top: 1px solid $tertiary;
+      }
     }
 
     .social-share {
@@ -113,10 +117,10 @@
     }
 
     .project-slider {
-      height: 100%;
       background: $tertiary;
       z-index: 4;
-      min-height: calc(100vh - #{$header-height});
+      height: calc(100vh - #{$header-height});
+      overflow: hidden;
 
       @media (min-width: $tablet - 1) {
         position: fixed !important;
