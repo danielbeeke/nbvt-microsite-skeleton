@@ -1,5 +1,5 @@
 <a class="project teaser" href="/inspiratie/{{ project.title | trim | replace: ' ', '-' | replace: '/', '-' | downcase }}">
     <h3 class="project-title">{{ project.title }}</h3>
     <strong class="project-location">{{ project.location.locality }}</strong>
-    <div class="project-image" style="background-image: url('{{ project.thumbnail }}');"></div>
+    <div class="project-image" style="background-image: url('{{ project.thumbnail | first }}');"></div>
 </a>
