@@ -12,3 +12,9 @@
     color: lighten($text-color, 40) !important;
   }
 }
+
+@media (min-width: $desktop) {
+  .blog-link {
+    padding: ($box / 4) ($box / 2);
+  }
+}
