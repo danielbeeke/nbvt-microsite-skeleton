@@ -8,6 +8,21 @@
             <h2 class="sidebar-items-title blog-author-title">Over de schrijver</h2>
             {% include components/authors/teaser.html %}
         </div>
+
+        {% assign blogs_from_author = (site.blogs | where: "author" , page.author) %}
+
+        {% assign blogs_from_author_size = blogs_from_author.size %}
+
+        {% if blogs_from_author_size > 1 %}
+            <div class="sidebar-block blog-author-other">
+                <h2 class="sidebar-items-title blog-author-title">Andere blogs van {{ author.name }}</h2>
+                {% for blog in blogs_from_author %}
+                    {% if blog.url != page.url %}
+                        <a class="blog-link" href="{{ blog.url }}">{{ blog.title }} <i class="fa fa-arrow-circle-o-right"></i></a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
     {% endif %}
 
     {% include components/news/recent-news-block.html %}
