@@ -57,15 +57,6 @@
     }
 
     .owl-controls {
-      //background: red;
-      height: 90px;
-      left: 10px;
-      margin-top: 22%;
-      position: absolute;
-      top: 0;
-      width: calc(100% - 20px);
-      overflow: hidden;
-
       .owl-buttons {
         .owl-next,
         .owl-prev {
@@ -78,6 +69,7 @@
           height: 90px;
           width: 90px;
           transition: $speed $easing;
+          top: 25vw;
           
           &:after {
             content: "\f060";

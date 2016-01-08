@@ -96,4 +96,74 @@
       height: 100%;
     }
   }
+
+  .owl-controls {
+
+    .owl-pagination {
+      position: absolute;
+      left: $box / 2;
+      bottom: $box / 2;
+
+      .owl-page {
+        width: 30px;
+        height: 30px;
+        background: rgba($black, 0.4);
+        border: 2px solid $white;
+        transition: $speed $easing;
+        border-radius: 100%;
+        margin-top: 7px;
+
+        &.active {
+          background: $secondary;
+        }
+
+        &:hover {
+          background: darken($secondary, 20);
+        }
+      }
+    }
+
+    .owl-buttons {
+      .owl-next,
+      .owl-prev {
+        font-size: 0px;
+        background: rgba($black, 0.4);
+        border: 2px solid $white;
+        border-radius: 100%;
+        position: absolute;
+        left: -25px;
+        height: 90px;
+        width: 90px;
+        transition: $speed $easing;
+        top: calc(50% - #{$header-height});
+
+        &:after {
+          content: "\f060";
+          color: white;
+          display: block;
+          font-family: "FontAwesome";
+          font-size: 40px;
+          left: 37%;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        &:hover {
+          background: rgba($black, 0.6);
+        }
+      }
+
+      .owl-next {
+        right: -25px;
+        left: auto;
+
+        &:after {
+          content: "\f061";
+          left: auto;
+          right: 37%;
+        }
+      }
+    }
+  }
 }
