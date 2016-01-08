@@ -12,7 +12,7 @@
   @include clearfix;
 }
 
-.collection-pages:not(.overview-page) {
+[class*="collection-"]:not(.overview-page) {
   .page-title {
     transform: translateY(-100%);
   }

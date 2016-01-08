@@ -32,6 +32,10 @@
     width: $box * 6;
     border-left: 1px solid $tertiary;
 
+    &.news {
+      border-bottom: 1px solid $tertiary;
+    }
+
     .sidebar-block {
       .sidebar-items-title {
         margin: 0 ($box / 2);
