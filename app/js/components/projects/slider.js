@@ -25,7 +25,7 @@ $(function() {
             }
             else {
                 slidesController.sliders.main.destroy();
-                slidesController.sliders.main.mobile();
+
             }
         },
         sliders: {
