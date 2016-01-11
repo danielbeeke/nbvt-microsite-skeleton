@@ -9,7 +9,7 @@ server {
 server {
   server_name [CNAME] [CNAME].jekyll.studiofonkel.nl;
   root /var/www/nbvt-microsites-[NID];
-  include global_microsites_vhost;
+  include /etc/nginx/conf.d/global_microsites_vhost;
 }
 
 # START OF CUSTOM VHOST RULES
