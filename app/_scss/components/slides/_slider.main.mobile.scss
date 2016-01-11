@@ -70,7 +70,11 @@
           height: 70px;
           width: 70px;
           transition: $speed $easing;
-          top: 25vw;
+          top: 17vh;
+
+          @media (min-width: $tablet) {
+            top: 20vh;
+          }
           
           &:after {
             content: "\f060";

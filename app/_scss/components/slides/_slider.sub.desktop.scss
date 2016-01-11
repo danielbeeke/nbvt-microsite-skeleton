@@ -79,6 +79,28 @@
               }
             }
 
+            .slide-item-author {
+              position: absolute;
+              top: 130px;
+              left: 30px;
+              width: 120px;
+              color: $text-color;
+
+              .author-name {
+                font-weight: bold;
+                margin-bottom: 5px;
+                font-size: 12px;
+                line-height: 16px;
+              }
+
+              .author-function {
+                font-family: $header-font;
+                font-size: 12px;
+                font-style: italic;
+                line-height: 16px;
+              }
+            }
+
             .slide-item-image {
               img {
                 display: block;
@@ -126,7 +148,7 @@
         content: "";
         display: inline-block;
         font-family: "FontAwesome";
-        margin-left: 4px;
+        margin-left: 7px;
         font-style: normal;
       }
     }

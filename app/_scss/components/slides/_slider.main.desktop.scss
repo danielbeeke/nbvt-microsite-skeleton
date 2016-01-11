@@ -138,7 +138,7 @@
         height: 90px;
         width: 90px;
         transition: $speed $easing;
-        top: calc(50% - #{$header-height});
+        top: calc(50% - (#{$header-height} + 45px));
 
         &:after {
           content: "\f060";
