@@ -29,8 +29,11 @@
   width: 100%;
   height: auto;
 }
-.owl-carousel .owl-wrapper-outer.autoHeight{
-  //transition: height 500ms ease-in-out;
+
+@media (max-width: $desktop) {
+  .owl-carousel .owl-wrapper-outer.autoHeight {
+    transition: height 500ms ease-in-out;
+  }
 }
 
 .owl-carousel .owl-item{
