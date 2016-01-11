@@ -24,7 +24,12 @@
         {% if slide.detail_image %}
         <div class="sub-slider-item">
             <div class="slide-item-image">
+                <h2 class="detail-title">{{ slide.detail_name }}</h2>
+                <div class="detail-text">{{ slide.detail_text }}</div>
                 <img src="{{ slide.detail_image }}">
+                {% if slide.detail_source %}
+                <div class="detail-source"><label>Bron: </label>{{ slide.detail_source }}</div>
+                {% endif %}
             </div>
         </div>
         {% endif %}
