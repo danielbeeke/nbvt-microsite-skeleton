@@ -1,0 +1,13 @@
+server {
+    listen       80;
+    server_name  www.[CNAME];
+    return       301 http://[CNAME]$request_uri;
+}
+
+server {
+  server_name [CNAME] [CNAME].jekyll.studiofonkel.nl;
+  root /var/www/nbvt-microsites-[NID];
+  include global_microsites_vhost;
+}
+
+# START OF CUSTOM VHOST RULES
