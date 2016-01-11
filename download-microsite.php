@@ -21,6 +21,9 @@ if (file_exists('vhost_skeleton') && !file_exists('vhost')) {
     // Generate a vhost file from vhost_skeleton
     $vhost_skeleton = file_get_contents('vhost_skeleton');
     $new_vhost = $vhost_skeleton;
+    $new_vhost = str_replace('[TIMESTAMP]', date("d-m-Y H:i:s"), $new_vhost);
+    $new_vhost = str_replace('[CNAME]', $cname, $new_vhost);
+    $new_vhost = str_replace('[NID]', $micro_site_info['nid'], $new_vhost);
 
     // Build the vhost file
     file_put_contents('vhost', $new_vhost);
@@ -38,6 +41,9 @@ else if (file_exists('vhost_skeleton') && file_exists('vhost')) {
     // Generate a new vhost file from vhost_skeleton and add the custom rules
     $vhost_skeleton = file_get_contents('vhost_skeleton');
     $new_vhost = $vhost_skeleton;
+    $new_vhost = str_replace('[TIMESTAMP]', date("d-m-Y H:i:s"), $new_vhost);
+    $new_vhost = str_replace('[CNAME]', $cname, $new_vhost);
+    $new_vhost = str_replace('[NID]', $micro_site_info['nid'], $new_vhost);
     $new_vhost = str_replace('# START OF CUSTOM VHOST RULES', '# START OF CUSTOM VHOST RULES'.$custom_vhost_rules, $new_vhost);
 
     // Build the vhost file
