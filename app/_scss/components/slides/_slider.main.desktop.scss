@@ -5,6 +5,8 @@
 
     > .owl-wrapper-outer {
       height: 100% !important;
+      overflow: hidden;
+
       > .owl-wrapper {
         > .owl-item {
           height: 100%;

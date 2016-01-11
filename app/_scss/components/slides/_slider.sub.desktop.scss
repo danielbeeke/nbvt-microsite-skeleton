@@ -4,16 +4,31 @@
     position: absolute;
     right: 0;
     bottom: 0;
+    overflow: hidden;
+    height: calc(100vh - #{$header-height});
 
     .slide-item-details {
       background: transparent;
-      position: relative;
+      position: absolute;
+      bottom: 82px;
       z-index: 1;
       border-bottom: 5px solid $white;
 
       .owl-wrapper-outer {
         .owl-wrapper {
           .owl-item {
+            bottom: 0;
+            position: absolute;
+            left: 0;
+
+            &:nth-child(2) {
+              left: 600px;
+            }
+
+            &:nth-child(3) {
+              left: 1200px;
+            }
+
             background: transparent none repeat scroll 0 0;
             //height: 400px;
             width: 600px;
@@ -80,9 +95,40 @@
     }
 
     .details-tabs {
-      background: $tertiary;
+      background: darken($tertiary, 20);
       float: none;
       @include clearfix;
+      position: absolute;
+      bottom: 0;
+      z-index: 1;
+      min-width: 180px;
+    }
+
+    .slide-link {
+      bottom: 0;
+      display: inline-block;
+      float: none;
+      height: auto;
+      line-height: 34px;
+      padding: 23px;
+      position: absolute;
+      right: 0;
+      z-index: 1;
+      width: 420px;
+      text-align: center;
+      color: darken($tertiary, 20);
+      font-size: 28px;
+      font-family: $header-font;
+      font-style: italic;
+      background: $tertiary;
+
+      &:after {
+        content: "";
+        display: inline-block;
+        font-family: "FontAwesome";
+        margin-left: 4px;
+        font-style: normal;
+      }
     }
   }
 }
