@@ -8,12 +8,13 @@
   .logo-link {
     float: left;
     margin: 0;
-    padding: 0;
     clear: left;
     margin-left: $mobile-box * 3;
+    height: $header-height;
+    padding: 10px 0;
 
-    img {
-      margin: 0 auto;
+    .logo-image {
+      margin: 0;
     }
   }
 
