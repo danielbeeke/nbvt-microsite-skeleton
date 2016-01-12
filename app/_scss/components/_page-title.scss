@@ -18,6 +18,15 @@
   }
 }
 
+.page-title-wrapper.no-image {
+  .page-title {
+    float: left;
+    position: relative;
+    transform: none;
+    z-index: 9;
+  }
+}
+
 .overview-page {
   .page-title-wrapper {
     height: auto;
@@ -39,6 +48,16 @@
 @media (min-width: $desktop) {
   .page-title {
     margin: 0 $box * 3;
+  }
+
+  .page-title-wrapper.no-image {
+    padding: 0 ($box * 3);
+    width: 100%;
+
+    .page-title {
+      margin: 0;
+      width: 100%;
+    }
   }
 
   .overview-page {
