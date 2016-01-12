@@ -18,6 +18,14 @@ if (!file_exists('app/_data')) {
 if (file_exists('vhost_skeleton') && !file_exists('vhost')) {
     print "No vhost file found. We're building one for you..."."\n";
 
+//    $site_menu = json_decode(file_get_contents('app/_data/menu.json'));
+////    asort($site_menu, $site_menu->, SORT_NUMERIC);
+//
+//    foreach ($site_menu as $menu_item) {
+//        print $site_menu[$menu_item]->menu_weight;
+//    }
+
+
     // Generate a vhost file from vhost_skeleton
     $vhost_skeleton = file_get_contents('vhost_skeleton');
     $new_vhost = $vhost_skeleton;
