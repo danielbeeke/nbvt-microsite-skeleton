@@ -24,6 +24,7 @@
     position: relative;
     transform: none;
     z-index: 9;
+    width: calc(100% - #{$mobile-box} * 6);
   }
 }
 
