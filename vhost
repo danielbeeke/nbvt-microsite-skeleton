@@ -1,4 +1,4 @@
-# Last generated: 12-01-2016 08:57:56
+# Last generated: 12-01-2016 10:06:41
 
 server {
     listen       80;
@@ -8,7 +8,7 @@ server {
 
 server {
   server_name test.nl test.nl.jekyll.studiofonkel.nl;
-  root /var/www/nbvt-microsites-2753;
+  root /var/www/nbvt-microsite-2753;
   include /etc/nginx/conf.d/global_microsites_vhost;
 }
 
