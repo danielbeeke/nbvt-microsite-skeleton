@@ -12,8 +12,6 @@ body_class: overview-page
             {% include components/news/overview.html %}
         {% endfor %}
 
-        {% if page.paginate_next or page.paginate_previous %}
-            {% include html/pager.html %}
-        {% endif %}
+        {% include html/pager.html %}
     </div>
 </div>

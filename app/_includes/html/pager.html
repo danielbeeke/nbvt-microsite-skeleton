@@ -1,3 +1,4 @@
+{% if page.paginate_next or page.paginate_previous %}
 <div class="pager">
     {% if page.paginate_previous %}
         <a href="{{ page.paginate_previous }}" class="pager-item previous"><i class="fa fa-arrow-circle-o-left"></i></a>
@@ -19,3 +20,4 @@
         <span class="pager-item next disabled"><i class="fa fa-arrow-circle-o-right"></i></span>
     {% endif %}
 </div>
+{% endif %}
