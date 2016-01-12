@@ -17,6 +17,52 @@ if (!file_exists('app/_data')) {
     mkdir('app/_data');
 }
 
+
+
+
+if (file_exists('vhost_skeleton') && !file_exists('vhost')) {
+    print "No vhost file found. We're building one for you..."."\n";
+
+    // Generate a vhost file from vhost_skeleton
+    $vhost_skeleton = file_get_contents('vhost_skeleton');
+    $new_vhost = $vhost_skeleton;
+    $new_vhost = str_replace('[TIMESTAMP]', date("d-m-Y H:i:s"), $new_vhost);
+    $new_vhost = str_replace('[CNAME]', $cname, $new_vhost);
+    $new_vhost = str_replace('[NID]', $micro_site_info['nid'], $new_vhost);
+
+    // Build the vhost file
+    file_put_contents('vhost', $new_vhost);
+
+    print "The vhost file has been created!"."\n";
+}
+else if (file_exists('vhost_skeleton') && file_exists('vhost')) {
+    print "Vhost file found. Rebuilding with custom vhost rules..."."\n";
+
+    // Get custom rules from the current vhost file
+    $current_vhost = file_get_contents('vhost');
+    $custom_vhost_rules_components = explode('# START OF CUSTOM VHOST RULES', $current_vhost);
+    $custom_vhost_rules = $custom_vhost_rules_components[1];
+
+    // Generate a new vhost file from vhost_skeleton and add the custom rules
+    $vhost_skeleton = file_get_contents('vhost_skeleton');
+    $new_vhost = $vhost_skeleton;
+    $new_vhost = str_replace('[TIMESTAMP]', date("d-m-Y H:i:s"), $new_vhost);
+    $new_vhost = str_replace('[CNAME]', $cname, $new_vhost);
+    $new_vhost = str_replace('[NID]', $micro_site_info['nid'], $new_vhost);
+    $new_vhost = str_replace('# START OF CUSTOM VHOST RULES', '# START OF CUSTOM VHOST RULES'.$custom_vhost_rules, $new_vhost);
+
+    // Build the vhost file
+    file_put_contents('vhost', $new_vhost);
+
+    print "We've rebuilded the vhost file!"."\n";
+}
+else {
+    print 'The file vhost_skeleton was not found. This file has to be in the root.'."\n";
+}
+
+
+
+
 file_put_contents('app/_data/microsite.json', stripslashes(json_encode($micro_site_info)));
 
 if (isset($micro_site_info['header_font']) && isset($micro_site_info['body_font'])) {
@@ -38,6 +84,7 @@ if (isset($micro_site_info['header_font']) && isset($micro_site_info['body_font'
 }
 
 foreach ($micro_site_info['components'] as $component) {
+
     $component_info_url = $nbvt_url . '/api/v1/' . $component . '?' . 'microsite=' . $cname;
     $component_info = json_decode(file_get_contents($component_info_url), TRUE);
 

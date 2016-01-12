@@ -1,0 +1,15 @@
+# Last generated: 12-01-2016 11:53:12
+
+server {
+    listen       80;
+    server_name  www.test.nl;
+    return       301 http://test.nl$request_uri;
+}
+
+server {
+  server_name test.nl test.nl.jekyll.studiofonkel.nl;
+  root /var/www/nbvt-microsite-2753;
+  include /etc/nginx/conf.d/global_microsites_vhost;
+}
+
+# START OF CUSTOM VHOST RULES

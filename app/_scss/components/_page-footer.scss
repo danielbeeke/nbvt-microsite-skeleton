@@ -75,6 +75,19 @@
 @media (min-width: $desktop) {
   .page-footer {
 
+    .page-footer-first {
+      margin: 0 30px;
+
+      .logo-link {
+        margin-left: 0;
+      }
+
+      .site-slogan {
+        clear: none;
+        float: right;
+      }
+    }
+
     .page-footer-second {
       @include clearfix;
       padding-bottom: 30px;
@@ -85,6 +98,13 @@
         clear: none;
         padding: 0 2%;
       }
+    }
+  }
+
+  .two-columns.leden,
+  .slides.voordelen {
+    .page-footer {
+      display: none;
     }
   }
 }

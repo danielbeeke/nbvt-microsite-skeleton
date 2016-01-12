@@ -12,6 +12,12 @@ input {
   border: 1px solid $tertiary;
   border-radius: $radius;
   padding: 10px;
+
+  &[type="checkbox"],
+  &[type="radio"] {
+    border: 0px none;
+    outline: 0px none;
+  }
 }
 
 .label-inline {

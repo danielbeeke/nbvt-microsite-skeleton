@@ -18,6 +18,16 @@
   }
 }
 
+.page-title-wrapper.no-image {
+  .page-title {
+    float: left;
+    position: relative;
+    transform: none;
+    z-index: 9;
+    width: calc(100% - #{$mobile-box} * 6);
+  }
+}
+
 .overview-page {
   .page-title-wrapper {
     height: auto;
@@ -31,6 +41,7 @@
       font-style: italic;
       padding-bottom: 60px;
       margin-bottom: -50px;
+      font-size: 38px;
     }
   }
 }
@@ -40,6 +51,16 @@
     margin: 0 $box * 3;
   }
 
+  .page-title-wrapper.no-image {
+    padding: 0 ($box * 3);
+    width: 100%;
+
+    .page-title {
+      margin: 0;
+      width: 100%;
+    }
+  }
+
   .overview-page {
     .page-title-wrapper {
       .page-title {
@@ -47,6 +68,7 @@
         padding: $box / 3 $box * 2;
         padding-bottom: 60px;
         margin-bottom: -50px;
+        font-size: 68px;
       }
     }
   }

@@ -2,6 +2,12 @@ $(function() {
 
     $(document).ready(function () {
         slidesController.init()
+
+        $('.details-tab').on('click', function () {
+            var parentSliderId = $(this).parent().data('for');
+
+            $('#' + parentSliderId).data('owlCarousel').jumpTo($(this).index());
+        })
     });
 
     var slidesController = {
@@ -37,8 +43,8 @@ $(function() {
             main: {
                 desktop: function () {
                     var settings = {
-                        slideSpeed: 300,
-                        paginationSpeed: 400,
+                        slideSpeed : 300,
+                        paginationSpeed : 400,
                         singleItem: true,
                         navigation: true
                     };
@@ -47,51 +53,48 @@ $(function() {
                 },
                 mobile: function () {
                     var settings = {
-                        slideSpeed: 300,
-                        paginationSpeed: 400,
+                        slideSpeed : 300,
+                        paginationSpeed : 400,
                         autoHeight: true,
-                        singleItem: true,
-                        navigation: true
+                        navigation: true,
+                        singleItem: true
                     };
 
                     $('#slides').owlCarousel(settings);
                 },
                 destroy: function () {
-                    if ($('#slides.owl-theme').length) {
-                        $('#slides.owl-theme').data('owlCarousel').destroy();
+                    if ($('#slides').data("owlCarousel") !== undefined) {
+                        $('#slides').data('owlCarousel').destroy();
                     }
                 }
             },
             sub: {
                 desktop: function () {
-                    $('.slide-item-details').owlCarousel({
-                        transitionStyle:"fade",
-                        slideSpeed : 300,
-                        paginationSpeed : 400,
-                        singleItem: true,
-                        autoHeight: true,
-                        afterAction: function () {
-                            var tabs = this.$elem.parent().find('.details-tabs');
-                            var currentTab = tabs.find('.details-tab:nth-child(' + (this.currentItem + 1) + ')');
-                            tabs.find('.details-tab').removeClass('active');
-                            currentTab.addClass('active');
-                        }
+                    $('.slide-item-details').each(function () {
+                        $(this).owlCarousel({
+                            transitionStyle:"fade",
+                            slideSpeed : 300,
+                            paginationSpeed : 400,
+                            singleItem: true,
+                            autoHeight: true,
+                            afterAction: function () {
+                                var tabs = this.$elem.parent().find('.details-tabs');
+                                var currentTab = tabs.find('.details-tab:nth-child(' + (this.currentItem + 1) + ')');
+                                tabs.find('.details-tab').removeClass('active');
+                                currentTab.addClass('active');
+                            }
+                        });
                     });
                 },
                 destroy: function () {
-                    if ($('.slide-item-details.owl-theme').length) {
-                        $('.slide-item-details.owl-theme').each(function () {
+                    $('.slide-item-details').each(function () {
+                        if ($(this).data("owlCarousel") !== undefined) {
                             $(this).data('owlCarousel').destroy()
-                        })
-                    }
+                        }
+                    })
                 }
             }
         }
     };
-
-    $('.details-tab').on('click', function () {
-        var parentSliderId = $(this).parent().data('for')
-        $('#' + parentSliderId).data('owlCarousel').goTo($(this).index());
-    })
 });
 

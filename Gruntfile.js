@@ -181,7 +181,7 @@ module.exports = function (grunt) {
       options: {
         dest: '<%= yeoman.dist %>'
       },
-      html: '<%= yeoman.dist %>/index.html'
+      html: ['<%= yeoman.dist %>/index.html', '<%= yeoman.dist %>/leden/index.html', '<%= yeoman.dist %>/voordelen/index.html']
     },
     usemin: {
       options: {
@@ -369,6 +369,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean',
+    'shell',
     // Jekyll cleans files from the target directory, so must run first
     'jekyll:dist',
     'concurrent:dist',

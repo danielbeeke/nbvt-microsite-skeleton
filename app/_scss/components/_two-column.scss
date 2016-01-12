@@ -11,6 +11,8 @@
     border-right: none;
     border-left: none;
     clear: both;
+    position: relative;
+    z-index: 9;
     @include clearfix;
   }
 

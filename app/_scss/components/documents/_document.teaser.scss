@@ -1,6 +1,7 @@
 .document.teaser {
   padding: ($mobile-box * 1.5) $mobile-box;
   display: block;
+  transition: $speed $easing;
 
   .document-title {
     font-weight: bold;
@@ -15,10 +16,19 @@
     color: lighten($text-color, 40);
     font-style: italic;
     font-size: 14px;
+    transition: $speed $easing;
   }
 
   .document-url {
     font-weight: bold;
+  }
+
+  &:hover {
+    background-color: $primary;
+
+    .tags {
+      color: lighten($text-color, 20);
+    }
   }
 }
 

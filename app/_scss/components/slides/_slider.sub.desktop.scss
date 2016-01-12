@@ -4,16 +4,31 @@
     position: absolute;
     right: 0;
     bottom: 0;
+    overflow: hidden;
+    height: calc(100vh - #{$header-height});
 
     .slide-item-details {
       background: transparent;
-      position: relative;
+      position: absolute;
+      bottom: 82px;
       z-index: 1;
       border-bottom: 5px solid $white;
 
       .owl-wrapper-outer {
         .owl-wrapper {
           .owl-item {
+            bottom: 0;
+            position: absolute;
+            left: 0;
+
+            &:nth-child(2) {
+              left: 600px;
+            }
+
+            &:nth-child(3) {
+              left: 1200px;
+            }
+
             background: transparent none repeat scroll 0 0;
             //height: 400px;
             width: 600px;
@@ -52,6 +67,7 @@
               font-style: italic;
               font-weight: bold;
               line-height: 28px;
+              min-height: 220px;
 
               &:after {
                 content: "";
@@ -64,10 +80,56 @@
               }
             }
 
+            .slide-item-author {
+              position: absolute;
+              top: 130px;
+              left: 30px;
+              width: 120px;
+              color: $text-color;
+
+              .author-name {
+                font-weight: bold;
+                margin-bottom: 5px;
+                font-size: 12px;
+                line-height: 16px;
+              }
+
+              .author-function {
+                font-family: $header-font;
+                font-size: 12px;
+                font-style: italic;
+                line-height: 16px;
+              }
+            }
+
             .slide-item-image {
+              padding: $box / 2;
+
+              .detail-title {
+                color: $secondary;
+                font-size: 24px;
+                margin: 0;
+                font-style: italic;
+                margin-bottom: 20px;
+              }
+
+              .detail-text {
+                font-weight: bold;
+                font-size: 14px;
+                color: $text-color;
+                margin-bottom: 20px;
+              }
+
               img {
                 display: block;
+                margin: 0 auto;
+                margin-bottom: 20px;
+              }
 
+              .detail-source {
+                font-weight: bold;
+                font-size: 12px;
+                color: $text-color;
               }
             }
           }
@@ -80,9 +142,40 @@
     }
 
     .details-tabs {
-      background: $tertiary;
+      background: darken($tertiary, 20);
       float: none;
       @include clearfix;
+      position: absolute;
+      bottom: 0;
+      z-index: 0;
+      min-width: 180px;
+    }
+
+    .slide-link {
+      bottom: 0;
+      display: inline-block;
+      float: none;
+      height: auto;
+      line-height: 34px;
+      padding: 23px;
+      position: absolute;
+      right: 0;
+      z-index: 1;
+      width: 420px;
+      text-align: center;
+      color: darken($tertiary, 20);
+      font-size: 28px;
+      font-family: $header-font;
+      font-style: italic;
+      background: $tertiary;
+
+      &:after {
+        content: "";
+        display: inline-block;
+        font-family: "FontAwesome";
+        margin-left: 7px;
+        font-style: normal;
+      }
     }
   }
 }
