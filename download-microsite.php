@@ -2,7 +2,12 @@
 
 $cname = file_get_contents('CNAME');
 
-$nbvt_url = 'http://nbvt.daniel';
+if (file_exists('.environment')) {
+    $nbvt_url = file_get_contents('.environment');
+}
+else {
+    $nbvt_url = 'https://nbvt.nl';
+}
 
 $micro_site_info_url = $nbvt_url . '/api/v1/microsites' . '?' . 'microsite=' . $cname;
 $micro_sites_info = json_decode(file_get_contents($micro_site_info_url), TRUE);

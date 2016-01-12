@@ -49,3 +49,4 @@ app/_blogs
 app/_pages
 app/_news
 app/_scss/variables/_imported.scss
+.environment
