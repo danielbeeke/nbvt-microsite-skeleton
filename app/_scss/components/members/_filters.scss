@@ -27,6 +27,7 @@
   opacity: 0;
   visibility: hidden;
   transition: $speed $easing;
+  color: $secondary !important;
 
   &:hover,
   &:focus {
