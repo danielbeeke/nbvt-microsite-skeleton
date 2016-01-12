@@ -12,7 +12,7 @@
   min-height: $box * 2;
 
   margin-left: -20px;
-  width: calc(100% - 60px);
+  width: calc(100% + 40px);
 
   //height: $box * 2;
 
@@ -25,6 +25,7 @@
   }
 
   .blog-author-image {
+    display: none;
     width: $box * 2;
     background-size: cover;
     position: absolute;
@@ -36,6 +37,16 @@
 
   &:hover {
     background-color: $primary;
+  }
+}
+
+@media (min-width: 480px) {
+  .blog.teaser {
+    width: calc(100% - 60px);
+
+    .blog-author-image {
+      display: block;
+    }
   }
 }
 
