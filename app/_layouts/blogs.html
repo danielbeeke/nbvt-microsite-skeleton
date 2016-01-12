@@ -8,10 +8,13 @@ body_class: overview-page
 
 <div class="blogs-overview full">
     <div class="overview-inner">
+
         {% for blog in page.paginate_items %}
             {% include components/blogs/overview.html %}
         {% endfor %}
 
-        {% include html/pager.html %}
+        {% if page.paginate_next or page.paginate_previous %}
+            {% include html/pager.html %}
+        {% endif %}
     </div>
 </div>

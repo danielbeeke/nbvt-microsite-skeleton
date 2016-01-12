@@ -7,10 +7,13 @@ body_class: overview-page
 
 <div class="news-overview full">
     <div class="overview-inner">
+
         {% for news_item in page.paginate_items %}
             {% include components/news/overview.html %}
         {% endfor %}
 
-        {% include html/pager.html %}
+        {% if page.paginate_next or page.paginate_previous %}
+            {% include html/pager.html %}
+        {% endif %}
     </div>
 </div>

@@ -1,5 +1,4 @@
 <div class="pager">
-
     {% if page.paginate_previous %}
         <a href="{{ page.paginate_previous }}" class="pager-item previous"><i class="fa fa-arrow-circle-o-left"></i></a>
     {% else %}
@@ -11,7 +10,7 @@
             <a href="{{ pager_item.link }}" class="pager-item number active">{{ pager_item.number }}</a>
         {% else %}
             <a href="{{ pager_item.link }}" class="pager-item number">{{ pager_item.number }}</a>
-    {% endif %}
+        {% endif %}
     {% endfor %}
 
     {% if page.paginate_next %}
