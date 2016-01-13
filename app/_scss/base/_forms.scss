@@ -22,38 +22,40 @@ input {
 
   &[type="radio"] + label {
     &:before {
-      content: "";
+      content: "\f10c";
       display: inline-block;
       width: 15px;
       height: 15px;
-      border-radius: 100%;
-      border: 1px solid $tertiary;
       margin-right: 5px;
-      position: relative;
-      top: 1px;
+      font-family: "FontAwesome";
+      color: darken($tertiary, 50);
     }
   }
 
-  &[type="radio"]:checked + label:before {
-    background: $tertiary;
+  &[type="radio"]:checked + label {
+    &:before {
+      content: "\f192";
+    }
   }
 
   &[type="checkbox"] + label {
     &:before {
-      content: "";
+      content: "\f096";
       display: inline-block;
       width: 15px;
       height: 15px;
-      border-radius: 100%;
-      border: 1px solid $tertiary;
       margin-right: 5px;
       position: relative;
       top: 1px;
+      font-family: "FontAwesome";
+      color: darken($tertiary, 50);
     }
   }
 
-  &[type="checkbox"]:checked + label:before {
-    background: $tertiary;
+  &[type="checkbox"]:checked + label {
+    &:before {
+      content: "\f046";
+    }
   }
 }
 
