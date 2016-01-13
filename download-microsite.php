@@ -24,12 +24,13 @@ if (!file_exists('app/_data')) {
 if (file_exists('vhost_skeleton') && !file_exists('vhost')) {
     print "No vhost file found. We're building one for you..."."\n";
 
-//    $site_menu = json_decode(file_get_contents('app/_data/menu.json'));
-////    asort($site_menu, $site_menu->, SORT_NUMERIC);
-//
-//    foreach ($site_menu as $menu_item) {
-//        print $site_menu[$menu_item]->menu_weight;
-//    }
+    $site_menu = json_decode(file_get_contents('app/_data/menu.json'));
+    $site_menu_sorted_keys = array();
+    foreach ($site_menu as $menu_item) {
+        $site_menu_sorted_keys[$menu_item->menu_weight] = $menu_item->url;
+    }
+    ksort($site_menu_sorted_keys);
+    $frontpage_url = array_shift($site_menu_sorted_keys);
 
 
     // Generate a vhost file from vhost_skeleton
@@ -38,6 +39,7 @@ if (file_exists('vhost_skeleton') && !file_exists('vhost')) {
     $new_vhost = str_replace('[TIMESTAMP]', date("d-m-Y H:i:s"), $new_vhost);
     $new_vhost = str_replace('[CNAME]', $cname, $new_vhost);
     $new_vhost = str_replace('[NID]', $micro_site_info['nid'], $new_vhost);
+    $new_vhost = str_replace('[FRONTPAGE]', $frontpage_url, $new_vhost);
 
     // Build the vhost file
     file_put_contents('vhost', $new_vhost);
@@ -58,6 +60,7 @@ else if (file_exists('vhost_skeleton') && file_exists('vhost')) {
     $new_vhost = str_replace('[TIMESTAMP]', date("d-m-Y H:i:s"), $new_vhost);
     $new_vhost = str_replace('[CNAME]', $cname, $new_vhost);
     $new_vhost = str_replace('[NID]', $micro_site_info['nid'], $new_vhost);
+    $new_vhost = str_replace('[FRONTPAGE]', $frontpage_url, $new_vhost);
     $new_vhost = str_replace('# START OF CUSTOM VHOST RULES', '# START OF CUSTOM VHOST RULES'.$custom_vhost_rules, $new_vhost);
 
     // Build the vhost file

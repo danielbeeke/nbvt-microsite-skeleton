@@ -12,4 +12,8 @@ server {
   include /etc/nginx/conf.d/global_microsites_vhost;
 }
 
+location / {
+  rewrite ^/.* http://[CNAME][FRONTPAGE] permanent;
+}
+
 # START OF CUSTOM VHOST RULES
