@@ -88,17 +88,19 @@ $(function() {
     function getFilters() {
         var filters = [];
 
-        var currentQuery = $('[name="filters-groups"]:checked').data('query').split(' ');
+        if ($('[name="filters-groups"]:checked').length) {
+            var currentQuery = $('[name="filters-groups"]:checked').data('query').split(' ');
 
-        $(currentQuery).each(function (delta, queryPart) {
-            if (queryPart) {
-                filters.push(queryPart)
-            }
-        });
+            $(currentQuery).each(function (delta, queryPart) {
+                if (queryPart) {
+                    filters.push(queryPart)
+                }
+            });
 
-        $('.filters-enhance :checked').each(function (delta, option) {
-            filters.push($(option).val())
-        });
+            $('.filters-enhance :checked').each(function (delta, option) {
+                filters.push($(option).val())
+            });
+        }
 
         return filters;
     }
