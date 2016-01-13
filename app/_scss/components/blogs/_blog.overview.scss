@@ -7,37 +7,46 @@
   @include clearfix;
 
   .blog-image {
+    padding: 0 10px;
     padding-bottom: 70%;
     background-size: cover;
   }
 
   .blog-title {
+    padding: 0 10px;
     font-size: 24px;
     font-style: italic;
     margin: 10px 0;
   }
 
   .blog-teaser {
+    padding: 0 10px;
     margin: 20px 0;
     color: $text-color;
-    padding-right: 20px;
   }
 
-  .blog-created,
-  .blog-author {
+  .blog-created {
+    padding: 0 10px;
     font-weight: bold;
     color: $text-color;
     font-size: 12px;
+    display: block;
   }
 
   .blog-author {
-    margin-left: 20px;
+    padding: 0 10px;
+    margin-top: 5px;
+    font-weight: bold;
+    color: $text-color;
+    font-size: 12px;
+    display: block;
   }
 
   .read-more {
     font-weight: bold;
     margin-bottom: 10px;
     float: left;
+    padding: 0 10px;
   }
 
   &:hover {
@@ -66,19 +75,29 @@
     }
 
     .blog-title {
+      padding-left: 0;
+      padding-right: 0;
     }
 
     .blog-teaser {
+      padding-left: 0;
+      padding-right: 0;
     }
 
     .blog-created,
     .blog-author {
+      padding-left: 0;
+      padding-right: 0;
     }
 
     .blog-author {
+      padding-left: 0;
+      padding-right: 0;
     }
 
     .read-more {
+      padding-left: 0;
+      padding-right: 0;
     }
 
     &:hover {

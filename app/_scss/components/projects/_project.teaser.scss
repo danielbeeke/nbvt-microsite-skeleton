@@ -7,7 +7,7 @@
   .project-title {
     color: $text-color;
     padding: 0 20px;
-    min-height: 50px;
+    height: auto;
     float: left;
     width: 100%;
     margin-top: 30px;
@@ -79,5 +79,11 @@
   .project.teaser {
     width: 25%;
     clear: none !important;
+
+    .project-title {
+      height: 52px;
+      line-height: 26px;
+      overflow: hidden;
+    }
   }
 }

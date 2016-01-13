@@ -11,7 +11,7 @@
       background: transparent;
       position: absolute;
       bottom: 82px;
-      z-index: 1;
+      z-index: 3;
       border-bottom: 5px solid $white;
 
       .owl-wrapper-outer {
@@ -67,7 +67,7 @@
               font-style: italic;
               font-weight: bold;
               line-height: 28px;
-              min-height: 220px;
+              min-height: 250px;
 
               &:after {
                 content: "";
@@ -147,8 +147,8 @@
       @include clearfix;
       position: absolute;
       bottom: 0;
-      z-index: 0;
-      min-width: 180px;
+      z-index: 2;
+      max-width: 181px;
     }
 
     .slide-link {
@@ -157,11 +157,12 @@
       float: none;
       height: auto;
       line-height: 34px;
-      padding: 23px;
+      padding: 24px;
+      padding-left: 181px;
       position: absolute;
       right: 0;
       z-index: 1;
-      width: 420px;
+      width: 100%;
       text-align: center;
       color: darken($tertiary, 20);
       font-size: 28px;

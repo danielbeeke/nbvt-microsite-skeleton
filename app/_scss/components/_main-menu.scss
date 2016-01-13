@@ -1,64 +1,5 @@
 $menu-link-padding: 20px;
 
-//.main-menu-wrapper {
-//  float: right;
-//  width: 100%;
-//}
-//
-//.main-menu {
-//  padding: 0;
-//  margin: 0;
-//  list-style: none;
-//  margin-top: $header-height;
-//
-//  .menu-item {
-//    float: left;
-//    width: 100%;
-//  }
-//
-//  .menu-link {
-//    float: left;
-//    padding: 0 $menu-link-padding;
-//    text-decoration: none;
-//    height: $header-height;
-//    line-height: $header-height;
-//    color: $text-color;
-//    font-weight: bold;
-//    transition: all $speed $easing;
-//    width: 100%;
-//    background-color: $background-color;
-//
-//    &:hover,
-//    &.active {
-//      background-color: $tertiary;
-//    }
-//  }
-//
-//  & {
-//    float: right;
-//    margin-right: - $menu-link-padding;
-//    margin-top: 0;
-//
-//    .menu-link,
-//    .menu-item {
-//      width: auto;
-//    }
-//  }
-//}
-//
-//@media (min-width: $desktop) {
-//  .main-menu {
-//    float: right;
-//    margin-right: - $menu-link-padding;
-//    margin-top: 0;
-//
-//    .menu-link,
-//    .menu-item {
-//      width: auto;
-//    }
-//  }
-//}
-
 .main-menu-wrapper {
   float: right;
   width: 100%;
@@ -84,6 +25,7 @@ $menu-link-padding: 20px;
         transition: all $speed $easing;
         width: 100%;
         background-color: $background-color;
+        font-size: 16px;
 
         &:hover,
         &.active {
