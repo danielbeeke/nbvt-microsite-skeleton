@@ -17,6 +17,43 @@ input {
   &[type="radio"] {
     border: 0px none;
     outline: 0px none;
+    display: none;
+  }
+
+  &[type="radio"] + label {
+    &:before {
+      content: "";
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border-radius: 100%;
+      border: 1px solid $tertiary;
+      margin-right: 5px;
+      position: relative;
+      top: 1px;
+    }
+  }
+
+  &[type="radio"]:checked + label:before {
+    background: $tertiary;
+  }
+
+  &[type="checkbox"] + label {
+    &:before {
+      content: "";
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border-radius: 100%;
+      border: 1px solid $tertiary;
+      margin-right: 5px;
+      position: relative;
+      top: 1px;
+    }
+  }
+
+  &[type="checkbox"]:checked + label:before {
+    background: $tertiary;
   }
 }
 

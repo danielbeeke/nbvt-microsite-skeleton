@@ -21,17 +21,17 @@ if (!file_exists('app/_data')) {
     mkdir('app/_data');
 }
 
+
+$site_menu = json_decode(file_get_contents('app/_data/menu.json'));
+$site_menu_sorted_keys = array();
+foreach ($site_menu as $menu_item) {
+    $site_menu_sorted_keys[$menu_item->menu_weight] = $menu_item->url;
+}
+ksort($site_menu_sorted_keys);
+$frontpage_url = array_shift($site_menu_sorted_keys);
+
 if (file_exists('vhost_skeleton') && !file_exists('vhost')) {
     print "No vhost file found. We're building one for you..."."\n";
-
-    $site_menu = json_decode(file_get_contents('app/_data/menu.json'));
-    $site_menu_sorted_keys = array();
-    foreach ($site_menu as $menu_item) {
-        $site_menu_sorted_keys[$menu_item->menu_weight] = $menu_item->url;
-    }
-    ksort($site_menu_sorted_keys);
-    $frontpage_url = array_shift($site_menu_sorted_keys);
-
 
     // Generate a vhost file from vhost_skeleton
     $vhost_skeleton = file_get_contents('vhost_skeleton');
