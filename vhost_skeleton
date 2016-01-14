@@ -8,10 +8,11 @@ server {
   server_name [CNAME] [CNAME].jekyll.studiofonkel.nl;
   root /var/www/nbvt-microsite-[NID];
   include /etc/nginx/conf.d/global_microsites_vhost;
+
+  location / {
+    rewrite ^/.* http://[CNAME][FRONTPAGE] permanent;
+  }
 }
 
-location / {
-  rewrite ^/.* http://[CNAME][FRONTPAGE] permanent;
-}
 
 # START OF CUSTOM VHOST RULES
