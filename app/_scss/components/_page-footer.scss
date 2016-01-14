@@ -72,6 +72,14 @@
   }
 }
 
+@media (min-width: $tablet) {
+  .two-columns.leden {
+    .page-footer {
+      display: none;
+    }
+  }
+}
+
 @media (min-width: $desktop) {
   .page-footer {
 
