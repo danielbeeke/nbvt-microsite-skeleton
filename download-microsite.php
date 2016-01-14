@@ -19,56 +19,6 @@ if (!file_exists('app/_data')) {
     mkdir('app/_data');
 }
 
-
-$site_menu = json_decode(file_get_contents('app/_data/menu.json'));
-$site_menu_sorted_keys = array();
-foreach ($site_menu as $menu_item) {
-    $site_menu_sorted_keys[$menu_item->menu_weight] = $menu_item->url;
-}
-ksort($site_menu_sorted_keys);
-$frontpage_url = array_shift($site_menu_sorted_keys);
-
-if (file_exists('vhost_skeleton') && !file_exists('vhost')) {
-    print "No vhost file found. We're building one for you..."."\n";
-
-    // Generate a vhost file from vhost_skeleton
-    $vhost_skeleton = file_get_contents('vhost_skeleton');
-    $new_vhost = $vhost_skeleton;
-    $new_vhost = str_replace('[TIMESTAMP]', date("d-m-Y H:i:s"), $new_vhost);
-    $new_vhost = str_replace('[CNAME]', $cname, $new_vhost);
-    $new_vhost = str_replace('[NID]', $micro_site_info['nid'], $new_vhost);
-    $new_vhost = str_replace('[FRONTPAGE]', $frontpage_url, $new_vhost);
-
-    // Build the vhost file
-    file_put_contents('vhost', $new_vhost);
-
-    print "The vhost file has been created!"."\n";
-}
-else if (file_exists('vhost_skeleton') && file_exists('vhost')) {
-    print "Vhost file found. Rebuilding with custom vhost rules..."."\n";
-
-    // Get custom rules from the current vhost file
-    $current_vhost = file_get_contents('vhost');
-    $custom_vhost_rules_components = explode('# START OF CUSTOM VHOST RULES', $current_vhost);
-    $custom_vhost_rules = $custom_vhost_rules_components[1];
-
-    // Generate a new vhost file from vhost_skeleton and add the custom rules
-    $vhost_skeleton = file_get_contents('vhost_skeleton');
-    $new_vhost = $vhost_skeleton;
-    $new_vhost = str_replace('[CNAME]', $cname, $new_vhost);
-    $new_vhost = str_replace('[NID]', $micro_site_info['nid'], $new_vhost);
-    $new_vhost = str_replace('[FRONTPAGE]', $frontpage_url, $new_vhost);
-    $new_vhost = str_replace('# START OF CUSTOM VHOST RULES', '# START OF CUSTOM VHOST RULES'.$custom_vhost_rules, $new_vhost);
-
-    // Build the vhost file
-    file_put_contents('vhost', $new_vhost);
-
-    print "We've rebuilded the vhost file!"."\n";
-}
-else {
-    print 'The file vhost_skeleton was not found. This file has to be in the root.'."\n";
-}
-
 file_put_contents('app/_data/microsite.json', stripslashes(json_encode($micro_site_info)));
 
 if (isset($micro_site_info['header_font']) && isset($micro_site_info['body_font'])) {
@@ -161,4 +111,53 @@ function get_real_filename($headers, $url) {
 
     $stripped_url = preg_replace('/\\?.*/', '', $url);
     return basename($stripped_url);
+}
+
+$site_menu = json_decode(file_get_contents('app/_data/menu.json'));
+$site_menu_sorted_keys = array();
+foreach ($site_menu as $menu_item) {
+    $site_menu_sorted_keys[$menu_item->menu_weight] = $menu_item->url;
+}
+ksort($site_menu_sorted_keys);
+$frontpage_url = array_shift($site_menu_sorted_keys);
+
+if (file_exists('vhost_skeleton') && !file_exists('vhost')) {
+    print "No vhost file found. We're building one for you..."."\n";
+
+    // Generate a vhost file from vhost_skeleton
+    $vhost_skeleton = file_get_contents('vhost_skeleton');
+    $new_vhost = $vhost_skeleton;
+    $new_vhost = str_replace('[TIMESTAMP]', date("d-m-Y H:i:s"), $new_vhost);
+    $new_vhost = str_replace('[CNAME]', $cname, $new_vhost);
+    $new_vhost = str_replace('[NID]', $micro_site_info['nid'], $new_vhost);
+    $new_vhost = str_replace('[FRONTPAGE]', $frontpage_url, $new_vhost);
+
+    // Build the vhost file
+    file_put_contents('vhost', $new_vhost);
+
+    print "The vhost file has been created!"."\n";
+}
+else if (file_exists('vhost_skeleton') && file_exists('vhost')) {
+    print "Vhost file found. Rebuilding with custom vhost rules..."."\n";
+
+    // Get custom rules from the current vhost file
+    $current_vhost = file_get_contents('vhost');
+    $custom_vhost_rules_components = explode('# START OF CUSTOM VHOST RULES', $current_vhost);
+    $custom_vhost_rules = $custom_vhost_rules_components[1];
+
+    // Generate a new vhost file from vhost_skeleton and add the custom rules
+    $vhost_skeleton = file_get_contents('vhost_skeleton');
+    $new_vhost = $vhost_skeleton;
+    $new_vhost = str_replace('[CNAME]', $cname, $new_vhost);
+    $new_vhost = str_replace('[NID]', $micro_site_info['nid'], $new_vhost);
+    $new_vhost = str_replace('[FRONTPAGE]', $frontpage_url, $new_vhost);
+    $new_vhost = str_replace('# START OF CUSTOM VHOST RULES', '# START OF CUSTOM VHOST RULES'.$custom_vhost_rules, $new_vhost);
+
+    // Build the vhost file
+    file_put_contents('vhost', $new_vhost);
+
+    print "We've rebuilded the vhost file!"."\n";
+}
+else {
+    print 'The file vhost_skeleton was not found. This file has to be in the root.'."\n";
 }
