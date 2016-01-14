@@ -51,7 +51,7 @@ $(function() {
             bounds.push([member.lat, member.lng]);
         });
 
-        if (!map.restoreView()) {
+        if (!map.restoreView() && bounds.length) {
             map.fitBounds(bounds);
         }
 
@@ -139,7 +139,7 @@ $(function() {
             })
         });
 
-        if (fitBounds) {
+        if (fitBounds && bounds.length) {
             map.fitBounds(bounds);
         }
 
