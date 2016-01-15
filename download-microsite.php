@@ -113,11 +113,11 @@ function get_real_filename($headers, $url) {
     return basename($stripped_url);
 }
 
-$site_menu = json_decode(file_get_contents('app/_data/menu.json'));
 $site_menu_sorted_keys = array();
-foreach ($site_menu as $menu_item) {
-    $site_menu_sorted_keys[$menu_item->menu_weight] = $menu_item->url;
+foreach ($menu_json as $menu_item) {
+    $site_menu_sorted_keys[$menu_item['menu_weight']] = $menu_item['url'];
 }
+
 ksort($site_menu_sorted_keys);
 $frontpage_url = array_shift($site_menu_sorted_keys);
 

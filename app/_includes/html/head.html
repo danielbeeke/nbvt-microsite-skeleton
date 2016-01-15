@@ -33,7 +33,9 @@
     {% for kit in site.data.microsite.fonts.typekits %}
         <script src="https://use.typekit.net/{{ kit }}.js"></script>
     {% endfor %}
+    {% if site.data.microsite.fonts.typekits %}
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    {% endif %}
 
     {% for fonts in site.data.microsite.fonts.google %}
         <link href='https://fonts.googleapis.com/css?family={{ fonts }}' rel='stylesheet' type='text/css'>
