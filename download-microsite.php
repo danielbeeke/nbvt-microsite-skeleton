@@ -1,5 +1,9 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
+
 $cname = file_get_contents('CNAME');
 
 if (file_exists('.environment')) {
@@ -39,6 +43,9 @@ foreach ($micro_site_info['components'] as $component) {
     $component_data = file_get_contents($component_info_url);
     $component_info = json_decode($component_data, TRUE);
 
+    echo 'Download json for component: ' . $component . "\n";
+    echo $component_info_url . "\n\n";
+
     $first_item = array_shift($component_info);
 
     if (!is_string($first_item)) {
@@ -48,8 +55,9 @@ foreach ($micro_site_info['components'] as $component) {
             if (!file_exists('app/_' . $component)) {
                 mkdir('app/_' . $component);
             }
-
         }
+
+        echo 'Checking: ' . 'app/_data/' . $component . '.json' . "\n";
 
         if (file_exists('app/_data/' . $component . '.json')) {
             unlink('app/_data/' . $component . '.json');
@@ -60,7 +68,8 @@ foreach ($micro_site_info['components'] as $component) {
         $files = glob('app/_' . $component . '/*');
         if (isset($files) && count($files)) {
             foreach ($files as $file){
-                if (is_file($file) && substr($file, -3) == '.md') {
+                if (is_file($file)) {
+                    echo 'Unlinking old file: ' . $file . "\n";
                     unlink($file);
                 }
             }
@@ -98,8 +107,16 @@ foreach ($pages as $page_file_name) {
 file_put_contents('app/_data/menu.json', stripslashes(json_encode($menu_json)));
 
 // Remove the overview pages that contain pagers.
-unlink('app/_pages/nieuws.md');
-unlink('app/_pages/blogs.md');
+$news_items_folder_items = scandir('app/_news');
+$blog_items_folder_items = scandir('app/_blogs');
+
+if (count($news_items_folder_items) > 2 && file_exists('app/_pages/nieuws.md')) {
+    unlink('app/_pages/nieuws.md');
+}
+
+if (count($blog_items_folder_items) > 2 && file_exists('app/_pages/blogs.md')) {
+    unlink('app/_pages/blogs.md');
+}
 
 function get_real_filename($headers, $url) {
     foreach($headers as $header) {

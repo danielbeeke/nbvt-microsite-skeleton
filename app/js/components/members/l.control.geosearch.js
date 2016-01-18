@@ -205,15 +205,15 @@ L.Control.GeoSearch = L.Control.extend({
     },
 
     _printError: function(message) {
-        var elem = this._resultslist;
-        elem.innerHTML = '<li>' + message + '</li>';
-        elem.style.display = 'block';
-
-        this._map.fireEvent('geosearch_error', {message: message});
-
-        setTimeout(function () {
-            elem.style.display = 'none';
-        }, 3000);
+        //var elem = this._resultslist;
+        //elem.innerHTML = '<li>' + message + '</li>';
+        //elem.style.display = 'block';
+        //
+        //this._map.fireEvent('geosearch_error', {message: message});
+        //
+        //setTimeout(function () {
+        //    elem.style.display = 'none';
+        //}, 3000);
     },
 
     _onKeyUp: function (e) {

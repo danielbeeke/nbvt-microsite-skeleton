@@ -12,28 +12,32 @@
         <input id="leaflet-control-geosearch-qry" type="text" placeholder="Plaats of postcode...">
     </div>
 
-    <div class="filters-groups form-item">
-        <div class="label-above">{{ site.data.microsite.member_filters_radios_label }}</div>
+    {% if site.data.microsite.member_filters %}
+        <div class="filters-groups form-item">
+            <div class="label-above">{{ site.data.microsite.member_filters_radios_label }}</div>
 
-        {% for filter in site.data.microsite.member_filters %}
-        <div class="form-item-checkbox">
-            {% assign key = filter.label | replace: ' ', '-' | downcase %}
-            <input id="{{ key }}" name="filters-groups" {% if forloop.index == 1 %} checked {% endif %} type="radio" value="{{ key }}"
-            data-query="{% for tag in filter.tags %}{% assign tag_key = tag | replace: ' ', '-' | replace: '/', '-' | downcase %}{{ tag_key }}{% endfor %}"><label for="{{ key }}">{{ filter.label }}</label>
-        </div>
-        {% endfor %}
-    </div>
-
-
-    <div class="filters-enhance form-item">
-        <div class="label-above">Verder verfijnen:</div>
-        {% for filter in site.data.microsite.member_filter_enhance %}
+            {% for filter in site.data.microsite.member_filters %}
             <div class="form-item-checkbox">
-                {% assign key = filter | replace: ' ', '-' | replace: '/', '-' | downcase %}
-                <input id="{{ key }}" name="{{ key }}" type="checkbox" value="{{ key }}"><label for="{{ key }}">{{ filter }}</label>
+                {% assign key = filter.label | replace: ' ', '-' | downcase %}
+                <input id="{{ key }}" name="filters-groups" {% if forloop.index == 1 %} checked {% endif %} type="radio" value="{{ key }}"
+                data-query="{% for tag in filter.tags %}{% assign tag_key = tag | replace: ' ', '-' | replace: '/', '-' | downcase %}{{ tag_key }}{% endfor %}"><label for="{{ key }}">{{ filter.label }}</label>
             </div>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+
+    {% if site.data.microsite.member_filter_enhance %}
+        <div class="filters-enhance form-item">
+            <div class="label-above">Verder verfijnen:</div>
+            {% for filter in site.data.microsite.member_filter_enhance %}
+                <div class="form-item-checkbox">
+                    {% assign key = filter | replace: ' ', '-' | replace: '/', '-' | downcase %}
+                    <input id="{{ key }}" name="{{ key }}" type="checkbox" value="{{ key }}"><label for="{{ key }}">{{ filter }}</label>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 
     <div class="form-item">
         <a href="#" class="member-filters-search">Zoeken <i class="fa fa-arrow-circle-o-right"></i></a>

@@ -21,7 +21,8 @@ $(function() {
 
         geoSearch = new L.Control.GeoSearch({
             provider: new L.GeoSearch.Provider.Google(),
-            showMarker: false
+            showMarker: false,
+            notFoundMessage: ''
         }).addTo(map);
 
         // Not the most clean plugin, but hey it works.
@@ -166,5 +167,7 @@ $(function() {
     }
 
     // TODO decide if we will show a map on member pages if on mobile.
-    init();
+    if ($(window).width() > 600 || !$('body').hasClass('has-menu-object')) {
+        init();
+    }
 });
