@@ -85,7 +85,11 @@ foreach ($micro_site_info['components'] as $component) {
         foreach ($component_info as $item_nid => $item_data) {
             if (isset($item_data['download'])) {
                 $item_url = $nbvt_url . '/' . $item_data['download']  . '?' . 'microsite=' . $cname;
+
+                echo 'Downloading markdown file: ' . $item_url . "\n\n\n";
+
                 $item = file_get_contents($item_url);
+
                 $file_name = get_real_filename($http_response_header, $item_url);
                 file_put_contents('app/_' . $component . '/' . $file_name, $item);
             }
