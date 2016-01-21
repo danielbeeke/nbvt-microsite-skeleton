@@ -1,8 +1,15 @@
 <?php
 
+// Put these two lines in your or the build servers .bashrc
+// export NBVT_MICROSITES_KEY=[Your oauth key]
+// export NBVT_MICROSITES_SECRET=[Your oauth secret]
+
+
 error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
 ini_set('display_startup_errors', TRUE);
+
+include 'oauth.php';
 
 $cname = file_get_contents('CNAME');
 
@@ -15,7 +22,7 @@ else {
 
 $micro_site_info_url = $nbvt_url . '/api/v1/microsites' . '?' . 'microsite=' . $cname;
 
-$micro_sites_info = json_decode(file_get_contents($micro_site_info_url), TRUE);
+$micro_sites_info = json_decode(oauth_call($micro_site_info_url), TRUE);
 
 $micro_site_info = end($micro_sites_info['microsite']);
 
@@ -23,7 +30,7 @@ if (!file_exists('app/_data')) {
     mkdir('app/_data');
 }
 
-file_put_contents('app/_data/microsite.json', stripslashes(json_encode($micro_site_info)));
+file_put_contents('app/_data/microsite.json', (json_encode($micro_site_info, JSON_PRETTY_PRINT + JSON_UNESCAPED_SLASHES)));
 
 if (isset($micro_site_info['header_font']) && isset($micro_site_info['body_font'])) {
     $scss_contents = '$header-font: "' .  $micro_site_info['fonts']['header_font'] . '";' . "\n" .
@@ -40,7 +47,7 @@ if (isset($micro_site_info['header_font']) && isset($micro_site_info['body_font'
 foreach ($micro_site_info['components'] as $component) {
 
     $component_info_url = $nbvt_url . '/api/v1/' . $component . '?' . 'microsite=' . $cname;
-    $component_data = file_get_contents($component_info_url);
+    $component_data = oauth_call($component_info_url);
     $component_info = json_decode($component_data, TRUE);
 
     echo 'Download json for component: ' . $component . "\n";
@@ -63,7 +70,7 @@ foreach ($micro_site_info['components'] as $component) {
             unlink('app/_data/' . $component . '.json');
         }
 
-        file_put_contents('app/_data/' . $component . '.json', stripslashes(json_encode($component_info)));
+        file_put_contents('app/_data/' . $component . '.json', (json_encode($component_info, JSON_PRETTY_PRINT + JSON_UNESCAPED_SLASHES)));
 
         $files = glob('app/_' . $component . '/*');
         if (isset($files) && count($files)) {
@@ -104,7 +111,7 @@ foreach ($pages as $page_file_name) {
     $menu_json[] = $front_matter;
 }
 
-file_put_contents('app/_data/menu.json', stripslashes(json_encode($menu_json)));
+file_put_contents('app/_data/menu.json', (json_encode($menu_json, JSON_PRETTY_PRINT + JSON_UNESCAPED_SLASHES)));
 
 // Remove the overview pages that contain pagers.
 $news_items_folder_items = scandir('app/_news');
@@ -177,4 +184,35 @@ else if (file_exists('vhost_skeleton') && file_exists('vhost')) {
 }
 else {
     print 'The file vhost_skeleton was not found. This file has to be in the root.'."\n";
+}
+
+
+/**
+ * Returns a constructed oauth url for an endpoint.
+ */
+function oauth_call($url) {
+    $consumer = new OAuthConsumer(getenv('NBVT_MICROSITES_KEY'), getenv('NBVT_MICROSITES_SECRET'), NULL);
+
+    // Create request.
+    $request = OAuthRequest::from_consumer_and_token($consumer, NULL, 'GET', $url, array());
+
+    // Sign the constructed OAuth request.
+    $request->sign_request(new OAuthSignatureMethod_HMAC_SHA1(), $consumer, NULL);
+
+    // Create URL.
+    $oauth_url = $request->to_url();
+
+    $opts = array(
+        'http'=>array(
+            'method'=>"GET",
+            'header'=>"Content-Type: application/json"
+        )
+    );
+
+    $context = stream_context_create($opts);
+
+    // Open the file using the HTTP headers set above
+    $response = file_get_contents($oauth_url, false, $context);
+
+    return $response;
 }

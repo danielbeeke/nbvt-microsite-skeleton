@@ -149,6 +149,18 @@
       bottom: 0;
       z-index: 2;
       max-width: 181px;
+
+      &:after {
+        display: block;
+        content: '';
+        background-color: $tertiary;
+        position: absolute;
+        width: 700px;
+        height: 100px;
+        top: 0;
+        left: 100%;
+        z-index: -1;
+      }
     }
 
     .slide-link {
@@ -158,17 +170,16 @@
       height: auto;
       line-height: 34px;
       padding: 24px;
-      padding-left: 181px;
       position: absolute;
       right: 0;
-      z-index: 1;
-      width: 100%;
+      z-index: 2;
+      width: calc(100% - 150px);
       text-align: center;
       color: darken($tertiary, 20);
       font-size: 28px;
       font-family: $header-font;
       font-style: italic;
-      background: $tertiary;
+      background-color: $tertiary;
 
       &:after {
         content: "";
