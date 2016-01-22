@@ -82,10 +82,12 @@
 
 @media (min-width: $desktop) {
   .page-footer {
+    width: 100%;
+    padding: 0 180px;
+    margin: 0 auto;
+    max-width: $max-width;
 
     .page-footer-first {
-      margin: 0 30px;
-
       .logo-link {
         margin-left: 0;
       }
@@ -98,6 +100,7 @@
 
     .page-footer-second {
       @include clearfix;
+      margin: 0;
       padding-bottom: 30px;
 
       .footer-block:not(.twitter) {
