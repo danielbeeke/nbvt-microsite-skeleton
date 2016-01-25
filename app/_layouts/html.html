@@ -4,7 +4,17 @@
 
     {% assign path_splitted = page.url | split: '/' %}
 
-    <body class="{{ page.body_class }} {{ path_splitted[1] }} {% if page.has_menu_object %} has-menu-object {% endif %} {% if page.collection %} collection-{{ page.collection }} {% endif %} ">
+    {% assign page_path_splitted = page.url | split: '/' %}
+    {% for menu_item in site.data.menu %}
+
+        {% assign menu_path_splitted = menu_item.url | split: '/' %}
+
+        {% if menu_path_splitted[1] == page_path_splitted[1] %}
+            {% assign current_menu_item = menu_item %}
+        {% endif %}
+    {% endfor %}
+
+    <body class="{{ page.body_class }} {{ path_splitted[1] }} {% if page.has_menu_object %} has-menu-object {% endif %} {% if page.collection %} collection-{{ page.collection }} {% endif %} {% if page.image or current_menu_item.image %} with-image {% else %} without-image {% endif %}">
     <div class="page-wrapper">
         {% include html/header.html %}
 
