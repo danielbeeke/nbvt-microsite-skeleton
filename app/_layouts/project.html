@@ -15,20 +15,13 @@ body_class: two-columns
 
 {% include components/projects/slider.html %}
 
-{% for possible_member in site.data.members %}
-
-{% assign possible_member_name = possible_member.name | trim %}
-{% assign project_owner = possible_member.name | trim %}
-
-    {% if possible_member_name == project_owner %}
-        {% assign member = possible_member %}
-    {% endif %}
-{% endfor %}
+{% assign member_hash = (site.data.members | where: "id" , project.owner) %}
+{% assign member = member_hash[0] %}
 
 {% if member %}
 <div class="sidebar-right">
     {% include components/members/teaser.html %}
-    <a href="/inspiratie" class="show-more-projects">Bekijk meer projecten <i class="fa fa-arrow-circle-o-right"></i></a>
+    <a href="{{ site.data.microsite.environment }}/redhen/org/{{ member.id }}" target="_blank" class="show-more-projects">Bekijk meer projecten <i class="fa fa-arrow-circle-o-right"></i></a>
 </div>
 {% endif %}
 
