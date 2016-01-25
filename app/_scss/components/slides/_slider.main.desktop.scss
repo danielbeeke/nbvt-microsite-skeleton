@@ -42,14 +42,16 @@
       content: '';
       display: block;
       position: absolute;
-      width: 20px;
-      height: 20px;
-      background-color: $background-color;
-      top: -35px;
+      top: -25px;
       opacity: 0;
       transition: opacity $speed $easing, transform $speed $easing;
       left: 50%;
-      transform: translate(-50%, -30px) rotate(45deg);
+      transform: translate(-50%, -30px);
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid $background-color;
     }
 
     &.active {
@@ -57,7 +59,7 @@
 
       &:after {
         opacity: 1;
-        transform: translate(-50%, 0) rotate(45deg);
+        transform: translate(-50%, 0);
       }
     }
   }
