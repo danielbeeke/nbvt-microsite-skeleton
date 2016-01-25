@@ -87,11 +87,12 @@
     font-size: 80px;
     line-height: 90px;
     color: $background-color;
-    font-weight: bolder;
     max-width: 60vw;
+    font-weight: bold;
 
     * {
       margin: 0;
+      font-weight: bold;
     }
   }
 
