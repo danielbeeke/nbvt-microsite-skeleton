@@ -5,8 +5,14 @@
     <meta name="title" content="{{ page.title }}" />
 
     {% if page.image %}
-    <meta property="og:image" content="{{ page.image }}" />
+        <meta property="og:image" content="{{ page.image }}" />
     {% endif %}
+
+    {% if page.project %}
+    <meta property="og:image" content="{{ page.image }}" />
+
+    {% endif %}
+
     <meta property="og:site_name" content="{{ site.data.microsite.domain }} | {{ site.data.microsite.slogan }}" />
     <meta property="og:title" content="{{ page.title }}" />
     {% if page.teaser %}
