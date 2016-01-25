@@ -15,7 +15,6 @@ layout: html
     <span class="blog-created"><i class="fa fa-clock-o"></i> {{ page.created }}</span> <span class="blog-author"><i class="fa fa-pencil"></i> {{ page.author }}</span>
 
     {{ content }}
-    {% include html/social.html %}
 
     <div id="disqus_thread"></div>
     <script>
@@ -37,5 +36,7 @@ layout: html
   <div class="page-inner right">
     {% include components/blogs/sidebar.html %}
   </div>
+
+  {% include html/social.html %}
 
 </div>
