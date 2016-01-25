@@ -1,3 +1,7 @@
 .news-item.full {
+  padding-top: $mobile-box * 3;
 
+  @media (min-width: $desktop) {
+    padding-top: 0;
+  }
 }
