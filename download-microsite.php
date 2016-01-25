@@ -30,6 +30,8 @@ if (!file_exists('app/_data')) {
     mkdir('app/_data');
 }
 
+$micro_site_info['environment'] = $nbvt_url;
+
 file_put_contents('app/_data/microsite.json', (json_encode($micro_site_info, JSON_PRETTY_PRINT + JSON_UNESCAPED_SLASHES)));
 
 if (isset($micro_site_info['header_font']) && isset($micro_site_info['body_font'])) {
