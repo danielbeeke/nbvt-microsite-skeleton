@@ -17,7 +17,7 @@ if (file_exists('.environment')) {
     $nbvt_url = file_get_contents('.environment');
 }
 else {
-    $nbvt_url = 'http://nbvt-microsites.dev.aegirhosting.nl';
+    $nbvt_url = 'https://nbvt.nl';
 }
 
 $micro_site_info_url = $nbvt_url . '/api/v1/microsites' . '?' . 'microsite=' . $cname;
