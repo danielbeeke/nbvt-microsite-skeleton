@@ -5,12 +5,21 @@ layout: html
 <div class="page-image" style="background-image: url('{{ page.image }}');"></div>
 {% endif %}
 
+{% unless page.image %}
 <div class="page-title-wrapper">
     <h1 class="page-title">{{ page.title }}</h1>
 </div>
+{% endunless %}
 
 <div class="projects-overview full">
-{% for project in site.data.projects %}
-    {% include components/projects/teaser.html %}
-{% endfor %}
+
+    {% if page.image %}
+    <div class="page-title-wrapper">
+        <h1 class="page-title">{{ page.title }}</h1>
+    </div>
+    {% endif %}
+
+    {% for project in site.data.projects %}
+        {% include components/projects/teaser.html %}
+    {% endfor %}
 </div>

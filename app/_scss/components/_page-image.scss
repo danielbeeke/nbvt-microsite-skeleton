@@ -1,12 +1,13 @@
 .page-image {
   padding-bottom: 50%;
   background-size: cover;
-  margin: 0 $mobile-box;
+  background-position: center center;
+  margin: (- $box * 2) $mobile-box;
 }
 
 @media (min-width: $desktop) {
   .page-image {
     padding-bottom: 30%;
-    margin: 0 $box;
+    margin: (- $box * 2) $box;
   }
 }

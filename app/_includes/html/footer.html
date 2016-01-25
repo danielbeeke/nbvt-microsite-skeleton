@@ -13,4 +13,10 @@
             {% include components/{{ component }}/footer.html %}
         {% endfor %}
     </div>
+    <div class="page-footer-third">
+        © {{ site.time | date: '%Y' }} {{ site.data.microsite.domain }} |
+        <a href="{{ site.data.microsite.environment }}/over-de-nbvt/privacyverklaring" target="_blank">Privacyverklaring</a> |
+        <a href="{{ site.data.microsite.environment }}/over-de-nbvt/disclaimer" target="_blank">Disclaimer</a>
+    </div>
+
 </footer>

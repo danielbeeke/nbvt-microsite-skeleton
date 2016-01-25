@@ -3,10 +3,23 @@ layout: html
 body_class: overview-page
 ---
 
-{% include html/overview-title.html %}
+{% assign current_menu_item_hash = site.data.menu | where: "url", page.url  %}
+{% assign current_menu_item = current_menu_item_hash[0] %}
+
+{% unless current_menu_item.image  %}
+    {% include html/overview-title.html %}
+{% endunless %}
+
+{% if current_menu_item.image %}
+<div class="page-image" style="background-image: url('{{ current_menu_item.image }}');"></div>
+{% endif %}
 
 
 <div class="blogs-overview full">
+    {% if current_menu_item.image  %}
+        {% include html/overview-title.html %}
+    {% endif %}
+
     <div class="overview-inner">
 
         {% for blog in page.paginate_items %}

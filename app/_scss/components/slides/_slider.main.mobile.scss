@@ -42,7 +42,7 @@
         }
 
         .slide-item-text {
-          background: $white;
+          background: $background-color;
           margin: 0 $mobile-box * 2;
           margin-right: $mobile-box * 4;
           padding: $mobile-box * 2 $mobile-box * 5;
@@ -63,8 +63,8 @@
         .owl-next,
         .owl-prev {
           font-size: 0px;
-          background: rgba($black, 0.4);
-          border: 2px solid $white;
+          background: rgba($text-color, 0.4);
+          border: 2px solid $background-color;
           border-radius: 100%;
           position: absolute;
           left: -25px;
@@ -90,7 +90,7 @@
           }
 
           &:hover {
-            background: rgba($black, 0.6);
+            background: rgba($text-color, 0.6);
           }
         }
 

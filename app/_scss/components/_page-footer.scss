@@ -70,6 +70,12 @@
       }
     }
   }
+
+  .page-footer-third {
+    background-color: $tertiary;
+    padding: 20px;
+    text-align: center;
+  }
 }
 
 @media (min-width: $tablet) {

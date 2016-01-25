@@ -12,6 +12,8 @@ layout: html
 <div class="blog full">
 
   <div class="page-inner left">
+    <span class="blog-created"><i class="fa fa-clock-o"></i> {{ page.created }}</span> <span class="blog-author"><i class="fa fa-pencil"></i> {{ page.author }}</span>
+
     {{ content }}
     {% include html/social.html %}
 

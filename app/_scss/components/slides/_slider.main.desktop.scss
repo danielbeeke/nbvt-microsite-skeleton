@@ -112,8 +112,8 @@
       .owl-page {
         width: 30px;
         height: 30px;
-        background: rgba($black, 0.4);
-        border: 2px solid $white;
+        background: rgba($text-color, 0.4);
+        border: 2px solid $background-color;
         transition: $speed $easing;
         border-radius: 100%;
         margin-right: 7px;
@@ -133,8 +133,8 @@
       .owl-next,
       .owl-prev {
         font-size: 0px;
-        background: rgba($black, 0.4);
-        border: 2px solid $white;
+        background: rgba($text-color, 0.4);
+        border: 2px solid $background-color;
         border-radius: 100%;
         position: absolute;
         left: -25px;
@@ -156,7 +156,7 @@
         }
 
         &:hover {
-          background: rgba($black, 0.6);
+          background: rgba($text-color, 0.6);
         }
       }
 

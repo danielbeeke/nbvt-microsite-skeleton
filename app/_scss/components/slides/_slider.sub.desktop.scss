@@ -12,7 +12,7 @@
       position: absolute;
       bottom: 82px;
       z-index: 3;
-      border-bottom: 5px solid $white;
+      border-bottom: 5px solid $background-color;
 
       .owl-wrapper-outer {
         .owl-wrapper {
@@ -34,7 +34,7 @@
             width: 600px;
 
             .sub-slider-item {
-              background: $white;
+              background: $background-color;
               //position: absolute;
               left: 0;
               bottom: 0;

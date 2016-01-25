@@ -6,37 +6,27 @@
 @media (min-width: $desktop) {
   .page-title-wrapper {
     .page-title {
-      font-size: 48px;
+      font-size: 56px;
     }
   }
 }
-
-
 
 // Page title with a header image on the page
 body.with-image {
   .page-title-wrapper {
-    margin: 0 $mobile-box;
-    padding: 0 $mobile-box * 2;
-    height: 0;
-
     .page-title {
       margin: 0;
       padding: $mobile-box * 2 $mobile-box / 2;
       text-align: center;
-      background: $white;
+      background: $background-color;
       width: 100%;
-      transform: translateY(-100%);
     }
   }
 }
+
 @media (min-width: $desktop) {
   body.with-image {
     .page-title-wrapper {
-      max-width: $max-width;
-      margin: 0 auto;
-      padding: 0 180px;
-
       .page-title {
         padding: $box / 2;
       }
@@ -49,13 +39,7 @@ body.with-image {
 // Page title without a header image on the page
 body.without-image {
   .page-title-wrapper {
-    max-width: 1600px;
-    //background: darken($tertiary, 10);
     background: $secondary;
-    padding: 0 $mobile-box * 2;
-    margin: 0 $mobile-box;
-    padding-bottom: $mobile-box * 2;
-    margin-bottom: - $mobile-box * 2;
 
     .page-title {
       width: 100%;
@@ -79,89 +63,3 @@ body.without-image {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-//.page-title-wrapper {
-//  position: relative;
-//  height: 0;
-//  @include clearfix;
-//}
-//
-//.page-title {
-//  margin: 0 $mobile-box * 3;
-//  background-color: $background-color;
-//  text-align: center;
-//  padding: 20px;
-//  @include clearfix;
-//}
-//
-//[class*="collection-"]:not(.overview-page) {
-//  .page-title {
-//    transform: translateY(-100%);
-//  }
-//}
-//
-//.page-title-wrapper.no-image {
-//  .page-title {
-//    float: left;
-//    position: relative;
-//    transform: none;
-//    z-index: 9;
-//    width: calc(100% - #{$mobile-box} * 6);
-//  }
-//}
-//
-//.overview-page {
-//  .page-title-wrapper {
-//    height: auto;
-//    background: $white;
-//    width: 100%;
-//
-//    .page-title {
-//      background: $primary;
-//      margin: 0 $mobile-box;
-//      padding: $mobile-box * 2 $mobile-box * 5;
-//      font-style: italic;
-//      padding-bottom: 60px;
-//      margin-bottom: -50px;
-//      font-size: 38px;
-//    }
-//  }
-//}
-//
-//@media (min-width: $desktop) {
-//  .page-title {
-//    margin: 0 $box * 3;
-//    font-size: 48px;
-//  }
-//
-//  .page-title-wrapper.no-image {
-//    padding: 0 ($box * 3);
-//    width: 100%;
-//
-//    .page-title {
-//      margin: 0;
-//      width: 100%;
-//    }
-//  }
-//
-//  .overview-page {
-//    .page-title-wrapper {
-//      .page-title {
-//        margin: 0 $box * 2;
-//        padding: $box / 3 $box * 2;
-//        padding-bottom: 60px;
-//        margin-bottom: -50px;
-//        font-size: 68px;
-//      }
-//    }
-//  }
-//}
