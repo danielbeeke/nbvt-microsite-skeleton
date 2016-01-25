@@ -102,11 +102,20 @@
       @include clearfix;
       margin: 0;
       padding-bottom: 30px;
+      display: flex;
+      flex-wrap: wrap;
 
-      .footer-block:not(.twitter) {
+      .footer-block.one-column {
         width: 25%;
-        float: left;
-        clear: none;
+        display: flex;
+        flex-direction: column;
+        padding: 0 2%;
+      }
+
+      .footer-block.two-columns {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
         padding: 0 2%;
       }
     }

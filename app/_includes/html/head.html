@@ -2,11 +2,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>{{ page.title }}</title>
-    <meta name="title" content="{{ page.title }}" />
+    <meta name="title" content="{{ page.title }} | {{ site.data.microsite.domain }}" />
 
     {% if page.image %}
-    <meta property="og:image" content="{{ page.image }}" />
+        <meta property="og:image" content="{{ page.image }}" />
+    {% else if page.project.images %}
+        <meta property="og:image" content="{{ page.project.images.first }}" />
     {% endif %}
+
     <meta property="og:site_name" content="{{ site.data.microsite.domain }} | {{ site.data.microsite.slogan }}" />
     <meta property="og:title" content="{{ page.title }}" />
     {% if page.teaser %}
@@ -22,7 +25,7 @@
     {% if page.canonical == site.data.microsite.domain %}
         <link rel="canonical" href="{{ site.data.microsite.domain }}/{{ page.url }}" />
     {% else if page.alias %}
-        <link rel="canonical" href="https://nbvt.nl{{ page.alias }}" />
+        <link rel="canonical" href="{{ site.data.microsite.environment }}{{ page.alias }}" />
     {% endif %}
 
     {% if site.data.microsite.ga_code %}
@@ -51,8 +54,9 @@
     {% for kit in site.data.microsite.fonts.typekits %}
         <script src="https://use.typekit.net/{{ kit }}.js"></script>
     {% endfor %}
+
     {% if site.data.microsite.fonts.typekits %}
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+        <script>try{Typekit.load({ async: true });}catch(e){}</script>
     {% endif %}
 
     {% for fonts in site.data.microsite.fonts.google %}
