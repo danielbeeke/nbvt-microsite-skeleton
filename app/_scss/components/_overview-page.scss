@@ -1,4 +1,11 @@
-.overview-page {
+.overview-page.with-image {
+  .overview-inner {
+    padding-top: $mobile-box * 5;
+    padding-top: 0;
+    @include clearfix;
+  }
+}
+.overview-page.without-image {
   .overview-inner {
     padding-top: $mobile-box * 5;
     @include clearfix;
@@ -6,7 +13,14 @@
 }
 
 @media (min-width: $desktop) {
-  .overview-page {
+  .overview-page.with-image {
+    .overview-inner {
+      padding: $box * 2;
+      padding-top: 0;
+      @include clearfix;
+    }
+  }
+  .overview-page.without-image {
     .overview-inner {
       padding: $box * 2;
       @include clearfix;
