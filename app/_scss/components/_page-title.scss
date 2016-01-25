@@ -50,7 +50,8 @@ body.with-image {
 body.without-image {
   .page-title-wrapper {
     max-width: 1600px;
-    background: darken($tertiary, 10);
+    //background: darken($tertiary, 10);
+    background: $secondary;
     padding: 0 $mobile-box * 2;
     margin: 0 $mobile-box;
     padding-bottom: $mobile-box * 2;
