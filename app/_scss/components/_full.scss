@@ -46,9 +46,11 @@
     background: $primary;
     color: $secondary;
     font-style: italic;
+    font-weight: 700;
+    line-height: 30px;
     font-family: $header-font;
     position: relative;
-    font-size: 22px;
+    font-size: 26px;
 
     > * {
       margin: 0;
@@ -107,6 +109,11 @@
         margin-top: 0;
       }
 
+      h3 {
+        font-size: 21px;
+        line-height: 26px;
+      }
+
       h4 {
         font-size: 18px;
         line-height: 24px;
@@ -114,9 +121,9 @@
     }
 
     > .right {
-      margin: 0px;
-      border: 0px none;
-      padding: 0px;
+      margin: 0;
+      border: 0 none;
+      padding: 0;
       width: 360px;
       padding-top: $box * 1;
       float: right;
@@ -127,7 +134,7 @@
       margin-top: $box / 2;
       margin-bottom: $box / 2;
       margin-left: - $box * 4;
-      margin-right: $box / 2;
+      margin-right: $box * 4;
       padding-left: $box * 3;
       font-size: 30px;
 

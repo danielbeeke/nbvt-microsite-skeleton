@@ -3,10 +3,8 @@
 
   .author-image {
     background-size: cover;
-    max-height: 200px;
-    max-width: 100%;
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
   }
 
   .author-title {
@@ -27,8 +25,8 @@
     padding: ($box / 4) ($box / 2);
 
     .author-image {
-      width: 200px;
-      height: 200px;
+      width: 120px;
+      height: 120px;
     }
   }
 }
