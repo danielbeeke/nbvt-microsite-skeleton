@@ -4,7 +4,7 @@
     {% for news_item in sorted_news %}
         {% if counter < 3 %}
             {% if page.collection == 'news' %}
-                {% if news_item.timestamp < page.timestamp and news_item.path != page.path %}
+                {% if news_item.path != page.path %}
                     {% include components/news/teaser.html %}
                     {% assign counter = counter | plus: 1 %}
                 {% endif %}
