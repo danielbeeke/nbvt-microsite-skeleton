@@ -46,9 +46,11 @@
     background: $primary;
     color: $secondary;
     font-style: italic;
+    font-weight: 700;
+    line-height: 30px;
     font-family: $header-font;
     position: relative;
-    font-size: 22px;
+    font-size: 26px;
 
     > * {
       margin: 0;
@@ -127,7 +129,7 @@
       margin-top: $box / 2;
       margin-bottom: $box / 2;
       margin-left: - $box * 4;
-      margin-right: $box / 2;
+      margin-right: $box * 4;
       padding-left: $box * 3;
       font-size: 30px;
 
