@@ -15,7 +15,7 @@ body_class: two-columns
 
 {% include components/projects/slider.html %}
 
-{% assign member_hash = (site.data.members | where: "id" , project.owner) %}
+{% assign member_hash = (site.data.members | where: "id" , project.owner[0]) %}
 {% assign member = member_hash[0] %}
 
 {% if member %}
