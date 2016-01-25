@@ -1,11 +1,17 @@
+{% assign page_path_splitted = page.url | split: '/' %}
+{% for menu_item in site.data.menu %}
+
+{% assign menu_path_splitted = menu_item.url | split: '/' %}
+
+{% if menu_path_splitted[1] == page_path_splitted[1] %}
+    {% assign current_menu_item = menu_item %}
+{% endif %}
+{% endfor %}
+
+{% if current_menu_item.image %}
+<div class="page-image" style="background-image: url('{{ current_menu_item.image }}');"></div>
+{% endif %}
+
 <div class="page-title-wrapper">
-    {% assign page_path_splitted = page.url | split: '/' %}
-    {% for menu_item in site.data.menu %}
-
-    {% assign menu_path_splitted = menu_item.url | split: '/' %}
-
-    {% if menu_path_splitted[1] == page_path_splitted[1] %}
-    <h1 class="page-title">{{ menu_item.title }}</h1>
-    {% endif %}
-    {% endfor %}
+    <h1 class="page-title">{{ current_menu_item.title }}</h1>
 </div>
