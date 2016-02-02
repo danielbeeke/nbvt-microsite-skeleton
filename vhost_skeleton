@@ -5,8 +5,8 @@ server {
 }
 
 server {
-  server_name [CNAME] [CNAME].jekyll.studiofonkel.nl;
-  root /var/www/nbvt-microsite-[NID];
+  server_name [REPLACE_WITH_CNAME];
+  root [REPLACE_WITH_BUILD_PATH];
   include /etc/nginx/conf.d/global_microsites_vhost;
 
   location / {
