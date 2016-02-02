@@ -27,8 +27,13 @@
 .has-menu-object.leden {
   .member-filters-wrapper,
   .leaflet-map {
-    @media (max-width: $tablet) {
+    @media (max-width: $desktop) {
       display: none;
     }
+  }
+
+  .member.teaser .back-to-overview,
+  .page-footer {
+    display: block;
   }
 }

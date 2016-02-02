@@ -1,0 +1,18 @@
+@media (min-width: $desktop) {
+  body.inspiratie.with-image {
+    .page-image {
+      margin: -135px 60px;
+    }
+  }
+
+  body.inspiratie.without-image {
+    .page-title-wrapper {
+      margin: 0 60px -145px;
+      padding-bottom: 145px;
+
+      .page-title {
+        height: 120px;
+      }
+    }
+  }
+}
