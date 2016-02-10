@@ -12,6 +12,9 @@
     width: 100%;
     margin-top: 30px;
     font-style: italic;
+    height: 52px;
+    line-height: 26px;
+    overflow: hidden;
   }
 
   .project-location {
@@ -19,7 +22,9 @@
     width: 100%;
     color: $text-color;
     margin-bottom: 20px;
-    min-height: 23px;
+    height: 26px;
+    line-height: 26px;
+    overflow: hidden;
   }
 
   .project-image {
@@ -80,10 +85,10 @@
     width: 25%;
     clear: none !important;
 
-    .project-title {
-      height: 52px;
-      line-height: 26px;
-      overflow: hidden;
-    }
+    //.project-title {
+    //  height: 52px;
+    //  line-height: 26px;
+    //  overflow: hidden;
+    //}
   }
 }
