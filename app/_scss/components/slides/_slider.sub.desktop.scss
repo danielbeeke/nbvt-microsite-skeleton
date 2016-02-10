@@ -45,13 +45,14 @@
             .slide-item-description {
               padding: $box / 1.5;
               color: $text-color;
+              font-weight: 700;
 
               h1, h2, h3, h4, h5, h6 {
                 color: $secondary;
-                font-size: 24px;
+                font-size: 21pt;
                 font-style: italic;
-                font-weight: bold;
-                line-height: 28px;
+                font-weight: 600;
+                line-height: 24pt;
                 margin-top: 0px;
               }
             }
@@ -176,9 +177,10 @@
       width: calc(100% - 181px);
       text-align: center;
       color: darken($tertiary, 20);
-      font-size: 28px;
+      font-size: 18pt;
       font-family: $header-font;
       font-style: italic;
+      font-weight: 500;
       background-color: $tertiary;
 
       &:after {
