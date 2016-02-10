@@ -32,8 +32,10 @@
     }
   }
 
-  .member.teaser .back-to-overview,
-  .page-footer {
-    display: block;
+  @media (max-width: $desktop) {
+    .member.teaser .back-to-overview,
+    .page-footer {
+      display: block;
+    }
   }
 }
