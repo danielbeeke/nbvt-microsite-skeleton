@@ -2,7 +2,6 @@
   .slider {
     position: relative;
     min-height: calc(100vh - #{$header-height});
-    background: red;
 
     &:after {
       display: block;
@@ -39,7 +38,7 @@
         .slide-item-image {
           background-size: cover;
           padding-bottom: 70%;
-          margin-bottom: - $mobile-box * 2;
+          margin-bottom: - $mobile-box * 6;
         }
 
         .slide-item-text {
