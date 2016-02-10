@@ -14,13 +14,18 @@ $(function() {
         init: function () {
             var debounceTimeout;
 
-            $(window).on('resize', function () {
-                clearTimeout(debounceTimeout);
+            if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                $(window).on('resize', function () {
+                    clearTimeout(debounceTimeout);
 
-                debounceTimeout = setTimeout(function () {
-                    slidesController.handleContext()
-                }, 300);
-            });
+                    debounceTimeout = setTimeout(function () {
+                        slidesController.handleContext()
+                    }, 300);
+                });
+            }
+            else {
+                slidesController.handleContext()
+            }
 
             slidesController.handleContext()
         },

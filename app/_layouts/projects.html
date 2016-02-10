@@ -20,7 +20,8 @@ layout: html
     {% endif %}
 
     <div class="projects-wrapper">
-    {% for project in site.data.projects %}
+    {% assign sorted_projects = (site.data.projects | sort: 'created') %}
+    {% for project in sorted_projects %}
         {% include components/projects/teaser.html %}
     {% endfor %}
     </div>

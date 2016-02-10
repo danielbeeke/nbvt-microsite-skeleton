@@ -2,6 +2,7 @@
   .slider {
     position: relative;
     min-height: calc(100vh - #{$header-height});
+    background: red;
 
     &:after {
       display: block;
