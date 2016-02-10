@@ -1,16 +1,20 @@
 @media (min-width: $tablet) {
   .projects-overview {
     background-color: $background-color;
-    transition: background-color $speed $easing;
 
-    &:hover {
-      background-color: $tertiary;
+    .projects-wrapper {
+      @include clearfix;
+      transition: background-color $speed $easing;
 
-      .project.teaser {
+      &:hover {
         background-color: $tertiary;
 
-        .project-image:after {
-          opacity: .7;
+        .project.teaser {
+          background-color: $tertiary;
+
+          .project-image:after {
+            opacity: .5;
+          }
         }
       }
     }

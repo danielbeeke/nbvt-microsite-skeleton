@@ -19,7 +19,9 @@ layout: html
     </div>
     {% endif %}
 
+    <div class="projects-wrapper">
     {% for project in site.data.projects %}
         {% include components/projects/teaser.html %}
     {% endfor %}
+    </div>
 </div>
