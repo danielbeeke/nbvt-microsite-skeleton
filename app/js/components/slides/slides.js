@@ -14,34 +14,37 @@ $(function() {
         init: function () {
             var debounceTimeout;
 
-            if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-                $(window).on('resize', function () {
-                    clearTimeout(debounceTimeout);
+            $(window).on('resize', function () {
+                clearTimeout(debounceTimeout);
 
-                    debounceTimeout = setTimeout(function () {
-                        slidesController.handleContext()
-                    }, 300);
-                });
-            }
-            else {
-                slidesController.handleContext()
-            }
+                debounceTimeout = setTimeout(function () {
+                    slidesController.handleContext()
+                }, 300);
+            });
 
             slidesController.handleContext()
         },
         handleContext: function () {
-            if ($(window).width() > 1280) {
-                slidesController.sliders.main.destroy();
-                slidesController.sliders.sub.destroy();
+            if ($(window).width() >= 1280) {
+                if (slidesController.previousContext != 'desktop') {
+                    slidesController.sliders.main.destroy();
+                    slidesController.sliders.sub.destroy();
 
-                slidesController.sliders.main.desktop();
-                slidesController.sliders.sub.desktop();
+                    slidesController.sliders.main.desktop();
+                    slidesController.sliders.sub.desktop();
+                }
+
+                slidesController.previousContext = 'desktop';
             }
             else {
-                slidesController.sliders.main.destroy();
-                slidesController.sliders.sub.destroy();
 
-                slidesController.sliders.main.mobile();
+                if (slidesController.previousContext != 'mobile') {
+                    slidesController.sliders.main.destroy();
+                    slidesController.sliders.sub.destroy();
+                    slidesController.sliders.main.mobile();
+                }
+
+                slidesController.previousContext = 'mobile';
             }
         },
         sliders: {
