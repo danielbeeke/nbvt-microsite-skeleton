@@ -24,7 +24,7 @@
     margin: 0 $mobile-box * 2;
     color: $text-color;
     font-size: 14px;
-    margin-bottom: - $mobile-box * 5;
+    margin-bottom: - $mobile-box * 2;
 
     .close-button {
       display: none;
@@ -49,10 +49,27 @@
     }
   }
 
+  .social-share {
+    background: $background-color;
+    left: 0;
+    position: relative;
+    top: 0;
+    width: calc(100% - ($mobile-box * 4));
+    z-index: 9;
+    margin: 0 $mobile-box * 2;
+    @include clearfix;
+
+    a {
+      float: left;
+      clear: none;
+    }
+  }
+
   .project-slider {
     position: relative;
     z-index: 1;
     margin-bottom: - $mobile-box * 5;
+    margin-top: - $mobile-box * 2;
 
     .slide-item {
       &:first-child {
@@ -168,6 +185,7 @@
       z-index: 4;
       height: calc(100vh - #{$header-height});
       overflow: hidden;
+      margin-top: 0;
 
       @media (min-width: $tablet - 1) {
         position: fixed !important;
