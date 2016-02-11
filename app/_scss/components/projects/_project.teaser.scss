@@ -85,10 +85,13 @@
     width: 25%;
     clear: none !important;
 
-    //.project-title {
-    //  height: 52px;
-    //  line-height: 26px;
-    //  overflow: hidden;
-    //}
+    .project-title {
+      margin-top: 20px;
+      margin-bottom: 15px;
+    }
+
+    .project-location {
+      margin-bottom: 7px;
+    }
   }
 }
