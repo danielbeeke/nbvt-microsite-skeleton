@@ -146,13 +146,23 @@ module.exports = function (grunt) {
     },
     autoprefixer: {
       options: {
-        browsers: ['last 2 versions']
+        browsers: ['last 5 versions']
       },
       dist: {
-        expand: true,
-        cwd: '.tmp',
-        src: '**/{css,concat}/*.css',
-        dest: '.tmp'
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.dist %>/css',
+          src: '**/*.css',
+          dest: '<%= yeoman.dist %>/css'
+        }]
+      },
+      server: {
+        files: [{
+          expand: true,
+          cwd: '.tmp/css',
+          src: '**/*.css',
+          dest: '.tmp/css'
+        }]
       }
     },
     jekyll: {
@@ -345,7 +355,7 @@ module.exports = function (grunt) {
       'clean:server',
       'shell',
       'concurrent:server',
-      'autoprefixer:dist',
+      'autoprefixer:server',
       'browserSync:server',
       'watch'
     ]);
