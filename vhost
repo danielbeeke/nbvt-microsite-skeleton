@@ -1,0 +1,18 @@
+server {
+    listen       80;
+    server_name  www.appelsenperen.nl;
+    return       301 http://appelsenperen.nl$request_uri;
+}
+
+server {
+  server_name [REPLACE_WITH_CNAME];
+  root [REPLACE_WITH_BUILD_PATH];
+  include /etc/nginx/conf.d/global_microsites_vhost;
+
+  location / {
+    rewrite ^(/)$ /blogs/ permanent;
+  }
+}
+
+
+# START OF CUSTOM VHOST RULES
