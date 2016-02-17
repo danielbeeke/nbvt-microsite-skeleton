@@ -7,11 +7,12 @@
     @include clearfix;
 
     .sub-slider-item {
-      clear: left;
-      float: left;
+      clear: both;
+      float: none;
       padding: 0;
       position: relative;
       width: 100% !important;
+      @include clearfix;
 
       .slide-item-description {
         h1, h2, h3, h4, h5, h6 {
@@ -69,8 +70,13 @@
           color: $text-color;
         }
 
-        img {
+        .detail-image {
           margin: 20px 0;
+          width: 100%;
+          padding-bottom: 66%;
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center center;
         }
 
         .detail-source {

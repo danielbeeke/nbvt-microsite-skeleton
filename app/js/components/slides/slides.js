@@ -62,10 +62,17 @@ $(function() {
                 mobile: function () {
                     var settings = {
                         slideSpeed : 300,
-                        paginationSpeed : 400,
+                        paginationSpeed : 300,
                         autoHeight: true,
                         navigation: true,
                         singleItem: true
+                        //afterAction: function () {
+                        //    setTimeout(function () {
+                        //        $("#slides").each(function(){
+                        //            $(this).data('owlCarousel').updateVars();
+                        //        });
+                        //    }, 300)
+                        //}
                     };
 
                     $('#slides').owlCarousel(settings);
