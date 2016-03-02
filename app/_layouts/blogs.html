@@ -6,6 +6,14 @@ body_class: overview-page
 {% assign current_menu_item_hash = site.data.menu | where: "url", page.url  %}
 {% assign current_menu_item = current_menu_item_hash[0] %}
 
+{% if current_menu_item %}
+{% else %}
+    {% assign parent_menu_item = page.url | replace:'/',' ' | truncatewords: 1 | remove:'...' %}
+    {% capture parent_menu_item %}/{{ parent_menu_item }}/{% endcapture %}
+    {% assign current_menu_item_hash = site.data.menu | where: "url", parent_menu_item %}
+    {% assign current_menu_item = current_menu_item_hash[0] %}
+{% endif %}
+
 {% unless current_menu_item.image  %}
     {% include html/overview-title.html %}
 {% endunless %}
@@ -13,7 +21,6 @@ body_class: overview-page
 {% if current_menu_item.image %}
 <div class="page-image" style="background-image: url('{{ current_menu_item.image }}');"></div>
 {% endif %}
-
 
 <div class="blogs-overview full">
     {% if current_menu_item.image  %}

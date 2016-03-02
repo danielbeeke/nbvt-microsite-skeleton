@@ -7,7 +7,16 @@
     {% assign current_menu_item_hash = site.data.menu | where: "url", page.url  %}
     {% assign current_menu_item = current_menu_item_hash[0] %}
 
+    {% if current_menu_item %}
+    {% else %}
+        {% assign parent_menu_item = page.url | replace:'/',' ' | truncatewords: 1 | remove:'...' %}
+        {% capture parent_menu_item %}/{{ parent_menu_item }}/{% endcapture %}
+        {% assign current_menu_item_hash = site.data.menu | where: "url", parent_menu_item %}
+        {% assign current_menu_item = current_menu_item_hash[0] %}
+    {% endif %}
+
     <body class="{{ page.body_class }} {{ path_splitted[1] }} {% if page.has_menu_object %} has-menu-object {% endif %} {% if page.collection %} collection-{{ page.collection }} {% endif %} {% if page.image or current_menu_item.image %} with-image {% else %} without-image {% endif %}">
+
     <div class="page-wrapper">
         {% include html/header.html %}
 
