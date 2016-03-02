@@ -227,7 +227,7 @@ L.Control.GeoSearch = L.Control.extend({
             e.preventDefault();
             e.stopPropagation();
 
-            this.geosearch(this._searchbox.value);
+            this.geosearch(this._searchbox.value + ", NL");
         }
     },
 
