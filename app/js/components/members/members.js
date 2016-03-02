@@ -136,7 +136,7 @@ $(function() {
             var mapIcon = L.divIcon({ html: '<i class="fa fa-map-marker"></i>', className: member.active ? 'active' : '' });
 
             L.marker([member.lat, member.lng], { icon: mapIcon }).addTo(markerLayer).on('click', function () {
-                window.location = '/leden/' + member.slug;
+                window.location = '/verkooppunten/' + member.slug;
             })
         });
 

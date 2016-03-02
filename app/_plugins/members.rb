@@ -21,7 +21,7 @@ module Jekyll
 
     def generate(site)
       if site.layouts.key? 'members'
-        dir = 'leden'
+        dir = 'verkooppunten'
 
         result = File.read( 'app/_data/members.json' )
         members = JSON.parse( result )
