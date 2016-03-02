@@ -193,7 +193,7 @@ module.exports = function (grunt) {
       },
       html: [
         '<%= yeoman.dist %>/index.html',
-        '<%= yeoman.dist %>/leden/index.html',
+        '<%= yeoman.dist %>/verkooppunten/index.html',
         '<%= yeoman.dist %>/voordelen/index.html',
         '<%= yeoman.dist %>/inspiratie/**/*.html'
       ]
