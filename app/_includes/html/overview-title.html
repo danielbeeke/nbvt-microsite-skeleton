@@ -1,5 +1,13 @@
-{% assign current_menu_item_hash = site.data.menu | where: "url", page.url  %}
+{% assign current_menu_item_hash = site.data.menu | where: "url", page.url %}
 {% assign current_menu_item = current_menu_item_hash[0] %}
+
+{% if current_menu_item %}
+{% else %}
+    {% assign parent_menu_item = page.url | replace:'/',' ' | truncatewords: 1 | remove:'...' %}
+    {% capture parent_menu_item %}/{{ parent_menu_item }}/{% endcapture %}
+    {% assign current_menu_item_hash = site.data.menu | where: "url", parent_menu_item %}
+    {% assign current_menu_item = current_menu_item_hash[0] %}
+{% endif %}
 
 <div class="page-title-wrapper">
     <h1 class="page-title">{{ current_menu_item.title }}</h1>
