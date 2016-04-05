@@ -5,7 +5,7 @@ server {
 }
 
 server {
-  server_name [REPLACE_WITH_CNAME];
+  server_name [REPLACE_WITH_CNAME] [REPLACE_WITH_ALIAS];
   root [REPLACE_WITH_BUILD_PATH];
   include /etc/nginx/conf.d/global_microsites_vhost;
 
